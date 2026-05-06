@@ -97,6 +97,14 @@
   .price-bar{height:12px;border-radius:999px;background:#E5E7EB;overflow:hidden;position:relative}
   .price-bar-fill{height:100%;border-radius:999px;transition:width 0.8s ease}
 
+  /* Feedback Loop */
+  .feedback-loop{position:relative;background:linear-gradient(135deg,#fff 0%,#fff7f3 100%);border:2px solid var(--coral);border-radius:1.5rem;padding:2rem;overflow:hidden}
+  .feedback-loop::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border:2px dashed rgba(232,116,94,0.25);border-radius:50%}
+  .feedback-loop::after{content:'';position:absolute;bottom:-60px;left:-60px;width:220px;height:220px;border:2px dashed rgba(42,157,143,0.2);border-radius:50%}
+  .loop-step{display:flex;align-items:center;gap:0.75rem;padding:0.75rem 1rem;background:white;border-radius:999px;border:1px solid rgba(29,45,68,0.08);font-size:0.8rem;font-weight:600;white-space:nowrap}
+  .loop-step-num{width:22px;height:22px;border-radius:50%;background:var(--coral);color:white;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;flex-shrink:0;font-family:'JetBrains Mono'}
+  .loop-arrow{color:var(--coral);font-weight:700;font-size:1.2rem}
+
   @media(max-width:768px){
     .slide{padding:5rem 1.25rem}
     .nav-dots{display:none}
@@ -609,7 +617,7 @@
 <section id="concept" class="slide" style="background:#FBF7F0">
   <span class="slide-num">07 / 13</span>
   <div class="container-slide">
-    <div class="grid lg:grid-cols-12 gap-8 items-start">
+    <div class="grid lg:grid-cols-12 gap-8 items-start mb-10">
       <div class="lg:col-span-4">
         <div class="mono text-xs font-bold uppercase tracking-widest mb-3" style="color:var(--coral)" data-i18n="concept.tag">// Concepto • Yapalin OS</div>
         <h2 class="display font-bold mb-6" style="font-size:clamp(2.2rem,4.5vw,3.2rem);color:var(--navy);line-height:1.05" data-i18n-html="concept.title">
@@ -743,6 +751,46 @@
           <span data-i18n="concept.stripBottom1">Less, but better</span>
           <span>—</span>
           <span data-i18n="concept.stripBottom2">Designed in LatAm</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW: FEEDBACK LOOP -->
+    <div class="feedback-loop">
+      <div class="relative z-10 grid lg:grid-cols-12 gap-6 items-center">
+        <div class="lg:col-span-5">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="pulse-dot"></span>
+            <span class="mono text-xs font-bold uppercase tracking-widest" style="color:var(--coral)" data-i18n="concept.loopTag">// Método • Driven by users</span>
+          </div>
+          <h3 class="display font-bold mb-3" style="font-size:clamp(1.5rem,3vw,2rem);color:var(--navy);line-height:1.1" data-i18n-html="concept.loopTitle">
+            Añadimos módulos <span class="gradient-text">solo cuando el usuario los pide.</span>
+          </h3>
+          <p class="text-sm" style="color:var(--gray)" data-i18n-html="concept.loopDesc">
+            Cada nueva funcionalidad nace del feedback real de nuestras <strong style="color:var(--navy)">10 PYMES piloto</strong>. Así evitamos el bloat de los ERP tradicionales y garantizamos que <strong style="color:var(--navy)">cada línea de código sirve al comerciante</strong>.
+          </p>
+        </div>
+        <div class="lg:col-span-7">
+          <div class="flex flex-wrap items-center gap-2 justify-center lg:justify-end">
+            <div class="loop-step">
+              <span class="loop-step-num">1</span>
+              <span data-i18n="concept.loopStep1">10 PYMES piloto</span>
+            </div>
+            <span class="loop-arrow">→</span>
+            <div class="loop-step">
+              <span class="loop-step-num" style="background:var(--teal)">2</span>
+              <span data-i18n="concept.loopStep2">Feedback real</span>
+            </div>
+            <span class="loop-arrow">→</span>
+            <div class="loop-step">
+              <span class="loop-step-num" style="background:var(--navy)">3</span>
+              <span data-i18n="concept.loopStep3">Módulo útil</span>
+            </div>
+            <span class="loop-arrow">↻</span>
+          </div>
+          <div class="mt-4 text-center lg:text-right">
+            <span class="inline-block text-xs mono font-bold px-3 py-1.5 rounded-full" style="background:var(--navy);color:var(--cream)" data-i18n="concept.loopMotto">✕ zero bloat • ✓ 100% útil</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1066,7 +1114,7 @@
         <div class="phase-num">1</div>
         <div class="text-xs font-semibold uppercase tracking-wider mb-2 mono" style="color:var(--coral)" data-i18n="roadmap.phase1Label">Fase 1 • En curso</div>
         <h3 class="font-bold text-lg mb-2" style="color:var(--navy)">MVP</h3>
-        <p class="text-sm mb-3" style="color:var(--gray)" data-i18n-html="roadmap.phase1Desc">Pre-versión funcional desarrollada. Cohorte de <strong>10 PYMES piloto</strong> en 10 sectores distintos.</p>
+        <p class="text-sm mb-3" style="color:var(--gray)" data-i18n-html="roadmap.phase1Desc">MVP + cohorte de <strong>10 PYMES piloto</strong> en 10 sectores. Los módulos se añaden <strong>solo según su feedback real</strong> — cero bloat, 100% útil.</p>
         <div class="text-xs px-2 py-1 rounded inline-block mono" style="background:rgba(232,116,94,0.1);color:var(--coral)">T1-T2 2026</div>
       </div>
       <div class="phase-card">
@@ -1243,6 +1291,11 @@
       "concept.m4Title":"Equipo","concept.m4Desc":"Turnos, comisiones, multi-local. Profesionaliza.",
       "concept.m5Title":"Facturación","concept.m5Desc":"Documentos legales en un clic. Cumplimiento total.",
       "concept.m6Title":"IA Predictiva","concept.m6Desc":"Anticipa rupturas. Optimiza pedidos. Aprende de ti.",
+      "concept.loopTag":"// Método • Dirigido por usuarios",
+      "concept.loopTitle":"Añadimos módulos <span class=\"gradient-text\">solo cuando el usuario los pide.</span>",
+      "concept.loopDesc":"Cada nueva funcionalidad nace del feedback real de nuestras <strong style=\"color:var(--navy)\">10 PYMES piloto</strong>. Así evitamos el bloat de los ERP tradicionales y garantizamos que <strong style=\"color:var(--navy)\">cada línea de código sirve al comerciante</strong>.",
+      "concept.loopStep1":"10 PYMES piloto","concept.loopStep2":"Feedback real","concept.loopStep3":"Módulo útil",
+      "concept.loopMotto":"✕ cero bloat • ✓ 100% útil",
       "timing.tag":"Market Timing","timing.title":"¿Por qué ahora?<br><span class=\"gradient-text\">La explosión digital.</span>",
       "timing.intro":"América Latina migra masivamente al pago instantáneo y a lo móvil. Los rieles digitales que usa Yapalin <strong>no existían hace 5 años</strong>.",
       "timing.card1Title":"de los brasileños usan Pix","timing.card1Desc":"7 mil millones de transacciones/mes en enero 2026. El efectivo retrocede en todas partes.",
@@ -1275,7 +1328,7 @@
       "competition.adv3Title":"$10/mes, sin compromiso","competition.adv3Desc":"25% más barato que Odoo, pagable mes a mes. Accesible al comerciante de barrio.",
       "competition.adv4Title":"Foco en crecimiento","competition.adv4Desc":"No somos contabilidad. Somos expansión. Insights, IA, predicciones.",
       "roadmap.tag":"Hoja de Ruta","roadmap.title":"Del piloto a la expansión regional.","roadmap.intro":"4 fases claras para alcanzar 5 000 PYMES pagas en 24 meses.",
-      "roadmap.phase1Label":"Fase 1 • En curso","roadmap.phase1Desc":"Pre-versión funcional desarrollada. Cohorte de <strong>10 PYMES piloto</strong> en 10 sectores distintos.",
+      "roadmap.phase1Label":"Fase 1 • En curso","roadmap.phase1Desc":"MVP + cohorte de <strong>10 PYMES piloto</strong> en 10 sectores. Los módulos se añaden <strong>solo según su feedback real</strong> — cero bloat, 100% útil.",
       "roadmap.phase2Label":"Fase 2","roadmap.phase2Title":"Infraestructura","roadmap.phase2Desc":"Consolidación de seguridad, alojamiento robusto, optimización UX/UI basada en feedback real.",
       "roadmap.phase3Label":"Fase 3","roadmap.phase3Title":"Launch","roadmap.phase3Desc":"Publicación oficial en Stores y lanzamiento del motor de crecimiento en Colombia/México.",
       "roadmap.phase4Label":"Fase 4","roadmap.phase4Title":"Scale","roadmap.phase4Desc":"IA predictiva de stock y meta de alcanzar las <strong>primeras 5 000 PYMES pagas</strong>.",
@@ -1352,6 +1405,11 @@
       "concept.m4Title":"Team","concept.m4Desc":"Shifts, commissions, multi-site. Get professional.",
       "concept.m5Title":"Invoicing","concept.m5Desc":"Legal documents in one click. Full compliance.",
       "concept.m6Title":"Predictive AI","concept.m6Desc":"Anticipate stockouts. Optimize orders. Learns from you.",
+      "concept.loopTag":"// Method • User-driven",
+      "concept.loopTitle":"We ship modules <span class=\"gradient-text\">only when users ask for them.</span>",
+      "concept.loopDesc":"Every new feature is born from the real feedback of our <strong style=\"color:var(--navy)\">10 pilot SMBs</strong>. That's how we avoid the bloat of traditional ERPs and guarantee <strong style=\"color:var(--navy)\">every line of code serves the merchant</strong>.",
+      "concept.loopStep1":"10 pilot SMBs","concept.loopStep2":"Real feedback","concept.loopStep3":"Useful module",
+      "concept.loopMotto":"✕ zero bloat • ✓ 100% useful",
       "timing.tag":"Market Timing","timing.title":"Why now?<br><span class=\"gradient-text\">The digital explosion.</span>",
       "timing.intro":"Latin America is shifting massively to instant payments and mobile. The digital rails Yapalin uses <strong>didn't exist 5 years ago</strong>.",
       "timing.card1Title":"of Brazilians use Pix","timing.card1Desc":"7 billion transactions/month in January 2026. Cash is retreating everywhere.",
@@ -1384,7 +1442,7 @@
       "competition.adv3Title":"$10/month, no commitment","competition.adv3Desc":"25% cheaper than Odoo, payable month-to-month. Accessible to neighborhood merchants.",
       "competition.adv4Title":"Growth focus","competition.adv4Desc":"We're not accounting. We're expansion. Insights, AI, predictions.",
       "roadmap.tag":"Roadmap","roadmap.title":"From pilot to regional expansion.","roadmap.intro":"4 clear phases to reach 5,000 paying SMBs in 24 months.",
-      "roadmap.phase1Label":"Phase 1 • In progress","roadmap.phase1Desc":"Functional pre-version developed. Cohort of <strong>10 pilot SMBs</strong> in 10 distinct sectors.",
+      "roadmap.phase1Label":"Phase 1 • In progress","roadmap.phase1Desc":"MVP + cohort of <strong>10 pilot SMBs</strong> across 10 sectors. Modules are added <strong>only based on their real feedback</strong> — zero bloat, 100% useful.",
       "roadmap.phase2Label":"Phase 2","roadmap.phase2Title":"Infrastructure","roadmap.phase2Desc":"Security consolidation, robust hosting, UX/UI optimization based on real feedback.",
       "roadmap.phase3Label":"Phase 3","roadmap.phase3Title":"Launch","roadmap.phase3Desc":"Official Store publication and launch of the growth engine in Colombia/Mexico.",
       "roadmap.phase4Label":"Phase 4","roadmap.phase4Title":"Scale","roadmap.phase4Desc":"Predictive stock AI and goal of reaching the <strong>first 5,000 paying SMBs</strong>.",
@@ -1461,6 +1519,11 @@
       "concept.m4Title":"Équipe","concept.m4Desc":"Shifts, commissions, multi-site. Professionnalisez.",
       "concept.m5Title":"Facturation","concept.m5Desc":"Documents légaux en un clic. Conformité totale.",
       "concept.m6Title":"IA Prédictive","concept.m6Desc":"Anticipe les ruptures. Optimise les commandes. Apprend de vous.",
+      "concept.loopTag":"// Méthode • Driven by users",
+      "concept.loopTitle":"Nous ajoutons des modules <span class=\"gradient-text\">uniquement quand l'utilisateur les demande.</span>",
+      "concept.loopDesc":"Chaque nouvelle fonctionnalité naît du feedback réel de nos <strong style=\"color:var(--navy)\">10 PME pilotes</strong>. C'est ainsi que nous évitons le bloat des ERP traditionnels et garantissons que <strong style=\"color:var(--navy)\">chaque ligne de code sert le commerçant</strong>.",
+      "concept.loopStep1":"10 PME pilotes","concept.loopStep2":"Feedback réel","concept.loopStep3":"Module utile",
+      "concept.loopMotto":"✕ zéro bloat • ✓ 100% utile",
       "timing.tag":"Market Timing","timing.title":"Pourquoi maintenant ?<br><span class=\"gradient-text\">L'explosion digitale.</span>",
       "timing.intro":"L'Amérique latine bascule massivement vers le paiement instantané et le mobile. Les rails digitaux que Yapalin utilise <strong>n'existaient pas il y a 5 ans</strong>.",
       "timing.card1Title":"des Brésiliens utilisent Pix","timing.card1Desc":"7 milliards de transactions/mois en janvier 2026. Le cash recule partout.",
@@ -1493,7 +1556,7 @@
       "competition.adv3Title":"$10/mois, sans engagement","competition.adv3Desc":"25% moins cher qu'Odoo, payable mois par mois. Accessible au commerçant de quartier.",
       "competition.adv4Title":"Focus croissance","competition.adv4Desc":"Nous ne sommes pas de la comptabilité. Nous sommes l'expansion. Insights, IA, prédictions.",
       "roadmap.tag":"Feuille de route","roadmap.title":"Du pilote à l'expansion régionale.","roadmap.intro":"4 phases claires pour atteindre 5 000 PME payantes en 24 mois.",
-      "roadmap.phase1Label":"Phase 1 • En cours","roadmap.phase1Desc":"Pré-version fonctionnelle développée. Cohorte de <strong>10 PME pilotes</strong> dans 10 secteurs distincts.",
+      "roadmap.phase1Label":"Phase 1 • En cours","roadmap.phase1Desc":"MVP + cohorte de <strong>10 PME pilotes</strong> sur 10 secteurs. Les modules s'ajoutent <strong>uniquement selon leur feedback réel</strong> — zéro bloat, 100% utile.",
       "roadmap.phase2Label":"Phase 2","roadmap.phase2Title":"Infrastructure","roadmap.phase2Desc":"Consolidation sécurité, hébergement robuste, optimisation UX/UI basée sur le feedback réel.",
       "roadmap.phase3Label":"Phase 3","roadmap.phase3Title":"Launch","roadmap.phase3Desc":"Publication officielle sur les Stores et lancement du moteur de croissance en Colombie/Mexique.",
       "roadmap.phase4Label":"Phase 4","roadmap.phase4Title":"Scale","roadmap.phase4Desc":"IA prédictive de stock et objectif d'atteindre les <strong>5 000 premières PME payantes</strong>.",
