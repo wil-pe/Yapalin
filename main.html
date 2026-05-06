@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yapalin — Pitch Deck Inversionistas</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#E8745E;
+    --coral-soft:#F4A28C;
+    --teal:#2A9D8F;
+    --teal-soft:#7FC4BB;
+    --navy:#1D2D44;
+    --cream:#FBF7F0;
+    --gray:#6B7280;
+    --m-inventory:#E8745E;
+    --m-sales:#F4C95D;
+    --m-whatsapp:#25D366;
+    --m-hr:#3D5A8C;
+    --m-invoice:#1D2D44;
+    --m-ai:#8B5CF6;
+  }
+  *{font-family:'Plus Jakarta Sans',system-ui,sans-serif}
+  h1,h2,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em}
+  .mono{font-family:'JetBrains Mono',monospace}
+  body{background:var(--cream);color:var(--navy);overflow-x:hidden}
+  .slide{min-height:100vh;padding:5rem 2rem;display:flex;align-items:center;position:relative;scroll-snap-align:start}
+  .container-slide{max-width:1200px;margin:0 auto;width:100%}
+  .slide-num{position:absolute;top:2rem;right:2rem;font-family:'JetBrains Mono';font-size:0.75rem;color:var(--gray);letter-spacing:0.1em}
+  .slide-tag{display:inline-block;padding:0.4rem 1rem;background:rgba(232,116,94,0.1);color:var(--coral);border-radius:999px;font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem}
+  .accent-bar{width:60px;height:4px;background:var(--coral);border-radius:2px}
+  .gradient-text{background:linear-gradient(135deg,var(--coral) 0%,#F4A28C 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .glass-card{background:rgba(255,255,255,0.7);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.8);border-radius:1.5rem}
+  .dark-card{background:var(--navy);color:white;border-radius:1.5rem}
+  .number-huge{font-family:'Space Grotesk';font-weight:700;font-size:clamp(4rem,12vw,9rem);line-height:0.9;letter-spacing:-0.04em}
+  .nav-dots{position:fixed;right:1.5rem;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:0.6rem}
+  .nav-dot{width:8px;height:8px;border-radius:50%;background:rgba(29,45,68,0.2);cursor:pointer;transition:all 0.3s;border:none}
+  .nav-dot.active{background:var(--coral);transform:scale(1.5)}
+  .nav-dot:hover{background:var(--coral-soft)}
+  .top-nav{position:fixed;top:0;left:0;right:0;z-index:40;backdrop-filter:blur(20px);background:rgba(251,247,240,0.85);border-bottom:1px solid rgba(29,45,68,0.08)}
+  .feature-card{transition:all 0.3s ease;border-radius:1.5rem;padding:2rem;background:white;border:1px solid rgba(29,45,68,0.06)}
+  .feature-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(29,45,68,0.15)}
+  .pulse-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite;margin-right:0.5rem}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+  .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.4;z-index:0;pointer-events:none}
+  .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-size:0.8rem;color:var(--gray);animation:bounce 2s infinite}
+  @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+  .stat-card{padding:1.5rem;border-radius:1rem;background:white;border-left:4px solid var(--coral)}
+  .check-item{display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:1rem}
+  .check-icon{width:24px;height:24px;border-radius:50%;background:var(--teal);color:white;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.7rem;font-weight:700;margin-top:2px}
+  .x-icon{width:24px;height:24px;border-radius:50%;background:#EF4444;color:white;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.7rem;font-weight:700;margin-top:2px}
+  .pricing-popular{background:linear-gradient(135deg,#fff7f3 0%,#fff 100%);border:2px solid var(--coral)}
+  .phase-card{position:relative;padding:1.5rem;background:white;border-radius:1rem;border:1px solid rgba(29,45,68,0.08);transition:all 0.3s}
+  .phase-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -12px rgba(29,45,68,0.15)}
+  .phase-num{position:absolute;top:-12px;left:1.5rem;background:var(--navy);color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem}
+  .phase-card.active .phase-num{background:var(--coral)}
+  .footer-cta{background:linear-gradient(135deg,var(--navy) 0%,#2D4263 100%);border-radius:2rem;padding:3rem;color:white;position:relative;overflow:hidden}
+  .footer-cta::before{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(232,116,94,0.3) 0%,transparent 70%);border-radius:50%}
+  .lang-switcher{display:inline-flex;background:rgba(29,45,68,0.06);border-radius:999px;padding:3px;gap:2px}
+  .lang-btn{padding:5px 11px;border-radius:999px;font-size:0.72rem;font-weight:700;border:none;background:transparent;color:var(--gray);cursor:pointer;transition:all 0.25s;letter-spacing:0.05em}
+  .lang-btn:hover{color:var(--navy)}
+  .lang-btn.active{background:var(--navy);color:white;box-shadow:0 2px 8px rgba(29,45,68,0.2)}
+
+  .rams-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--navy);border-radius:0;overflow:hidden;background:var(--navy)}
+  .rams-cell{position:relative;aspect-ratio:4/5;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);overflow:hidden}
+  .rams-cell::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0);transition:background 0.3s}
+  .rams-cell:hover{transform:scale(1.02);z-index:5;box-shadow:0 20px 60px -10px rgba(0,0,0,0.3)}
+  .rams-cell:hover::before{background:rgba(0,0,0,0.05)}
+  .rams-cell-header{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:2}
+  .rams-num{font-family:'JetBrains Mono';font-size:0.75rem;font-weight:700;letter-spacing:0.1em;opacity:0.8}
+  .rams-dot{width:10px;height:10px;border-radius:50%;background:currentColor}
+  .rams-shape{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1}
+  .rams-cell-footer{position:relative;z-index:2}
+  .rams-title{font-family:'Space Grotesk';font-weight:700;font-size:1.5rem;line-height:1;margin-bottom:0.5rem;letter-spacing:-0.02em}
+  .rams-desc{font-size:0.75rem;line-height:1.4;opacity:0.85;font-weight:500}
+  .m-inventory{background:#E8745E;color:#1D2D44}
+  .m-sales{background:#F4C95D;color:#1D2D44}
+  .m-whatsapp{background:#25D366;color:#0A3D1F}
+  .m-hr{background:#3D5A8C;color:#FBF7F0}
+  .m-invoice{background:#1D2D44;color:#FBF7F0}
+  .m-ai{background:#8B5CF6;color:#FBF7F0}
+  .rams-strip{display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:var(--cream);padding:0.75rem 1.5rem;font-family:'JetBrains Mono';font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase}
+
+  .grid-bg{background-image:linear-gradient(rgba(29,45,68,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(29,45,68,0.04) 1px,transparent 1px);background-size:40px 40px}
+  .marquee-tag{display:inline-flex;align-items:center;gap:0.5rem;padding:0.4rem 0.9rem;border-radius:999px;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border:1px solid rgba(29,45,68,0.15);background:white}
+  .geo-deco{position:absolute;pointer-events:none;opacity:0.08}
+
+  /* Stuck-between visual */
+  .stuck-diagram{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:stretch}
+  .stuck-box{padding:1.25rem;border-radius:1rem;border:2px dashed #EF4444;background:rgba(239,68,68,0.04);position:relative}
+  .stuck-box-title{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#EF4444;margin-bottom:0.5rem;font-family:'JetBrains Mono'}
+  .stuck-arrow{display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-size:0.75rem;color:var(--gray);font-weight:700}
+  .price-compare{background:white;border-radius:1rem;padding:1.25rem;border:1px solid rgba(29,45,68,0.08)}
+  .price-bar{height:12px;border-radius:999px;background:#E5E7EB;overflow:hidden;position:relative}
+  .price-bar-fill{height:100%;border-radius:999px;transition:width 0.8s ease}
+
+  @media(max-width:768px){
+    .slide{padding:5rem 1.25rem}
+    .nav-dots{display:none}
+    .number-huge{font-size:5rem}
+    .lang-btn{padding:4px 8px;font-size:0.65rem}
+    .rams-grid{grid-template-columns:repeat(2,1fr)}
+    .rams-title{font-size:1.1rem}
+    .stuck-diagram{grid-template-columns:1fr;gap:0.5rem}
+    .stuck-arrow{transform:rotate(90deg)}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between gap-3">
+    <div class="flex items-center gap-2 flex-shrink-0">
+      <div class="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold" style="background:linear-gradient(135deg,var(--coral),var(--coral-soft))">Y</div>
+      <span class="font-bold text-lg" style="font-family:'Space Grotesk'">Yapalin</span>
+    </div>
+    <div class="hidden lg:flex items-center gap-6 text-sm font-medium" style="color:var(--gray)">
+      <a href="#cover" class="hover:opacity-70 transition" data-i18n="nav.vision">Visión</a>
+      <a href="#problem" class="hover:opacity-70 transition" data-i18n="nav.problem">Problema</a>
+      <a href="#concept" class="hover:opacity-70 transition" data-i18n="nav.concept">Concepto</a>
+      <a href="#market" class="hover:opacity-70 transition" data-i18n="nav.market">Mercado</a>
+      <a href="#pricing" class="hover:opacity-70 transition" data-i18n="nav.pricing">Modelo</a>
+      <a href="#raise" class="hover:opacity-70 transition" data-i18n="nav.raise">Ronda</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="lang-switcher" role="group" aria-label="Language switcher">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+      </div>
+      <a href="#raise" class="hidden md:inline-block text-sm font-semibold px-4 py-2 rounded-full text-white" style="background:var(--coral)" data-i18n="nav.invest">Invertir →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- NAV DOTS -->
+<div class="nav-dots">
+  <button class="nav-dot active" data-target="cover"></button>
+  <button class="nav-dot" data-target="mission"></button>
+  <button class="nav-dot" data-target="problem"></button>
+  <button class="nav-dot" data-target="solution"></button>
+  <button class="nav-dot" data-target="whatsapp"></button>
+  <button class="nav-dot" data-target="features"></button>
+  <button class="nav-dot" data-target="concept"></button>
+  <button class="nav-dot" data-target="timing"></button>
+  <button class="nav-dot" data-target="market"></button>
+  <button class="nav-dot" data-target="pricing"></button>
+  <button class="nav-dot" data-target="competition"></button>
+  <button class="nav-dot" data-target="roadmap"></button>
+  <button class="nav-dot" data-target="raise"></button>
+</div>
+
+<!-- 1. COVER -->
+<section id="cover" class="slide relative grid-bg" style="background:linear-gradient(135deg,#FBF7F0 0%,#FFF 100%)">
+  <div class="blob" style="width:500px;height:500px;background:var(--coral);top:-100px;right:-100px"></div>
+  <div class="blob" style="width:400px;height:400px;background:var(--teal);bottom:-100px;left:-100px;opacity:0.2"></div>
+  <svg class="geo-deco" style="top:15%;right:10%;width:120px;height:120px" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="#1D2D44" stroke-width="1"/><circle cx="50" cy="50" r="30" fill="none" stroke="#1D2D44" stroke-width="1"/><circle cx="50" cy="50" r="12" fill="#E8745E"/></svg>
+  <span class="slide-num">01 / 13</span>
+  <div class="container-slide relative z-10">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="flex items-center gap-2 mb-6">
+          <span class="pulse-dot"></span>
+          <span class="text-sm font-semibold tracking-wider uppercase mono" style="color:var(--teal)" data-i18n="cover.tag">Pitch Deck • Seed 2026</span>
+        </div>
+        <h1 class="display font-extrabold leading-none mb-6" style="font-size:clamp(3.5rem,9vw,7rem)">
+          <span class="gradient-text">Yapalin</span>
+        </h1>
+        <div class="accent-bar mb-6"></div>
+        <p class="text-2xl md:text-3xl font-semibold mb-4" style="color:var(--navy)" data-i18n="cover.tagline">
+          El corazón digital de las PYMES latinoamericanas
+        </p>
+        <p class="text-lg mb-8" style="color:var(--gray);max-width:500px" data-i18n-html="cover.description">
+          Transformamos el caos operativo en datos de crecimiento para <strong style="color:var(--navy)">17 millones de pequeños negocios</strong> que aún gestionan todo con papel y lápiz.
+        </p>
+        <div class="flex flex-wrap gap-3 mb-8">
+          <a href="#problem" class="px-6 py-3 rounded-full text-white font-semibold shadow-lg" style="background:var(--coral)" data-i18n="cover.cta1">Descubrir →</a>
+          <a href="#raise" class="px-6 py-3 rounded-full font-semibold border-2" style="border-color:var(--navy);color:var(--navy)" data-i18n="cover.cta2">Ver la ronda</a>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="marquee-tag"><span class="w-2 h-2 rounded-full" style="background:var(--coral)"></span><span data-i18n="cover.tag1">Mobile-first</span></span>
+          <span class="marquee-tag"><span class="w-2 h-2 rounded-full" style="background:var(--teal)"></span><span data-i18n="cover.tag2">B2B SaaS</span></span>
+          <span class="marquee-tag"><span class="w-2 h-2 rounded-full" style="background:var(--navy)"></span><span data-i18n="cover.tag3">LatAm focus</span></span>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="glass-card p-8 transform rotate-2 shadow-2xl">
+          <div class="flex items-center justify-between mb-4">
+            <div class="text-xs font-semibold uppercase tracking-wider mono" style="color:var(--gray)" data-i18n="cover.today">Hoy</div>
+            <div class="pulse-dot"></div>
+          </div>
+          <div class="text-5xl font-extrabold mb-2" style="color:var(--navy);font-family:'Space Grotesk'">$1M</div>
+          <div class="text-sm mb-6" style="color:var(--gray)" data-i18n="cover.seedOpen">Ronda Seed abierta</div>
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div>
+              <div class="text-2xl font-bold" style="color:var(--coral)">17M</div>
+              <div class="text-xs" style="color:var(--gray)" data-i18n="cover.smes">PYMES LatAm</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold" style="color:var(--teal)">99.5%</div>
+              <div class="text-xs" style="color:var(--gray)" data-i18n="cover.market">Mercado</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold" style="color:var(--navy)">5K+</div>
+              <div class="text-xs" style="color:var(--gray)" data-i18n="cover.target">Meta 2 años</div>
+            </div>
+          </div>
+        </div>
+        <div class="glass-card p-4 absolute -bottom-6 -left-4 transform -rotate-3 shadow-xl" style="background:var(--navy);color:white">
+          <div class="text-xs uppercase tracking-wider opacity-60 mb-1 mono" data-i18n="cover.arpuLabel">ARPU objetivo</div>
+          <div class="text-2xl font-bold">$10 / <span data-i18n="cover.month">mes</span></div>
+        </div>
+        <div class="absolute -top-4 -right-4 w-20 h-20 rounded-full flex items-center justify-center text-white font-bold shadow-xl rotate-12" style="background:var(--coral);font-family:'Space Grotesk'">
+          <div class="text-center text-xs leading-tight"><div class="text-xl">★</div><div data-i18n="cover.live">LIVE</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint" data-i18n="cover.scrollHint">↓ Desliza hacia abajo</div>
+</section>
+
+<!-- 2. MISSION -->
+<section id="mission" class="slide" style="background:var(--navy);color:white">
+  <span class="slide-num" style="color:rgba(255,255,255,0.4)">02 / 13</span>
+  <svg class="geo-deco" style="top:10%;right:5%;width:200px;height:200px;opacity:0.05" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" fill="none" stroke="white" stroke-width="0.5"/><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="0.5"/><line x1="10" y1="10" x2="90" y2="90" stroke="white" stroke-width="0.5"/><line x1="90" y1="10" x2="10" y2="90" stroke="white" stroke-width="0.5"/></svg>
+  <div class="container-slide">
+    <div class="max-w-4xl">
+      <span class="slide-tag" style="background:rgba(232,116,94,0.2);color:var(--coral-soft)" data-i18n="mission.tag">Nuestra Misión</span>
+      <h2 class="display font-bold leading-tight mb-8" style="font-size:clamp(2.5rem,6vw,4.5rem)" data-i18n-html="mission.title">
+        Más allá del software,<br><span class="gradient-text">un impacto humano real.</span>
+      </h2>
+      <p class="text-xl md:text-2xl leading-relaxed mb-12 opacity-90" data-i18n="mission.intro">
+        Cuando un pequeño comerciante pierde 400 horas al año contando productos manualmente, es su familia quien paga el precio. Cuando pierde ventas por falta de visibilidad de su stock, es su negocio entero el que está en riesgo.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        <div class="p-6 rounded-2xl relative overflow-hidden" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+          <div class="absolute -top-4 -right-4 text-7xl opacity-10">🌱</div>
+          <div class="text-3xl mb-3 relative">🌱</div>
+          <h3 class="font-bold text-lg mb-2 relative" data-i18n="mission.card1Title">Salir de la pobreza</h3>
+          <p class="text-sm opacity-70 relative" data-i18n="mission.card1Desc">Dar a los emprendedores los medios para crecer con datos confiables.</p>
+        </div>
+        <div class="p-6 rounded-2xl relative overflow-hidden" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+          <div class="absolute -top-4 -right-4 text-7xl opacity-10">📊</div>
+          <div class="text-3xl mb-3 relative">📊</div>
+          <h3 class="font-bold text-lg mb-2 relative" data-i18n="mission.card2Title">Estabilizar la economía</h3>
+          <p class="text-sm opacity-70 relative" data-i18n="mission.card2Desc">Una PYME formalizada es un país más resiliente y próspero.</p>
+        </div>
+        <div class="p-6 rounded-2xl relative overflow-hidden" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+          <div class="absolute -top-4 -right-4 text-7xl opacity-10">⚡</div>
+          <div class="text-3xl mb-3 relative">⚡</div>
+          <h3 class="font-bold text-lg mb-2 relative" data-i18n="mission.card3Title">Liberar el potencial humano</h3>
+          <p class="text-sm opacity-70 relative" data-i18n="mission.card3Desc">Menos tareas manuales, más tiempo para lo que realmente importa.</p>
+        </div>
+      </div>
+      <div class="mt-12 pt-8 border-t" style="border-color:rgba(255,255,255,0.1)">
+        <div class="text-6xl mb-4 gradient-text" style="font-family:'Space Grotesk'">"</div>
+        <p class="text-2xl md:text-3xl font-semibold italic leading-snug -mt-8 pl-12" style="font-family:'Space Grotesk'" data-i18n="mission.quote">
+          Eliminar la invisibilidad operativa para estabilizar economías y potenciar el crecimiento humano a través de la gestión inteligente.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PROBLEM -->
+<section id="problem" class="slide relative" style="background:var(--cream)">
+  <span class="slide-num">03 / 13</span>
+  <div class="container-slide">
+    <span class="slide-tag" data-i18n="problem.tag">El Problema</span>
+    <h2 class="display font-bold mb-4" style="font-size:clamp(2.2rem,5vw,3.5rem);color:var(--navy)" data-i18n="problem.title">
+      Atrapados entre dos malas opciones.
+    </h2>
+    <p class="text-lg mb-10" style="color:var(--gray);max-width:780px" data-i18n="problem.intro">
+      Los 17 millones de PYMES de América Latina están bloqueados entre el caos del papel y la complejidad de los ERP diseñados para grandes empresas. No tienen alternativa real.
+    </p>
+
+    <!-- STUCK DIAGRAM -->
+    <div class="stuck-diagram mb-12">
+      <div class="stuck-box">
+        <div class="stuck-box-title" data-i18n="problem.optionALabel">Opción A — Hoy</div>
+        <div class="flex items-start gap-3">
+          <div class="text-4xl">📝</div>
+          <div>
+            <h3 class="font-bold text-lg mb-1" style="color:var(--navy)" data-i18n="problem.optionATitle">Papel y lápiz</h3>
+            <p class="text-sm" style="color:var(--gray)" data-i18n="problem.optionADesc">Gratis pero fuente de errores, lento, cero visibilidad, imposible de escalar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="stuck-arrow">
+        <div class="text-center">
+          <div class="text-2xl mb-1">↔</div>
+          <div data-i18n="problem.orLabel">O</div>
+        </div>
+      </div>
+      <div class="stuck-box">
+        <div class="stuck-box-title" data-i18n="problem.optionBLabel">Opción B — ERP</div>
+        <div class="flex items-start gap-3">
+          <div class="text-4xl">🗃️</div>
+          <div>
+            <h3 class="font-bold text-lg mb-1" style="color:var(--navy)" data-i18n="problem.optionBTitle">ERP complejos</h3>
+            <p class="text-sm" style="color:var(--gray)" data-i18n="problem.optionBDesc">Incompletos para pequeños negocios, interfaz compleja, caros y requieren semanas de formación.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="text-xl font-bold mb-6" style="color:var(--navy)" data-i18n="problem.costTitle">El costo real de esta situación:</h3>
+
+    <div class="grid lg:grid-cols-2 gap-8 mb-8">
+      <div class="dark-card p-10 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10" style="background:var(--coral);transform:translate(30%,-30%)"></div>
+        <div class="relative z-10">
+          <div class="text-sm uppercase tracking-wider opacity-60 mb-2 mono" data-i18n="problem.timeLabel">Tiempo perdido</div>
+          <div class="number-huge gradient-text mb-2">400h</div>
+          <div class="text-xl font-semibold mb-4" data-i18n="problem.timeSubtitle">Por año y por comerciante</div>
+          <p class="opacity-70 text-sm leading-relaxed mb-6" data-i18n-html="problem.timeDesc">
+            El equivalente a una jornada completa por semana en conteo manual. Un bar típico dedica 15-20h/semana — casi <strong>1 000 horas/año</strong>.
+          </p>
+          <div class="flex items-center gap-4 pt-4 border-t" style="border-color:rgba(255,255,255,0.1)">
+            <div class="text-xs opacity-50 mono" data-i18n="problem.timeSource">Fuente: Logistics Voices, Bartender POS</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="grid grid-cols-1 gap-4">
+          <div class="stat-card">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs uppercase tracking-wider font-semibold mono" style="color:var(--coral)" data-i18n="problem.lossLabel">Pérdidas y robos</span>
+              <span class="text-3xl font-bold" style="font-family:'Space Grotesk';color:var(--navy)">1.33%</span>
+            </div>
+            <p class="text-sm" style="color:var(--gray)" data-i18n-html="problem.lossDesc">de la facturación destruida por errores, robos y fraudes — <strong>$46.8 mil millones/año</strong> solo en EE.UU.</p>
+          </div>
+          <div class="stat-card" style="border-left-color:var(--teal)">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs uppercase tracking-wider font-semibold mono" style="color:var(--teal)" data-i18n="problem.salesLabel">Ventas perdidas</span>
+              <span class="text-3xl font-bold" style="font-family:'Space Grotesk';color:var(--navy)">$300B</span>
+            </div>
+            <p class="text-sm" style="color:var(--gray)" data-i18n="problem.salesDesc">perdidos globalmente por ventas no realizadas y sobrestocks. Solo el 60% de los productos se venden a precio completo.</p>
+          </div>
+          <div class="stat-card" style="border-left-color:var(--navy)">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs uppercase tracking-wider font-semibold mono" style="color:var(--navy)" data-i18n="problem.capitalLabel">Capital inmovilizado</span>
+              <span class="text-3xl font-bold" style="font-family:'Space Grotesk';color:var(--navy)">+64%</span>
+            </div>
+            <p class="text-sm" style="color:var(--gray)" data-i18n="problem.capitalDesc">de los comerciantes sufren pérdidas superiores al 1% de su stock — efectivo bloqueado que no circula.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass-card p-6 flex flex-wrap items-center justify-between gap-4">
+      <p class="text-lg font-medium italic" style="color:var(--navy)" data-i18n="problem.quote">
+        « Una ruptura de stock es un cliente que se va con la competencia — y nunca regresa. »
+      </p>
+      <span class="text-sm mono" style="color:var(--gray)" data-i18n="problem.quoteSource">— Estudio Stockpit, 2024</span>
+    </div>
+  </div>
+</section>
+
+<!-- 4. SOLUTION -->
+<section id="solution" class="slide" style="background:linear-gradient(135deg,#FFF 0%,#FBF7F0 100%)">
+  <span class="slide-num">04 / 13</span>
+  <div class="container-slide">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="slide-tag" style="background:rgba(42,157,143,0.1);color:var(--teal)" data-i18n="solution.tag">Nuestra Solución</span>
+        <h2 class="display font-bold mb-6" style="font-size:clamp(2.2rem,5vw,3.5rem);color:var(--navy)" data-i18n-html="solution.title">
+          Simplicidad radical<br>para el mundo real.
+        </h2>
+        <p class="text-lg mb-8" style="color:var(--gray)" data-i18n-html="solution.intro">
+          Nuestros usuarios manejan su negocio con papel y lápiz, o han intentado ERPs demasiado complejos e incompletos. Construimos una herramienta <strong style="color:var(--navy)">natural, intuitiva y enfocada</strong>, co-creada con los comerciantes mismos.
+        </p>
+        <div class="space-y-4">
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div>
+              <div class="font-semibold mb-1" style="color:var(--navy)" data-i18n="solution.feat1Title">Mobile First</div>
+              <div class="text-sm" style="color:var(--gray)" data-i18n="solution.feat1Desc">Gestión total desde un smartphone — sin necesidad de PC.</div>
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div>
+              <div class="font-semibold mb-1" style="color:var(--navy)" data-i18n="solution.feat2Title">UX Intuitiva</div>
+              <div class="text-sm" style="color:var(--gray)" data-i18n="solution.feat2Desc">Cero minutos de capacitación. Usable en 5 minutos.</div>
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div>
+              <div class="font-semibold mb-1" style="color:var(--navy)" data-i18n="solution.feat3Title">Offline Ready</div>
+              <div class="text-sm" style="color:var(--gray)" data-i18n="solution.feat3Desc">Funciona incluso con baja conectividad.</div>
+            </div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div>
+              <div class="font-semibold mb-1" style="color:var(--navy)" data-i18n="solution.feat4Title">Co-construido con usuarios</div>
+              <div class="text-sm" style="color:var(--gray)" data-i18n="solution.feat4Desc">Diseñado con 10 PYMES piloto en 10 sectores diferentes.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative flex justify-center">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-80 h-80 rounded-full" style="background:radial-gradient(circle,rgba(232,116,94,0.15) 0%,transparent 70%)"></div>
+        </div>
+        <div class="relative" style="width:280px">
+          <div class="rounded-[3rem] p-3 shadow-2xl" style="background:var(--navy)">
+            <div class="rounded-[2.5rem] overflow-hidden" style="background:var(--cream);aspect-ratio:9/19">
+              <div class="p-5">
+                <div class="flex items-center justify-between mb-6">
+                  <div class="text-xs font-bold mono" style="color:var(--navy)">9:41</div>
+                  <div class="flex gap-1">
+                    <div class="w-3 h-3 rounded-full" style="background:var(--coral);opacity:0.3"></div>
+                    <div class="w-3 h-3 rounded-full" style="background:var(--teal);opacity:0.3"></div>
+                  </div>
+                </div>
+                <div class="text-xs mb-1" style="color:var(--gray)" data-i18n="solution.phone.greeting">Hola, María</div>
+                <h3 class="text-lg font-bold mb-4" style="color:var(--navy);font-family:'Space Grotesk'" data-i18n="solution.phone.dashboard">Tablero</h3>
+                <div class="rounded-2xl p-4 mb-3" style="background:var(--coral);color:white">
+                  <div class="text-xs opacity-80" data-i18n="solution.phone.salesToday">Ventas del día</div>
+                  <div class="text-2xl font-bold" style="font-family:'Space Grotesk'">$1,247</div>
+                  <div class="text-xs opacity-80 mt-1" data-i18n="solution.phone.vsYesterday">↑ +18% vs ayer</div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 mb-3">
+                  <div class="rounded-xl p-3" style="background:white">
+                    <div class="text-xs" style="color:var(--gray)" data-i18n="solution.phone.stock">Stock</div>
+                    <div class="text-lg font-bold" style="color:var(--navy)">847</div>
+                  </div>
+                  <div class="rounded-xl p-3" style="background:white">
+                    <div class="text-xs" style="color:var(--gray)" data-i18n="solution.phone.alerts">Alertas</div>
+                    <div class="text-lg font-bold" style="color:var(--coral)">3</div>
+                  </div>
+                </div>
+                <div class="rounded-xl p-3" style="background:white">
+                  <div class="flex items-center gap-2 mb-2">
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:var(--teal);color:white">📦</div>
+                    <div>
+                      <div class="text-xs font-semibold" style="color:var(--navy)" data-i18n="solution.phone.inventory">Inventario</div>
+                      <div class="text-xs" style="color:var(--gray)" data-i18n="solution.phone.scan">Escanear producto</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -top-4 -right-4 px-3 py-1 rounded-full text-xs font-bold text-white shadow-lg" style="background:var(--teal)" data-i18n="solution.badge1">5 min setup</div>
+          <div class="absolute -bottom-4 -left-4 px-3 py-1 rounded-full text-xs font-bold text-white shadow-lg" style="background:var(--coral)" data-i18n="solution.badge2">Offline ✓</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. WHATSAPP -->
+<section id="whatsapp" class="slide" style="background:var(--cream)">
+  <span class="slide-num">05 / 13</span>
+  <div class="container-slide">
+    <div class="grid md:grid-cols-5 gap-12 items-center">
+      <div class="md:col-span-3">
+        <span class="slide-tag" style="background:rgba(37,211,102,0.1);color:#25D366" data-i18n="whatsapp.tag">★ Nuestro Hack</span>
+        <h2 class="display font-bold mb-6" style="font-size:clamp(2.2rem,5vw,3.5rem);color:var(--navy)" data-i18n-html="whatsapp.title">
+          WhatsApp:<br><span style="color:#25D366">ventas sin fricción.</span>
+        </h2>
+        <p class="text-lg mb-6" style="color:var(--gray)" data-i18n-html="whatsapp.intro">
+          En América Latina, WhatsApp es <strong style="color:var(--navy)">el canal de ventas #1</strong>. En lugar de obligar a nuestros clientes a cambiar sus hábitos, nos integramos donde ya están.
+        </p>
+
+        <div class="dark-card p-6 mb-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0" style="background:rgba(232,116,94,0.2)">🔍</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2 gradient-text" data-i18n="whatsapp.hackTitle">El truco OCR</h3>
+              <p class="text-sm opacity-80 leading-relaxed" data-i18n-html="whatsapp.hackDesc">
+                Nuestra aplicación web detecta las ventas mediante <strong>captura de pantalla y reconocimiento OCR</strong>. Sin API oficial, sin riesgo de bloqueo por Meta. El comerciante sigue usando su chat favorito, nosotros registramos todo automáticamente.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div class="text-center p-4 rounded-xl bg-white border" style="border-color:rgba(29,45,68,0.08)">
+            <div class="text-2xl mb-1">🛡️</div>
+            <div class="text-xs font-semibold" style="color:var(--navy)" data-i18n="whatsapp.benefit1">Anti-bloqueo</div>
+          </div>
+          <div class="text-center p-4 rounded-xl bg-white border" style="border-color:rgba(29,45,68,0.08)">
+            <div class="text-2xl mb-1">⚡</div>
+            <div class="text-xs font-semibold" style="color:var(--navy)" data-i18n="whatsapp.benefit2">Tiempo real</div>
+          </div>
+          <div class="text-center p-4 rounded-xl bg-white border" style="border-color:rgba(29,45,68,0.08)">
+            <div class="text-2xl mb-1">🎯</div>
+            <div class="text-xs font-semibold" style="color:var(--navy)" data-i18n="whatsapp.benefit3">Sin fricción</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:col-span-2">
+        <div class="rounded-3xl shadow-2xl overflow-hidden" style="background:#ECE5DD">
+          <div class="px-4 py-3 flex items-center gap-3" style="background:#075E54;color:white">
+            <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center font-bold">J</div>
+            <div>
+              <div class="font-semibold text-sm">Juan Pérez</div>
+              <div class="text-xs opacity-80" data-i18n="whatsapp.chat.online">en línea</div>
+            </div>
+          </div>
+          <div class="p-4 space-y-2 text-sm" style="min-height:280px">
+            <div class="bg-white rounded-2xl rounded-tl-sm p-3 max-w-[80%] shadow-sm">
+              <div style="color:var(--navy)" data-i18n="whatsapp.chat.msg1">¡Hola! Quiero 2 botellas de vino tinto 🍷</div>
+              <div class="text-xs text-right mt-1" style="color:var(--gray)">14:23</div>
+            </div>
+            <div class="rounded-2xl rounded-tr-sm p-3 max-w-[80%] ml-auto shadow-sm" style="background:#DCF8C6">
+              <div style="color:var(--navy)" data-i18n-html="whatsapp.chat.msg2">¡Perfecto! Total: <strong>$24.50</strong></div>
+              <div class="text-xs text-right mt-1" style="color:var(--gray)">14:23 ✓✓</div>
+            </div>
+            <div class="rounded-xl p-3 shadow-md" style="background:var(--navy);color:white">
+              <div class="flex items-center gap-2 mb-1">
+                <div class="text-xs px-2 py-0.5 rounded-full font-semibold" style="background:var(--coral)">YAPALIN</div>
+                <span class="text-xs opacity-60" data-i18n="whatsapp.chat.detection">detección automática</span>
+              </div>
+              <div class="text-xs" data-i18n="whatsapp.chat.confirmation">✓ Venta registrada • Stock actualizado</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FEATURES -->
+<section id="features" class="slide" style="background:linear-gradient(180deg,#FBF7F0 0%,#FFF 100%)">
+  <span class="slide-num">06 / 13</span>
+  <div class="container-slide">
+    <div class="text-center mb-12">
+      <span class="slide-tag" data-i18n="features.tag">Funcionalidades</span>
+      <h2 class="display font-bold" style="font-size:clamp(2.2rem,5vw,3.5rem);color:var(--navy)" data-i18n="features.title">
+        Control total en la palma de la mano.
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="feature-card">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(42,157,143,0.1);color:var(--teal)">📦</div>
+        <h3 class="font-bold text-xl mb-3" style="color:var(--navy)" data-i18n="features.f1Title">Inventario inteligente</h3>
+        <p class="text-sm leading-relaxed mb-4" style="color:var(--gray)" data-i18n="features.f1Desc">
+          Escáner móvil, alertas de stock bajo y valoración automática en segundos.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded-full" style="background:rgba(42,157,143,0.1);color:var(--teal)" data-i18n="features.f1Tag1">Scan</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:rgba(42,157,143,0.1);color:var(--teal)" data-i18n="features.f1Tag2">Alertas</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:rgba(42,157,143,0.1);color:var(--teal)" data-i18n="features.f1Tag3">Lotes</span>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(232,116,94,0.1);color:var(--coral)">📊</div>
+        <h3 class="font-bold text-xl mb-3" style="color:var(--navy)" data-i18n="features.f2Title">Ventas y estadísticas</h3>
+        <p class="text-sm leading-relaxed mb-4" style="color:var(--gray)" data-i18n="features.f2Desc">
+          Visualiza qué vendes y cuánto ganas realmente, sin complicaciones contables.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded-full" style="background:rgba(232,116,94,0.1);color:var(--coral)" data-i18n="features.f2Tag1">Márgenes</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:rgba(232,116,94,0.1);color:var(--coral)" data-i18n="features.f2Tag2">Tendencias</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:rgba(232,116,94,0.1);color:var(--coral)" data-i18n="features.f2Tag3">Reportes</span>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(29,45,68,0.1);color:var(--navy)">👥</div>
+        <h3 class="font-bold text-xl mb-3" style="color:var(--navy)" data-i18n="features.f3Title">Gestión de RH</h3>
+        <p class="text-sm leading-relaxed mb-4" style="color:var(--gray)" data-i18n="features.f3Desc">
+          Control de turnos y comisiones para motivar al equipo y profesionalizar el negocio.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded-full" style="background:rgba(29,45,68,0.1);color:var(--navy)" data-i18n="features.f3Tag1">Turnos</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:rgba(29,45,68,0.1);color:var(--navy)" data-i18n="features.f3Tag2">Comisiones</span>
+          <span class="text-xs px-2 py-1 rounded-full" style="background:rgba(29,45,68,0.1);color:var(--navy)" data-i18n="features.f3Tag3">Multi-local</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 grid md:grid-cols-3 gap-6">
+      <div class="feature-card">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(42,157,143,0.1)">💰</div>
+        <h3 class="font-bold text-xl mb-2" style="color:var(--navy)" data-i18n="features.f4Title">Facturación</h3>
+        <p class="text-sm" style="color:var(--gray)" data-i18n="features.f4Desc">Emite y envía tus facturas legales con un clic.</p>
+      </div>
+      <div class="feature-card">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(232,116,94,0.1)">🤖</div>
+        <h3 class="font-bold text-xl mb-2" style="color:var(--navy)" data-i18n="features.f5Title">IA predictiva</h3>
+        <p class="text-sm" style="color:var(--gray)" data-i18n="features.f5Desc">Anticipa rupturas de stock y optimiza pedidos automáticos.</p>
+      </div>
+      <div class="feature-card">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(29,45,68,0.1)">🔗</div>
+        <h3 class="font-bold text-xl mb-2" style="color:var(--navy)" data-i18n="features.f6Title">Integraciones</h3>
+        <p class="text-sm" style="color:var(--gray)" data-i18n="features.f6Desc">WhatsApp, pagos digitales (Pix, PSE), bancos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CONCEPT (DIETER RAMS) -->
+<section id="concept" class="slide" style="background:#FBF7F0">
+  <span class="slide-num">07 / 13</span>
+  <div class="container-slide">
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-4">
+        <div class="mono text-xs font-bold uppercase tracking-widest mb-3" style="color:var(--coral)" data-i18n="concept.tag">// Concepto • Yapalin OS</div>
+        <h2 class="display font-bold mb-6" style="font-size:clamp(2.2rem,4.5vw,3.2rem);color:var(--navy);line-height:1.05" data-i18n-html="concept.title">
+          Seis módulos.<br>Una herramienta.<br><span class="gradient-text">Cero ruido.</span>
+        </h2>
+        <p class="text-base mb-6" style="color:var(--gray)" data-i18n="concept.intro">
+          Inspirado en los principios de Dieter Rams: tan poco diseño como sea posible, cada módulo cumple una sola función esencial — con su propia identidad visual.
+        </p>
+        <div class="space-y-2 mono text-xs" style="color:var(--gray)">
+          <div class="flex items-center gap-2"><span class="w-1 h-1 rounded-full" style="background:var(--navy)"></span><span data-i18n="concept.principle1">Útil • Comprensible • Honesto</span></div>
+          <div class="flex items-center gap-2"><span class="w-1 h-1 rounded-full" style="background:var(--navy)"></span><span data-i18n="concept.principle2">Discreto • Estético • Duradero</span></div>
+          <div class="flex items-center gap-2"><span class="w-1 h-1 rounded-full" style="background:var(--navy)"></span><span data-i18n="concept.principle3">Innovador • Minucioso • Mínimo</span></div>
+        </div>
+
+        <div class="mt-8 p-5 border-l-2 italic" style="border-color:var(--coral)">
+          <p class="text-sm" style="color:var(--navy)" data-i18n="concept.quote">
+            "Buen diseño es el menor diseño posible — menos, pero mejor."
+          </p>
+          <p class="text-xs mt-2 mono" style="color:var(--gray)">— Dieter Rams</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-8">
+        <div class="rams-strip">
+          <span data-i18n="concept.stripLeft">Yapalin / Modular Design System</span>
+          <span class="hidden md:inline">v1.0 — 2026</span>
+          <span>006 <span data-i18n="concept.modules">módulos</span></span>
+        </div>
+        <div class="rams-grid">
+          <div class="rams-cell m-inventory">
+            <div class="rams-cell-header">
+              <span class="rams-num">01</span>
+              <span class="rams-dot"></span>
+            </div>
+            <svg class="rams-shape" width="80" height="80" viewBox="0 0 80 80">
+              <rect x="10" y="10" width="60" height="60" fill="none" stroke="currentColor" stroke-width="3"/>
+              <line x1="10" y1="30" x2="70" y2="30" stroke="currentColor" stroke-width="3"/>
+              <line x1="10" y1="50" x2="70" y2="50" stroke="currentColor" stroke-width="3"/>
+              <circle cx="60" cy="20" r="4" fill="currentColor"/>
+            </svg>
+            <div class="rams-cell-footer">
+              <div class="rams-title" data-i18n="concept.m1Title">Inventario</div>
+              <div class="rams-desc" data-i18n="concept.m1Desc">Escaneo, lotes, alertas. Tu stock en tiempo real.</div>
+            </div>
+          </div>
+          <div class="rams-cell m-sales">
+            <div class="rams-cell-header">
+              <span class="rams-num">02</span>
+              <span class="rams-dot"></span>
+            </div>
+            <svg class="rams-shape" width="80" height="80" viewBox="0 0 80 80">
+              <polyline points="10,60 25,40 40,50 55,20 70,30" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/>
+              <circle cx="55" cy="20" r="5" fill="currentColor"/>
+              <line x1="10" y1="70" x2="70" y2="70" stroke="currentColor" stroke-width="3"/>
+            </svg>
+            <div class="rams-cell-footer">
+              <div class="rams-title" data-i18n="concept.m2Title">Ventas</div>
+              <div class="rams-desc" data-i18n="concept.m2Desc">Tendencias, márgenes, KPIs. Lo que importa, claro.</div>
+            </div>
+          </div>
+          <div class="rams-cell m-whatsapp">
+            <div class="rams-cell-header">
+              <span class="rams-num">03</span>
+              <span class="rams-dot"></span>
+            </div>
+            <svg class="rams-shape" width="80" height="80" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="28" fill="none" stroke="currentColor" stroke-width="3"/>
+              <path d="M 25 35 Q 25 50 40 50 L 50 55 L 48 47 Q 55 42 55 35" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="rams-cell-footer">
+              <div class="rams-title" data-i18n="concept.m3Title">WhatsApp</div>
+              <div class="rams-desc" data-i18n="concept.m3Desc">Captura OCR. Vende donde ya está tu cliente.</div>
+            </div>
+          </div>
+          <div class="rams-cell m-hr">
+            <div class="rams-cell-header">
+              <span class="rams-num">04</span>
+              <span class="rams-dot"></span>
+            </div>
+            <svg class="rams-shape" width="80" height="80" viewBox="0 0 80 80">
+              <circle cx="30" cy="30" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
+              <circle cx="55" cy="30" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
+              <path d="M 15 65 Q 15 50 30 50 Q 45 50 45 65" fill="none" stroke="currentColor" stroke-width="3"/>
+              <path d="M 40 65 Q 40 50 55 50 Q 70 50 70 65" fill="none" stroke="currentColor" stroke-width="3"/>
+            </svg>
+            <div class="rams-cell-footer">
+              <div class="rams-title" data-i18n="concept.m4Title">Equipo</div>
+              <div class="rams-desc" data-i18n="concept.m4Desc">Turnos, comisiones, multi-local. Profesionaliza.</div>
+            </div>
+          </div>
+          <div class="rams-cell m-invoice">
+            <div class="rams-cell-header">
+              <span class="rams-num">05</span>
+              <span class="rams-dot"></span>
+            </div>
+            <svg class="rams-shape" width="80" height="80" viewBox="0 0 80 80">
+              <rect x="20" y="10" width="40" height="60" fill="none" stroke="currentColor" stroke-width="3"/>
+              <line x1="28" y1="25" x2="52" y2="25" stroke="currentColor" stroke-width="3"/>
+              <line x1="28" y1="38" x2="52" y2="38" stroke="currentColor" stroke-width="3"/>
+              <line x1="28" y1="51" x2="42" y2="51" stroke="currentColor" stroke-width="3"/>
+              <circle cx="48" cy="58" r="6" fill="currentColor"/>
+            </svg>
+            <div class="rams-cell-footer">
+              <div class="rams-title" data-i18n="concept.m5Title">Facturación</div>
+              <div class="rams-desc" data-i18n="concept.m5Desc">Documentos legales en un clic. Cumplimiento total.</div>
+            </div>
+          </div>
+          <div class="rams-cell m-ai">
+            <div class="rams-cell-header">
+              <span class="rams-num">06</span>
+              <span class="rams-dot"></span>
+            </div>
+            <svg class="rams-shape" width="80" height="80" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="6" fill="currentColor"/>
+              <circle cx="20" cy="20" r="4" fill="currentColor"/>
+              <circle cx="60" cy="20" r="4" fill="currentColor"/>
+              <circle cx="20" cy="60" r="4" fill="currentColor"/>
+              <circle cx="60" cy="60" r="4" fill="currentColor"/>
+              <line x1="40" y1="40" x2="20" y2="20" stroke="currentColor" stroke-width="2"/>
+              <line x1="40" y1="40" x2="60" y2="20" stroke="currentColor" stroke-width="2"/>
+              <line x1="40" y1="40" x2="20" y2="60" stroke="currentColor" stroke-width="2"/>
+              <line x1="40" y1="40" x2="60" y2="60" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <div class="rams-cell-footer">
+              <div class="rams-title" data-i18n="concept.m6Title">IA Predictiva</div>
+              <div class="rams-desc" data-i18n="concept.m6Desc">Anticipa rupturas. Optimiza pedidos. Aprende de ti.</div>
+            </div>
+          </div>
+        </div>
+        <div class="rams-strip" style="background:#FBF7F0;color:var(--navy);border:2px solid var(--navy);border-top:0">
+          <span data-i18n="concept.stripBottom1">Less, but better</span>
+          <span>—</span>
+          <span data-i18n="concept.stripBottom2">Designed in LatAm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. MARKET TIMING -->
+<section id="timing" class="slide" style="background:var(--navy);color:white">
+  <span class="slide-num" style="color:rgba(255,255,255,0.4)">08 / 13</span>
+  <div class="container-slide">
+    <span class="slide-tag" style="background:rgba(232,116,94,0.2);color:var(--coral-soft)" data-i18n="timing.tag">Market Timing</span>
+    <h2 class="display font-bold mb-6" style="font-size:clamp(2.2rem,5vw,3.5rem)" data-i18n-html="timing.title">
+      ¿Por qué ahora?<br><span class="gradient-text">La explosión digital.</span>
+    </h2>
+    <p class="text-lg opacity-80 mb-12 max-w-3xl" data-i18n-html="timing.intro">
+      América Latina migra masivamente al pago instantáneo y a lo móvil. Los rieles digitales que usa Yapalin <strong>no existían hace 5 años</strong>.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      <div class="p-6 rounded-2xl" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+        <div class="text-4xl font-bold mb-2 gradient-text" style="font-family:'Space Grotesk'">75%</div>
+        <div class="font-semibold mb-2" data-i18n="timing.card1Title">de los brasileños usan Pix</div>
+        <p class="text-sm opacity-60" data-i18n="timing.card1Desc">7 mil millones de transacciones/mes en enero 2026. El efectivo retrocede en todas partes.</p>
+      </div>
+      <div class="p-6 rounded-2xl" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+        <div class="text-4xl font-bold mb-2" style="color:var(--teal-soft);font-family:'Space Grotesk'">63.9%</div>
+        <div class="font-semibold mb-2" data-i18n="timing.card2Title">de pagos online vía PSE</div>
+        <p class="text-sm opacity-60" data-i18n="timing.card2Desc">En Colombia, la transferencia instantánea ya domina el e-commerce (T2 2025).</p>
+      </div>
+      <div class="p-6 rounded-2xl" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+        <div class="text-4xl font-bold mb-2" style="color:var(--coral-soft);font-family:'Space Grotesk'">600M</div>
+        <div class="font-semibold mb-2" data-i18n="timing.card3Title">smartphones en LatAm (2023)</div>
+        <p class="text-sm opacity-60" data-i18n="timing.card3Desc">~80% de adopción, prevista al 90% en 2030 según GSMA & Statista.</p>
+      </div>
+    </div>
+
+    <div class="p-8 rounded-2xl" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+      <div class="flex items-center justify-between mb-6 flex-wrap gap-4">
+        <h3 class="font-bold text-xl" data-i18n="timing.chartTitle">Adopción de pagos digitales en LatAm</h3>
+        <div class="flex gap-4 text-xs">
+          <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full" style="background:var(--teal-soft)"></span><span data-i18n="timing.legendMobile">Penetración móvil</span></span>
+          <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full" style="background:var(--coral)"></span><span data-i18n="timing.legendDigital">Pagos digitales</span></span>
+        </div>
+      </div>
+      <div style="height:280px"><canvas id="timingChart"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. MARKET SIZE -->
+<section id="market" class="slide" style="background:var(--cream)">
+  <span class="slide-num">09 / 13</span>
+  <div class="container-slide">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="slide-tag" data-i18n="market.tag">Tamaño del mercado</span>
+        <h2 class="display font-bold mb-6" style="font-size:clamp(2.2rem,5vw,3.5rem);color:var(--navy)" data-i18n-html="market.title">
+          Un mercado de<br><span class="gradient-text">17 millones de PYMES.</span>
+        </h2>
+        <p class="text-lg mb-8" style="color:var(--gray)" data-i18n-html="market.intro">
+          Las MIPYMES representan el <strong style="color:var(--navy)">99.5% del tejido económico</strong> latinoamericano y generan el <strong style="color:var(--navy)">60% del empleo formal</strong>. Sin embargo, son las menos digitalizadas.
+        </p>
+
+        <div class="space-y-4">
+          <div class="bg-white rounded-2xl p-5 border-l-4" style="border-color:var(--coral)">
+            <div class="flex items-baseline justify-between mb-1">
+              <span class="font-bold mono" style="color:var(--navy)">TAM</span>
+              <span class="text-2xl font-bold" style="color:var(--coral);font-family:'Space Grotesk'">30-40M</span>
+            </div>
+            <p class="text-sm" style="color:var(--gray)" data-i18n="market.tamDesc">Unidades productivas en América Latina.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-5 border-l-4" style="border-color:var(--teal)">
+            <div class="flex items-baseline justify-between mb-1">
+              <span class="font-bold mono" style="color:var(--navy)">SAM</span>
+              <span class="text-2xl font-bold" style="color:var(--teal);font-family:'Space Grotesk'">7-8M</span>
+            </div>
+            <p class="text-sm" style="color:var(--gray)" data-i18n="market.samDesc">PYMES en México, Colombia y Perú (mercados objetivo).</p>
+          </div>
+          <div class="bg-white rounded-2xl p-5 border-l-4" style="border-color:var(--navy)">
+            <div class="flex items-baseline justify-between mb-1">
+              <span class="font-bold mono" style="color:var(--navy)">SOM</span>
+              <span class="text-2xl font-bold" style="color:var(--navy);font-family:'Space Grotesk'">100K+</span>
+            </div>
+            <p class="text-sm" style="color:var(--gray)" data-i18n="market.somDesc">PYMES captadas en 24 meses (~1-2% del SAM).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative flex items-center justify-center" style="min-height:500px">
+        <div class="absolute rounded-full flex items-center justify-center text-white" style="width:480px;height:480px;background:radial-gradient(circle,rgba(232,116,94,0.15) 0%,rgba(232,116,94,0.4) 100%);max-width:90vw;max-height:90vw">
+          <div class="absolute top-8 text-center">
+            <div class="text-xs font-semibold uppercase tracking-wider mono" style="color:var(--coral)">TAM</div>
+            <div class="text-2xl font-bold" style="color:var(--navy);font-family:'Space Grotesk'">30-40M</div>
+          </div>
+        </div>
+        <div class="absolute rounded-full flex items-center justify-center" style="width:320px;height:320px;background:radial-gradient(circle,rgba(42,157,143,0.2) 0%,rgba(42,157,143,0.5) 100%);max-width:60vw;max-height:60vw">
+          <div class="absolute top-6 text-center">
+            <div class="text-xs font-semibold uppercase tracking-wider mono" style="color:var(--teal)">SAM</div>
+            <div class="text-xl font-bold" style="color:var(--navy);font-family:'Space Grotesk'">7-8M</div>
+          </div>
+        </div>
+        <div class="rounded-full flex flex-col items-center justify-center text-white shadow-2xl" style="width:160px;height:160px;background:var(--navy)">
+          <div class="text-xs uppercase tracking-wider opacity-70 mono">SOM</div>
+          <div class="text-2xl font-bold" style="font-family:'Space Grotesk'">100K</div>
+          <div class="text-xs opacity-70" data-i18n="market.somPeriod">en 24 meses</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. PRICING -->
+<section id="pricing" class="slide" style="background:linear-gradient(180deg,#FFF 0%,#FBF7F0 100%)">
+  <span class="slide-num">10 / 13</span>
+  <div class="container-slide">
+    <div class="text-center mb-12">
+      <span class="slide-tag" data-i18n="pricing.tag">Modelo de Negocio</span>
+      <h2 class="display font-bold mb-4" style="font-size:clamp(2.2rem,5vw,3.5rem);color:var(--navy)" data-i18n="pricing.title">
+        Un precio democrático.
+      </h2>
+      <p class="text-lg" style="color:var(--gray);max-width:640px;margin:0 auto" data-i18n-html="pricing.intro">
+        Anclado en <strong style="color:var(--navy)">$10/mes por usuario</strong> — accesible para todo comerciante. ARPU objetivo: <strong style="color:var(--navy)">$8-12/usuario/mes</strong>.
+      </p>
+    </div>
+
+    <!-- ODOO COMPARISON -->
+    <div class="price-compare mb-10 max-w-3xl mx-auto">
+      <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider mono" style="color:var(--gray)" data-i18n="pricing.vsOdoo">vs. Odoo</span>
+          <span class="text-xs px-2 py-0.5 rounded-full font-semibold" style="background:rgba(42,157,143,0.1);color:var(--teal)" data-i18n="pricing.saveLabel">Ahorra 25%</span>
+        </div>
+        <span class="text-xs mono" style="color:var(--gray)" data-i18n="pricing.annualLabel">Costo anual / usuario</span>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <div class="flex justify-between items-center mb-1.5">
+            <span class="text-sm font-semibold" style="color:var(--navy)">Odoo</span>
+            <span class="font-bold mono" style="color:var(--navy)">$160/año</span>
+          </div>
+          <div class="price-bar"><div class="price-bar-fill" style="width:100%;background:#9CA3AF"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between items-center mb-1.5">
+            <span class="text-sm font-semibold" style="color:var(--coral)" data-i18n="pricing.yapalinLabel">Yapalin ($10/mes)</span>
+            <span class="font-bold mono" style="color:var(--coral)">$120/año</span>
+          </div>
+          <div class="price-bar"><div class="price-bar-fill" style="width:75%;background:var(--coral)"></div></div>
+        </div>
+      </div>
+      <p class="text-xs mt-4 italic" style="color:var(--gray)" data-i18n="pricing.odooNote">* Odoo: $160/año/usuario en modo anual. Yapalin: $10/mes/usuario pagable mes a mes — más flexible y adaptado al flujo de caja de las PYMES.</p>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-4 mb-8">
+      <div class="bg-white rounded-2xl p-6 border" style="border-color:rgba(29,45,68,0.08)">
+        <div class="text-xs font-semibold uppercase tracking-wider mb-2 mono" style="color:var(--gray)">Free</div>
+        <div class="text-3xl font-bold mb-1" style="color:var(--navy);font-family:'Space Grotesk'">$0</div>
+        <div class="text-xs mb-4" style="color:var(--gray)" data-i18n="pricing.perUserMonth">/usuario/mes</div>
+        <div class="text-sm font-medium mb-2" style="color:var(--navy)" data-i18n="pricing.freeAudience">Micro-emprendedores</div>
+        <p class="text-xs" style="color:var(--gray)" data-i18n="pricing.freeDesc">Funciones básicas, 1 usuario. Sin riesgo, cero barrera.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 border" style="border-color:rgba(29,45,68,0.08)">
+        <div class="text-xs font-semibold uppercase tracking-wider mb-2 mono" style="color:var(--teal)">Básico</div>
+        <div class="text-3xl font-bold mb-1" style="color:var(--navy);font-family:'Space Grotesk'">$5</div>
+        <div class="text-xs mb-4" style="color:var(--gray)" data-i18n="pricing.perUserMonth2">/usuario/mes</div>
+        <div class="text-sm font-medium mb-2" style="color:var(--navy)" data-i18n="pricing.basicAudience">Pequeños comercios</div>
+        <p class="text-xs" style="color:var(--gray)" data-i18n="pricing.basicDesc">Ventas y facturación</p>
+      </div>
+      <div class="rounded-2xl p-6 pricing-popular relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs font-bold text-white" style="background:var(--coral)" data-i18n="pricing.popular">★ Popular</div>
+        <div class="text-xs font-semibold uppercase tracking-wider mb-2 mono" style="color:var(--coral)">Standard</div>
+        <div class="text-3xl font-bold mb-1" style="color:var(--navy);font-family:'Space Grotesk'">$10</div>
+        <div class="text-xs mb-4" style="color:var(--gray)" data-i18n="pricing.perUserMonth3">/usuario/mes</div>
+        <div class="text-sm font-medium mb-2" style="color:var(--navy)" data-i18n="pricing.standardAudience">PYMES en crecimiento</div>
+        <p class="text-xs" style="color:var(--gray)" data-i18n="pricing.standardDesc">Inventario y reportes avanzados</p>
+      </div>
+      <div class="rounded-2xl p-6" style="background:var(--navy);color:white">
+        <div class="text-xs font-semibold uppercase tracking-wider mb-2 opacity-70 mono">Premium</div>
+        <div class="text-3xl font-bold mb-1" style="font-family:'Space Grotesk'">$15</div>
+        <div class="text-xs mb-4 opacity-70" data-i18n="pricing.perUserMonth4">/usuario/mes</div>
+        <div class="text-sm font-medium mb-2" data-i18n="pricing.premiumAudience">Multi-locales</div>
+        <p class="text-xs opacity-70" data-i18n="pricing.premiumDesc">RH, IA predictiva y soporte dedicado</p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-8">
+      <div class="glass-card p-6">
+        <div class="text-3xl mb-2">🆓</div>
+        <h3 class="font-bold mb-2" style="color:var(--navy)" data-i18n="pricing.feat1Title">Freemium permanente</h3>
+        <p class="text-sm" style="color:var(--gray)" data-i18n="pricing.feat1Desc">Sin barrera de entrada. El boca a boca como motor de adopción.</p>
+      </div>
+      <div class="glass-card p-6">
+        <div class="text-3xl mb-2">🌍</div>
+        <h3 class="font-bold mb-2" style="color:var(--navy)" data-i18n="pricing.feat2Title">Pricing local</h3>
+        <p class="text-sm" style="color:var(--gray)" data-i18n="pricing.feat2Desc">Precios ajustados en R$, MXN, COP, etc. según el poder adquisitivo — como Odoo (-80% en Brasil).</p>
+      </div>
+      <div class="glass-card p-6">
+        <div class="text-3xl mb-2">📈</div>
+        <h3 class="font-bold mb-2" style="color:var(--navy)" data-i18n="pricing.feat3Title">Upsell natural</h3>
+        <p class="text-sm" style="color:var(--gray)" data-i18n="pricing.feat3Desc">Límites freemium que motivan el upgrade cuando crece la empresa. Anual = 2 meses gratis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. COMPETITION -->
+<section id="competition" class="slide" style="background:var(--cream)">
+  <span class="slide-num">11 / 13</span>
+  <div class="container-slide">
+    <span class="slide-tag" data-i18n="competition.tag">Competencia</span>
+    <h2 class="display font-bold mb-12" style="font-size:clamp(2.2rem,5vw,3.5rem);color:var(--navy)" data-i18n="competition.title">
+      Por qué Yapalin gana el mercado.
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <div class="flex items-center gap-2 mb-6">
+          <div class="w-2 h-2 rounded-full bg-red-500"></div>
+          <h3 class="font-bold text-lg" style="color:var(--navy)" data-i18n="competition.failuresTitle">Alternativas actuales — todas fallan</h3>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-white rounded-2xl p-5 border-l-4 border-red-400">
+            <div class="flex items-start gap-3">
+              <div class="x-icon">✕</div>
+              <div>
+                <div class="font-bold mb-1" style="color:var(--navy)" data-i18n="competition.fail0Title">Papel y lápiz</div>
+                <p class="text-sm" style="color:var(--gray)" data-i18n="competition.fail0Desc">Gratis, pero fuente de errores, tedioso, cero visión del negocio. Imposible escalar.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 border-l-4 border-red-400">
+            <div class="flex items-start gap-3">
+              <div class="x-icon">✕</div>
+              <div>
+                <div class="font-bold mb-1" style="color:var(--navy)" data-i18n="competition.fail1Title">ERPs (Odoo, SAP, Oracle)</div>
+                <p class="text-sm" style="color:var(--gray)" data-i18n="competition.fail1Desc">Incompletos para negocios pequeños, interfaz compleja, caros y diseñados para grandes empresas.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 border-l-4 border-red-400">
+            <div class="flex items-start gap-3">
+              <div class="x-icon">✕</div>
+              <div>
+                <div class="font-bold mb-1" style="color:var(--navy)">Alegra / Siigo</div>
+                <p class="text-sm" style="color:var(--gray)" data-i18n="competition.fail2Desc">Demasiado orientados a contabilidad, lentos. Soporte deficiente (« servicio muy deficiente », Capterra).</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-5 border-l-4 border-red-400">
+            <div class="flex items-start gap-3">
+              <div class="x-icon">✕</div>
+              <div>
+                <div class="font-bold mb-1" style="color:var(--navy)">Treinta</div>
+                <p class="text-sm" style="color:var(--gray)" data-i18n="competition.fail3Desc">Inestable, llena de bugs después de cada actualización. Tarificación abusiva impuesta.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex items-center gap-2 mb-6">
+          <span class="pulse-dot"></span>
+          <h3 class="font-bold text-lg" style="color:var(--teal)" data-i18n="competition.advantageTitle">Nuestra ventaja injusta</h3>
+        </div>
+        <div class="dark-card p-6 mb-4">
+          <div class="flex items-start gap-3 mb-4">
+            <div class="text-2xl">⚡</div>
+            <div>
+              <div class="font-bold mb-1 gradient-text" data-i18n="competition.adv1Title">Cero capacitación</div>
+              <p class="text-sm opacity-80" data-i18n="competition.adv1Desc">Diseñado para ser usado en 5 minutos por cualquier comerciante. Ni formación ni consultores.</p>
+            </div>
+          </div>
+        </div>
+        <div class="dark-card p-6 mb-4">
+          <div class="flex items-start gap-3 mb-4">
+            <div class="text-2xl">💬</div>
+            <div>
+              <div class="font-bold mb-1" style="color:#25D366" data-i18n="competition.adv2Title">Hack WhatsApp</div>
+              <p class="text-sm opacity-80" data-i18n="competition.adv2Desc">Ventas capturadas donde ya está el cliente — sin canal nuevo que aprender.</p>
+            </div>
+          </div>
+        </div>
+        <div class="dark-card p-6 mb-4">
+          <div class="flex items-start gap-3">
+            <div class="text-2xl">💰</div>
+            <div>
+              <div class="font-bold mb-1" style="color:var(--coral-soft)" data-i18n="competition.adv3Title">$10/mes, sin compromiso</div>
+              <p class="text-sm opacity-80" data-i18n="competition.adv3Desc">25% más barato que Odoo, pagable mes a mes. Accesible al comerciante de barrio.</p>
+            </div>
+          </div>
+        </div>
+        <div class="dark-card p-6">
+          <div class="flex items-start gap-3">
+            <div class="text-2xl">🚀</div>
+            <div>
+              <div class="font-bold mb-1" style="color:var(--teal-soft)" data-i18n="competition.adv4Title">Foco en crecimiento</div>
+              <p class="text-sm opacity-80" data-i18n="competition.adv4Desc">No somos contabilidad. Somos expansión. Insights, IA, predicciones.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. ROADMAP -->
+<section id="roadmap" class="slide" style="background:linear-gradient(180deg,#FBF7F0 0%,#FFF 100%)">
+  <span class="slide-num">12 / 13</span>
+  <div class="container-slide">
+    <span class="slide-tag" data-i18n="roadmap.tag">Hoja de Ruta</span>
+    <h2 class="display font-bold mb-4" style="font-size:clamp(2.2rem,5vw,3.5rem);color:var(--navy)" data-i18n="roadmap.title">
+      Del piloto a la expansión regional.
+    </h2>
+    <p class="text-lg mb-12" style="color:var(--gray);max-width:700px" data-i18n="roadmap.intro">
+      4 fases claras para alcanzar 5 000 PYMES pagas en 24 meses.
+    </p>
+
+    <div class="grid md:grid-cols-4 gap-6 relative pt-6">
+      <div class="phase-card active">
+        <div class="phase-num">1</div>
+        <div class="text-xs font-semibold uppercase tracking-wider mb-2 mono" style="color:var(--coral)" data-i18n="roadmap.phase1Label">Fase 1 • En curso</div>
+        <h3 class="font-bold text-lg mb-2" style="color:var(--navy)">MVP</h3>
+        <p class="text-sm mb-3" style="color:var(--gray)" data-i18n-html="roadmap.phase1Desc">Pre-versión funcional desarrollada. Cohorte de <strong>10 PYMES piloto</strong> en 10 sectores distintos.</p>
+        <div class="text-xs px-2 py-1 rounded inline-block mono" style="background:rgba(232,116,94,0.1);color:var(--coral)">T1-T2 2026</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num" style="background:var(--teal)">2</div>
+        <div class="text-xs font-semibold uppercase tracking-wider mb-2 mono" style="color:var(--teal)" data-i18n="roadmap.phase2Label">Fase 2</div>
+        <h3 class="font-bold text-lg mb-2" style="color:var(--navy)" data-i18n="roadmap.phase2Title">Infraestructura</h3>
+        <p class="text-sm mb-3" style="color:var(--gray)" data-i18n="roadmap.phase2Desc">Consolidación de seguridad, alojamiento robusto, optimización UX/UI basada en feedback real.</p>
+        <div class="text-xs px-2 py-1 rounded inline-block mono" style="background:rgba(42,157,143,0.1);color:var(--teal)">T3 2026</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num" style="background:var(--teal)">3</div>
+        <div class="text-xs font-semibold uppercase tracking-wider mb-2 mono" style="color:var(--teal)" data-i18n="roadmap.phase3Label">Fase 3</div>
+        <h3 class="font-bold text-lg mb-2" style="color:var(--navy)" data-i18n="roadmap.phase3Title">Launch</h3>
+        <p class="text-sm mb-3" style="color:var(--gray)" data-i18n="roadmap.phase3Desc">Publicación oficial en Stores y lanzamiento del motor de crecimiento en Colombia/México.</p>
+        <div class="text-xs px-2 py-1 rounded inline-block mono" style="background:rgba(42,157,143,0.1);color:var(--teal)">T4 2026</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num" style="background:var(--navy)">4</div>
+        <div class="text-xs font-semibold uppercase tracking-wider mb-2 mono" style="color:var(--gray)" data-i18n="roadmap.phase4Label">Fase 4</div>
+        <h3 class="font-bold text-lg mb-2" style="color:var(--navy)" data-i18n="roadmap.phase4Title">Scale</h3>
+        <p class="text-sm mb-3" style="color:var(--gray)" data-i18n-html="roadmap.phase4Desc">IA predictiva de stock y meta de alcanzar las <strong>primeras 5 000 PYMES pagas</strong>.</p>
+        <div class="text-xs px-2 py-1 rounded inline-block mono" style="background:rgba(29,45,68,0.1);color:var(--navy)">2027</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. RAISE -->
+<section id="raise" class="slide" style="background:var(--cream)">
+  <span class="slide-num">13 / 13</span>
+  <div class="container-slide">
+    <div class="footer-cta relative">
+      <div class="relative z-10">
+        <div class="text-center mb-12">
+          <div class="text-sm font-semibold uppercase tracking-wider mb-3 opacity-80 mono" style="color:var(--coral-soft)" data-i18n="raise.tag">Ronda Seed</div>
+          <h2 class="display font-extrabold mb-4" style="font-size:clamp(3rem,8vw,5.5rem);line-height:1">
+            <span class="gradient-text">$1,000,000</span>
+          </h2>
+          <p class="text-xl opacity-80 max-w-2xl mx-auto" data-i18n="raise.intro">
+            Para construir el estándar de gestión de PYMES en todo el continente latinoamericano.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-10">
+          <div class="rounded-2xl p-6" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+            <h3 class="font-bold text-lg mb-4 gradient-text" data-i18n="raise.teamTitle">Equipo fundador</h3>
+            <div class="space-y-3">
+              <div>
+                <div class="font-semibold mb-1" data-i18n="raise.team1Title">Experto en PYMES</div>
+                <p class="text-sm opacity-70" data-i18n="raise.team1Desc">Años acompañando el crecimiento de cientos de negocios reales en LatAm.</p>
+              </div>
+              <div>
+                <div class="font-semibold mb-1" data-i18n="raise.team2Title">Arquitecto SaaS & IA</div>
+                <p class="text-sm opacity-70" data-i18n="raise.team2Desc">Experto en sistemas escalables y automatización inteligente.</p>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-2xl p-6" style="background:rgba(232,116,94,0.15);border:1px solid rgba(232,116,94,0.3)">
+            <h3 class="font-bold text-lg mb-4" style="color:var(--coral-soft)" data-i18n="raise.fundsTitle">Uso de los fondos</h3>
+            <div class="space-y-3">
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span class="font-medium" data-i18n="raise.fund1Label">Tech & Producto</span>
+                  <span class="font-bold mono">45%</span>
+                </div>
+                <div class="h-2 rounded-full overflow-hidden" style="background:rgba(255,255,255,0.1)">
+                  <div class="h-full rounded-full" style="background:var(--coral);width:45%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span class="font-medium" data-i18n="raise.fund2Label">Go-to-Market</span>
+                  <span class="font-bold mono">40%</span>
+                </div>
+                <div class="h-2 rounded-full overflow-hidden" style="background:rgba(255,255,255,0.1)">
+                  <div class="h-full rounded-full" style="background:var(--teal-soft);width:40%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span class="font-medium" data-i18n="raise.fund3Label">Operaciones & Success</span>
+                  <span class="font-bold mono">15%</span>
+                </div>
+                <div class="h-2 rounded-full overflow-hidden" style="background:rgba(255,255,255,0.1)">
+                  <div class="h-full rounded-full bg-white" style="width:15%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center pt-8 border-t" style="border-color:rgba(255,255,255,0.1)">
+          <div class="text-2xl font-bold mb-6" style="font-family:'Space Grotesk'" data-i18n="raise.cta">¿Hablamos?</div>
+          <div class="flex flex-wrap justify-center gap-4 mb-2">
+            <a href="mailto:contact@yapalin.com" class="px-8 py-4 rounded-full font-bold text-white shadow-lg hover:scale-105 transition" style="background:var(--coral)">contact@yapalin.com</a>
+            <a href="https://www.yapalin.com" class="px-8 py-4 rounded-full font-bold border-2 hover:bg-white/10 transition" style="border-color:rgba(255,255,255,0.3)">www.yapalin.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="py-8 text-center text-xs" style="background:var(--navy);color:rgba(255,255,255,0.5)">
+  <div data-i18n="footer.text">© 2026 Yapalin — El corazón digital de las PYMES latinoamericanas</div>
+</footer>
+
+<script>
+  const translations = {
+    es: {
+      "nav.vision":"Visión","nav.problem":"Problema","nav.concept":"Concepto","nav.market":"Mercado","nav.pricing":"Modelo","nav.raise":"Ronda","nav.invest":"Invertir →",
+      "cover.tag":"Pitch Deck • Seed 2026","cover.tagline":"El corazón digital de las PYMES latinoamericanas",
+      "cover.description":"Transformamos el caos operativo en datos de crecimiento para <strong style=\"color:var(--navy)\">17 millones de pequeños negocios</strong> que aún gestionan todo con papel y lápiz.",
+      "cover.cta1":"Descubrir →","cover.cta2":"Ver la ronda","cover.today":"Hoy","cover.seedOpen":"Ronda Seed abierta",
+      "cover.smes":"PYMES LatAm","cover.market":"Mercado","cover.target":"Meta 2 años","cover.arpuLabel":"ARPU objetivo","cover.month":"mes","cover.scrollHint":"↓ Desliza hacia abajo",
+      "cover.live":"LIVE","cover.tag1":"Mobile-first","cover.tag2":"B2B SaaS","cover.tag3":"LatAm focus",
+      "mission.tag":"Nuestra Misión","mission.title":"Más allá del software,<br><span class=\"gradient-text\">un impacto humano real.</span>",
+      "mission.intro":"Cuando un pequeño comerciante pierde 400 horas al año contando productos manualmente, es su familia quien paga el precio. Cuando pierde ventas por falta de visibilidad de su stock, es su negocio entero el que está en riesgo.",
+      "mission.card1Title":"Salir de la pobreza","mission.card1Desc":"Dar a los emprendedores los medios para crecer con datos confiables.",
+      "mission.card2Title":"Estabilizar la economía","mission.card2Desc":"Una PYME formalizada es un país más resiliente y próspero.",
+      "mission.card3Title":"Liberar el potencial humano","mission.card3Desc":"Menos tareas manuales, más tiempo para lo que realmente importa.",
+      "mission.quote":"Eliminar la invisibilidad operativa para estabilizar economías y potenciar el crecimiento humano a través de la gestión inteligente.",
+      "problem.tag":"El Problema","problem.title":"Atrapados entre dos malas opciones.",
+      "problem.intro":"Los 17 millones de PYMES de América Latina están bloqueados entre el caos del papel y la complejidad de los ERP diseñados para grandes empresas. No tienen alternativa real.",
+      "problem.optionALabel":"Opción A — Hoy","problem.optionATitle":"Papel y lápiz","problem.optionADesc":"Gratis pero fuente de errores, lento, cero visibilidad, imposible de escalar.",
+      "problem.orLabel":"O","problem.optionBLabel":"Opción B — ERP","problem.optionBTitle":"ERP complejos","problem.optionBDesc":"Incompletos para pequeños negocios, interfaz compleja, caros y requieren semanas de formación.",
+      "problem.costTitle":"El costo real de esta situación:",
+      "problem.timeLabel":"Tiempo perdido","problem.timeSubtitle":"Por año y por comerciante",
+      "problem.timeDesc":"El equivalente a una jornada completa por semana en conteo manual. Un bar típico dedica 15-20h/semana — casi <strong>1 000 horas/año</strong>.",
+      "problem.timeSource":"Fuente: Logistics Voices, Bartender POS",
+      "problem.lossLabel":"Pérdidas y robos","problem.lossDesc":"de la facturación destruida por errores, robos y fraudes — <strong>$46.8 mil millones/año</strong> solo en EE.UU.",
+      "problem.salesLabel":"Ventas perdidas","problem.salesDesc":"perdidos globalmente por ventas no realizadas y sobrestocks. Solo el 60% de los productos se venden a precio completo.",
+      "problem.capitalLabel":"Capital inmovilizado","problem.capitalDesc":"de los comerciantes sufren pérdidas superiores al 1% de su stock — efectivo bloqueado que no circula.",
+      "problem.quote":"« Una ruptura de stock es un cliente que se va con la competencia — y nunca regresa. »",
+      "problem.quoteSource":"— Estudio Stockpit, 2024",
+      "solution.tag":"Nuestra Solución","solution.title":"Simplicidad radical<br>para el mundo real.",
+      "solution.intro":"Nuestros usuarios manejan su negocio con papel y lápiz, o han intentado ERPs demasiado complejos e incompletos. Construimos una herramienta <strong style=\"color:var(--navy)\">natural, intuitiva y enfocada</strong>, co-creada con los comerciantes mismos.",
+      "solution.feat1Title":"Mobile First","solution.feat1Desc":"Gestión total desde un smartphone — sin necesidad de PC.",
+      "solution.feat2Title":"UX Intuitiva","solution.feat2Desc":"Cero minutos de capacitación. Usable en 5 minutos.",
+      "solution.feat3Title":"Offline Ready","solution.feat3Desc":"Funciona incluso con baja conectividad.",
+      "solution.feat4Title":"Co-construido con usuarios","solution.feat4Desc":"Diseñado con 10 PYMES piloto en 10 sectores diferentes.",
+      "solution.phone.greeting":"Hola, María","solution.phone.dashboard":"Tablero","solution.phone.salesToday":"Ventas del día","solution.phone.vsYesterday":"↑ +18% vs ayer",
+      "solution.phone.stock":"Stock","solution.phone.alerts":"Alertas","solution.phone.inventory":"Inventario","solution.phone.scan":"Escanear producto",
+      "solution.badge1":"5 min setup","solution.badge2":"Offline ✓",
+      "whatsapp.tag":"★ Nuestro Hack","whatsapp.title":"WhatsApp:<br><span style=\"color:#25D366\">ventas sin fricción.</span>",
+      "whatsapp.intro":"En América Latina, WhatsApp es <strong style=\"color:var(--navy)\">el canal de ventas #1</strong>. En lugar de obligar a nuestros clientes a cambiar sus hábitos, nos integramos donde ya están.",
+      "whatsapp.hackTitle":"El truco OCR",
+      "whatsapp.hackDesc":"Nuestra aplicación web detecta las ventas mediante <strong>captura de pantalla y reconocimiento OCR</strong>. Sin API oficial, sin riesgo de bloqueo por Meta. El comerciante sigue usando su chat favorito, nosotros registramos todo automáticamente.",
+      "whatsapp.benefit1":"Anti-bloqueo","whatsapp.benefit2":"Tiempo real","whatsapp.benefit3":"Sin fricción",
+      "whatsapp.chat.online":"en línea","whatsapp.chat.msg1":"¡Hola! Quiero 2 botellas de vino tinto 🍷","whatsapp.chat.msg2":"¡Perfecto! Total: <strong>$24.50</strong>",
+      "whatsapp.chat.detection":"detección automática","whatsapp.chat.confirmation":"✓ Venta registrada • Stock actualizado",
+      "features.tag":"Funcionalidades","features.title":"Control total en la palma de la mano.",
+      "features.f1Title":"Inventario inteligente","features.f1Desc":"Escáner móvil, alertas de stock bajo y valoración automática en segundos.",
+      "features.f1Tag1":"Scan","features.f1Tag2":"Alertas","features.f1Tag3":"Lotes",
+      "features.f2Title":"Ventas y estadísticas","features.f2Desc":"Visualiza qué vendes y cuánto ganas realmente, sin complicaciones contables.",
+      "features.f2Tag1":"Márgenes","features.f2Tag2":"Tendencias","features.f2Tag3":"Reportes",
+      "features.f3Title":"Gestión de RH","features.f3Desc":"Control de turnos y comisiones para motivar al equipo y profesionalizar el negocio.",
+      "features.f3Tag1":"Turnos","features.f3Tag2":"Comisiones","features.f3Tag3":"Multi-local",
+      "features.f4Title":"Facturación","features.f4Desc":"Emite y envía tus facturas legales con un clic.",
+      "features.f5Title":"IA predictiva","features.f5Desc":"Anticipa rupturas de stock y optimiza pedidos automáticos.",
+      "features.f6Title":"Integraciones","features.f6Desc":"WhatsApp, pagos digitales (Pix, PSE), bancos.",
+      "concept.tag":"// Concepto • Yapalin OS",
+      "concept.title":"Seis módulos.<br>Una herramienta.<br><span class=\"gradient-text\">Cero ruido.</span>",
+      "concept.intro":"Inspirado en los principios de Dieter Rams: tan poco diseño como sea posible, cada módulo cumple una sola función esencial — con su propia identidad visual.",
+      "concept.principle1":"Útil • Comprensible • Honesto",
+      "concept.principle2":"Discreto • Estético • Duradero",
+      "concept.principle3":"Innovador • Minucioso • Mínimo",
+      "concept.quote":"\"Buen diseño es el menor diseño posible — menos, pero mejor.\"",
+      "concept.stripLeft":"Yapalin / Sistema de Diseño Modular","concept.modules":"módulos",
+      "concept.stripBottom1":"Menos, pero mejor","concept.stripBottom2":"Diseñado en LatAm",
+      "concept.m1Title":"Inventario","concept.m1Desc":"Escaneo, lotes, alertas. Tu stock en tiempo real.",
+      "concept.m2Title":"Ventas","concept.m2Desc":"Tendencias, márgenes, KPIs. Lo que importa, claro.",
+      "concept.m3Title":"WhatsApp","concept.m3Desc":"Captura OCR. Vende donde ya está tu cliente.",
+      "concept.m4Title":"Equipo","concept.m4Desc":"Turnos, comisiones, multi-local. Profesionaliza.",
+      "concept.m5Title":"Facturación","concept.m5Desc":"Documentos legales en un clic. Cumplimiento total.",
+      "concept.m6Title":"IA Predictiva","concept.m6Desc":"Anticipa rupturas. Optimiza pedidos. Aprende de ti.",
+      "timing.tag":"Market Timing","timing.title":"¿Por qué ahora?<br><span class=\"gradient-text\">La explosión digital.</span>",
+      "timing.intro":"América Latina migra masivamente al pago instantáneo y a lo móvil. Los rieles digitales que usa Yapalin <strong>no existían hace 5 años</strong>.",
+      "timing.card1Title":"de los brasileños usan Pix","timing.card1Desc":"7 mil millones de transacciones/mes en enero 2026. El efectivo retrocede en todas partes.",
+      "timing.card2Title":"de pagos online vía PSE","timing.card2Desc":"En Colombia, la transferencia instantánea ya domina el e-commerce (T2 2025).",
+      "timing.card3Title":"smartphones en LatAm (2023)","timing.card3Desc":"~80% de adopción, prevista al 90% en 2030 según GSMA & Statista.",
+      "timing.chartTitle":"Adopción de pagos digitales en LatAm","timing.legendMobile":"Penetración móvil","timing.legendDigital":"Pagos digitales",
+      "market.tag":"Tamaño del mercado","market.title":"Un mercado de<br><span class=\"gradient-text\">17 millones de PYMES.</span>",
+      "market.intro":"Las MIPYMES representan el <strong style=\"color:var(--navy)\">99.5% del tejido económico</strong> latinoamericano y generan el <strong style=\"color:var(--navy)\">60% del empleo formal</strong>. Sin embargo, son las menos digitalizadas.",
+      "market.tamDesc":"Unidades productivas en América Latina.","market.samDesc":"PYMES en México, Colombia y Perú (mercados objetivo).","market.somDesc":"PYMES captadas en 24 meses (~1-2% del SAM).","market.somPeriod":"en 24 meses",
+      "pricing.tag":"Modelo de Negocio","pricing.title":"Un precio democrático.",
+      "pricing.intro":"Anclado en <strong style=\"color:var(--navy)\">$10/mes por usuario</strong> — accesible para todo comerciante. ARPU objetivo: <strong style=\"color:var(--navy)\">$8-12/usuario/mes</strong>.",
+      "pricing.vsOdoo":"vs. Odoo","pricing.saveLabel":"Ahorra 25%","pricing.annualLabel":"Costo anual / usuario","pricing.yapalinLabel":"Yapalin ($10/mes)",
+      "pricing.odooNote":"* Odoo: $160/año/usuario en modo anual. Yapalin: $10/mes/usuario pagable mes a mes — más flexible y adaptado al flujo de caja de las PYMES.",
+      "pricing.perUserMonth":"/usuario/mes","pricing.perUserMonth2":"/usuario/mes","pricing.perUserMonth3":"/usuario/mes","pricing.perUserMonth4":"/usuario/mes",
+      "pricing.freeAudience":"Micro-emprendedores","pricing.freeDesc":"Funciones básicas, 1 usuario. Sin riesgo, cero barrera.",
+      "pricing.basicAudience":"Pequeños comercios","pricing.basicDesc":"Ventas y facturación",
+      "pricing.popular":"★ Popular","pricing.standardAudience":"PYMES en crecimiento","pricing.standardDesc":"Inventario y reportes avanzados",
+      "pricing.premiumAudience":"Multi-locales","pricing.premiumDesc":"RH, IA predictiva y soporte dedicado",
+      "pricing.feat1Title":"Freemium permanente","pricing.feat1Desc":"Sin barrera de entrada. El boca a boca como motor de adopción.",
+      "pricing.feat2Title":"Pricing local","pricing.feat2Desc":"Precios ajustados en R$, MXN, COP, etc. según el poder adquisitivo — como Odoo (-80% en Brasil).",
+      "pricing.feat3Title":"Upsell natural","pricing.feat3Desc":"Límites freemium que motivan el upgrade cuando crece la empresa. Anual = 2 meses gratis.",
+      "competition.tag":"Competencia","competition.title":"Por qué Yapalin gana el mercado.","competition.failuresTitle":"Alternativas actuales — todas fallan",
+      "competition.fail0Title":"Papel y lápiz","competition.fail0Desc":"Gratis, pero fuente de errores, tedioso, cero visión del negocio. Imposible escalar.",
+      "competition.fail1Title":"ERPs (Odoo, SAP, Oracle)","competition.fail1Desc":"Incompletos para negocios pequeños, interfaz compleja, caros y diseñados para grandes empresas.",
+      "competition.fail2Desc":"Demasiado orientados a contabilidad, lentos. Soporte deficiente (« servicio muy deficiente », Capterra).",
+      "competition.fail3Desc":"Inestable, llena de bugs después de cada actualización. Tarificación abusiva impuesta.",
+      "competition.advantageTitle":"Nuestra ventaja injusta",
+      "competition.adv1Title":"Cero capacitación","competition.adv1Desc":"Diseñado para ser usado en 5 minutos por cualquier comerciante. Ni formación ni consultores.",
+      "competition.adv2Title":"Hack WhatsApp","competition.adv2Desc":"Ventas capturadas donde ya está el cliente — sin canal nuevo que aprender.",
+      "competition.adv3Title":"$10/mes, sin compromiso","competition.adv3Desc":"25% más barato que Odoo, pagable mes a mes. Accesible al comerciante de barrio.",
+      "competition.adv4Title":"Foco en crecimiento","competition.adv4Desc":"No somos contabilidad. Somos expansión. Insights, IA, predicciones.",
+      "roadmap.tag":"Hoja de Ruta","roadmap.title":"Del piloto a la expansión regional.","roadmap.intro":"4 fases claras para alcanzar 5 000 PYMES pagas en 24 meses.",
+      "roadmap.phase1Label":"Fase 1 • En curso","roadmap.phase1Desc":"Pre-versión funcional desarrollada. Cohorte de <strong>10 PYMES piloto</strong> en 10 sectores distintos.",
+      "roadmap.phase2Label":"Fase 2","roadmap.phase2Title":"Infraestructura","roadmap.phase2Desc":"Consolidación de seguridad, alojamiento robusto, optimización UX/UI basada en feedback real.",
+      "roadmap.phase3Label":"Fase 3","roadmap.phase3Title":"Launch","roadmap.phase3Desc":"Publicación oficial en Stores y lanzamiento del motor de crecimiento en Colombia/México.",
+      "roadmap.phase4Label":"Fase 4","roadmap.phase4Title":"Scale","roadmap.phase4Desc":"IA predictiva de stock y meta de alcanzar las <strong>primeras 5 000 PYMES pagas</strong>.",
+      "raise.tag":"Ronda Seed","raise.intro":"Para construir el estándar de gestión de PYMES en todo el continente latinoamericano.",
+      "raise.teamTitle":"Equipo fundador","raise.team1Title":"Experto en PYMES","raise.team1Desc":"Años acompañando el crecimiento de cientos de negocios reales en LatAm.",
+      "raise.team2Title":"Arquitecto SaaS & IA","raise.team2Desc":"Experto en sistemas escalables y automatización inteligente.",
+      "raise.fundsTitle":"Uso de los fondos","raise.fund1Label":"Tech & Producto","raise.fund2Label":"Go-to-Market","raise.fund3Label":"Operaciones & Success",
+      "raise.cta":"¿Hablamos?","footer.text":"© 2026 Yapalin — El corazón digital de las PYMES latinoamericanas"
+    },
+    en: {
+      "nav.vision":"Vision","nav.problem":"Problem","nav.concept":"Concept","nav.market":"Market","nav.pricing":"Model","nav.raise":"Round","nav.invest":"Invest →",
+      "cover.tag":"Pitch Deck • Seed 2026","cover.tagline":"The digital heart of Latin American SMBs",
+      "cover.description":"We turn operational chaos into growth data for <strong style=\"color:var(--navy)\">17 million small businesses</strong> still managing everything with pen and paper.",
+      "cover.cta1":"Discover →","cover.cta2":"View round","cover.today":"Today","cover.seedOpen":"Seed round open",
+      "cover.smes":"LatAm SMBs","cover.market":"Market","cover.target":"2-year goal","cover.arpuLabel":"Target ARPU","cover.month":"month","cover.scrollHint":"↓ Scroll down",
+      "cover.live":"LIVE","cover.tag1":"Mobile-first","cover.tag2":"B2B SaaS","cover.tag3":"LatAm focus",
+      "mission.tag":"Our Mission","mission.title":"Beyond software,<br><span class=\"gradient-text\">a real human impact.</span>",
+      "mission.intro":"When a small merchant loses 400 hours a year manually counting products, it's their family who pays the price. When they lose sales due to lack of stock visibility, it's their entire business at risk.",
+      "mission.card1Title":"Lift out of poverty","mission.card1Desc":"Give entrepreneurs the means to grow with reliable data.",
+      "mission.card2Title":"Stabilize the economy","mission.card2Desc":"A formalized SMB means a more resilient, prosperous country.",
+      "mission.card3Title":"Unlock human potential","mission.card3Desc":"Less manual work, more time for what really matters.",
+      "mission.quote":"Eliminate operational invisibility to stabilize economies and empower human growth through intelligent management.",
+      "problem.tag":"The Problem","problem.title":"Stuck between two bad options.",
+      "problem.intro":"The 17 million SMBs in Latin America are stuck between the chaos of paper and the complexity of ERPs designed for large enterprises. They have no real alternative.",
+      "problem.optionALabel":"Option A — Today","problem.optionATitle":"Pen & paper","problem.optionADesc":"Free but error-prone, slow, zero visibility, impossible to scale.",
+      "problem.orLabel":"OR","problem.optionBLabel":"Option B — ERP","problem.optionBTitle":"Complex ERPs","problem.optionBDesc":"Incomplete for small businesses, complex interface, expensive and requiring weeks of training.",
+      "problem.costTitle":"The real cost of this situation:",
+      "problem.timeLabel":"Time wasted","problem.timeSubtitle":"Per year, per merchant",
+      "problem.timeDesc":"That's a full workday every week spent on manual counting. A typical bar spends 15-20h/week — nearly <strong>1,000 hours/year</strong>.",
+      "problem.timeSource":"Source: Logistics Voices, Bartender POS",
+      "problem.lossLabel":"Loss & theft","problem.lossDesc":"of revenue destroyed by errors, theft and fraud — <strong>$46.8 billion/year</strong> in the US alone.",
+      "problem.salesLabel":"Lost sales","problem.salesDesc":"lost globally to missed sales and overstock. Only 60% of products sell at full price.",
+      "problem.capitalLabel":"Locked-up capital","problem.capitalDesc":"of merchants suffer losses above 1% of their stock — frozen cash that no longer circulates.",
+      "problem.quote":"\"A stockout is a customer who walks to the competition — and never comes back.\"",
+      "problem.quoteSource":"— Stockpit Study, 2024",
+      "solution.tag":"Our Solution","solution.title":"Radical simplicity<br>for the real world.",
+      "solution.intro":"Our users run their business with pen and paper, or have tried ERPs that are too complex and incomplete. We build a <strong style=\"color:var(--navy)\">natural, intuitive and focused</strong> tool, co-created with the merchants themselves.",
+      "solution.feat1Title":"Mobile First","solution.feat1Desc":"Total management from a smartphone — no PC required.",
+      "solution.feat2Title":"Intuitive UX","solution.feat2Desc":"Zero training needed. Usable in 5 minutes.",
+      "solution.feat3Title":"Offline Ready","solution.feat3Desc":"Works even with low connectivity.",
+      "solution.feat4Title":"Co-built with users","solution.feat4Desc":"Designed with 10 pilot SMBs across 10 different sectors.",
+      "solution.phone.greeting":"Hi, María","solution.phone.dashboard":"Dashboard","solution.phone.salesToday":"Today's sales","solution.phone.vsYesterday":"↑ +18% vs yesterday",
+      "solution.phone.stock":"Stock","solution.phone.alerts":"Alerts","solution.phone.inventory":"Inventory","solution.phone.scan":"Scan product",
+      "solution.badge1":"5 min setup","solution.badge2":"Offline ✓",
+      "whatsapp.tag":"★ Our Hack","whatsapp.title":"WhatsApp:<br><span style=\"color:#25D366\">frictionless sales.</span>",
+      "whatsapp.intro":"In Latin America, WhatsApp is <strong style=\"color:var(--navy)\">the #1 sales channel</strong>. Instead of forcing customers to change habits, we plug into where they already are.",
+      "whatsapp.hackTitle":"The OCR trick",
+      "whatsapp.hackDesc":"Our web app detects sales via <strong>screenshot capture and OCR recognition</strong>. No official API, no risk of being blocked by Meta. Merchants keep using their favorite chat — we record everything automatically.",
+      "whatsapp.benefit1":"Block-proof","whatsapp.benefit2":"Real-time","whatsapp.benefit3":"Frictionless",
+      "whatsapp.chat.online":"online","whatsapp.chat.msg1":"Hi! I want 2 bottles of red wine 🍷","whatsapp.chat.msg2":"Perfect! Total: <strong>$24.50</strong>",
+      "whatsapp.chat.detection":"auto detection","whatsapp.chat.confirmation":"✓ Sale recorded • Stock updated",
+      "features.tag":"Features","features.title":"Total control in the palm of your hand.",
+      "features.f1Title":"Smart inventory","features.f1Desc":"Mobile scanner, low-stock alerts and automatic valuation in seconds.",
+      "features.f1Tag1":"Scan","features.f1Tag2":"Alerts","features.f1Tag3":"Lots",
+      "features.f2Title":"Sales & analytics","features.f2Desc":"See what you sell and what you really earn, without accounting headaches.",
+      "features.f2Tag1":"Margins","features.f2Tag2":"Trends","features.f2Tag3":"Reports",
+      "features.f3Title":"HR Management","features.f3Desc":"Manage shifts and commissions to motivate your team and professionalize the business.",
+      "features.f3Tag1":"Shifts","features.f3Tag2":"Commissions","features.f3Tag3":"Multi-site",
+      "features.f4Title":"Invoicing","features.f4Desc":"Issue and send compliant invoices in one click.",
+      "features.f5Title":"Predictive AI","features.f5Desc":"Anticipate stockouts and auto-optimize your orders.",
+      "features.f6Title":"Integrations","features.f6Desc":"WhatsApp, digital payments (Pix, PSE), banks.",
+      "concept.tag":"// Concept • Yapalin OS",
+      "concept.title":"Six modules.<br>One tool.<br><span class=\"gradient-text\">Zero noise.</span>",
+      "concept.intro":"Inspired by Dieter Rams' principles: as little design as possible. Each module fulfills one essential function — with its own visual identity.",
+      "concept.principle1":"Useful • Understandable • Honest",
+      "concept.principle2":"Unobtrusive • Aesthetic • Long-lasting",
+      "concept.principle3":"Innovative • Thorough • Minimal",
+      "concept.quote":"\"Good design is as little design as possible — less, but better.\"",
+      "concept.stripLeft":"Yapalin / Modular Design System","concept.modules":"modules",
+      "concept.stripBottom1":"Less, but better","concept.stripBottom2":"Designed in LatAm",
+      "concept.m1Title":"Inventory","concept.m1Desc":"Scan, batches, alerts. Your stock in real time.",
+      "concept.m2Title":"Sales","concept.m2Desc":"Trends, margins, KPIs. What matters, clear.",
+      "concept.m3Title":"WhatsApp","concept.m3Desc":"OCR capture. Sell where your customer already is.",
+      "concept.m4Title":"Team","concept.m4Desc":"Shifts, commissions, multi-site. Get professional.",
+      "concept.m5Title":"Invoicing","concept.m5Desc":"Legal documents in one click. Full compliance.",
+      "concept.m6Title":"Predictive AI","concept.m6Desc":"Anticipate stockouts. Optimize orders. Learns from you.",
+      "timing.tag":"Market Timing","timing.title":"Why now?<br><span class=\"gradient-text\">The digital explosion.</span>",
+      "timing.intro":"Latin America is shifting massively to instant payments and mobile. The digital rails Yapalin uses <strong>didn't exist 5 years ago</strong>.",
+      "timing.card1Title":"of Brazilians use Pix","timing.card1Desc":"7 billion transactions/month in January 2026. Cash is retreating everywhere.",
+      "timing.card2Title":"of online payments via PSE","timing.card2Desc":"In Colombia, instant transfers already dominate e-commerce (Q2 2025).",
+      "timing.card3Title":"smartphones in LatAm (2023)","timing.card3Desc":"~80% adoption, projected at 90% by 2030 per GSMA & Statista.",
+      "timing.chartTitle":"Digital payment adoption in LatAm","timing.legendMobile":"Mobile penetration","timing.legendDigital":"Digital payments",
+      "market.tag":"Market size","market.title":"A market of<br><span class=\"gradient-text\">17 million SMBs.</span>",
+      "market.intro":"MSMEs represent <strong style=\"color:var(--navy)\">99.5% of the economic fabric</strong> in Latin America and generate <strong style=\"color:var(--navy)\">60% of formal employment</strong>. Yet they're the least digitized.",
+      "market.tamDesc":"Productive units across Latin America.","market.samDesc":"SMBs in Mexico, Colombia & Peru (target markets).","market.somDesc":"SMBs captured in 24 months (~1-2% of SAM).","market.somPeriod":"in 24 months",
+      "pricing.tag":"Business Model","pricing.title":"Democratic pricing.",
+      "pricing.intro":"Anchored at <strong style=\"color:var(--navy)\">$10/month per user</strong> — accessible to every merchant. Target ARPU: <strong style=\"color:var(--navy)\">$8-12/user/month</strong>.",
+      "pricing.vsOdoo":"vs. Odoo","pricing.saveLabel":"Save 25%","pricing.annualLabel":"Yearly cost / user","pricing.yapalinLabel":"Yapalin ($10/month)",
+      "pricing.odooNote":"* Odoo: $160/year/user on annual plan. Yapalin: $10/month/user payable month-to-month — more flexible and adapted to SMB cash flow.",
+      "pricing.perUserMonth":"/user/month","pricing.perUserMonth2":"/user/month","pricing.perUserMonth3":"/user/month","pricing.perUserMonth4":"/user/month",
+      "pricing.freeAudience":"Micro-entrepreneurs","pricing.freeDesc":"Basic features, 1 user. Risk-free, zero barrier.",
+      "pricing.basicAudience":"Small shops","pricing.basicDesc":"Sales & invoicing",
+      "pricing.popular":"★ Popular","pricing.standardAudience":"Growing SMBs","pricing.standardDesc":"Extended inventory & advanced reports",
+      "pricing.premiumAudience":"Multi-location","pricing.premiumDesc":"HR, predictive AI & dedicated support",
+      "pricing.feat1Title":"Permanent freemium","pricing.feat1Desc":"No barrier to entry. Word of mouth as growth engine.",
+      "pricing.feat2Title":"Local pricing","pricing.feat2Desc":"Prices adjusted in R$, MXN, COP, etc. based on purchasing power — like Odoo (-80% in Brazil).",
+      "pricing.feat3Title":"Natural upsell","pricing.feat3Desc":"Freemium limits push upgrades as the business grows. Annual = 2 months free.",
+      "competition.tag":"Competition","competition.title":"Why Yapalin wins the market.","competition.failuresTitle":"Current alternatives — all fail",
+      "competition.fail0Title":"Pen & paper","competition.fail0Desc":"Free, but error-prone, tedious, zero business visibility. Impossible to scale.",
+      "competition.fail1Title":"ERPs (Odoo, SAP, Oracle)","competition.fail1Desc":"Incomplete for small businesses, complex interface, expensive and designed for large enterprises.",
+      "competition.fail2Desc":"Too accounting-focused, slow. Poor support (\"very deficient service\", Capterra).",
+      "competition.fail3Desc":"Unstable, riddled with bugs after every update. Abusive forced pricing.",
+      "competition.advantageTitle":"Our unfair advantage",
+      "competition.adv1Title":"Zero training","competition.adv1Desc":"Designed to be used in 5 minutes by any merchant. No training or consultants needed.",
+      "competition.adv2Title":"WhatsApp Hack","competition.adv2Desc":"Sales captured where the customer already is — no new channel to learn.",
+      "competition.adv3Title":"$10/month, no commitment","competition.adv3Desc":"25% cheaper than Odoo, payable month-to-month. Accessible to neighborhood merchants.",
+      "competition.adv4Title":"Growth focus","competition.adv4Desc":"We're not accounting. We're expansion. Insights, AI, predictions.",
+      "roadmap.tag":"Roadmap","roadmap.title":"From pilot to regional expansion.","roadmap.intro":"4 clear phases to reach 5,000 paying SMBs in 24 months.",
+      "roadmap.phase1Label":"Phase 1 • In progress","roadmap.phase1Desc":"Functional pre-version developed. Cohort of <strong>10 pilot SMBs</strong> in 10 distinct sectors.",
+      "roadmap.phase2Label":"Phase 2","roadmap.phase2Title":"Infrastructure","roadmap.phase2Desc":"Security consolidation, robust hosting, UX/UI optimization based on real feedback.",
+      "roadmap.phase3Label":"Phase 3","roadmap.phase3Title":"Launch","roadmap.phase3Desc":"Official Store publication and launch of the growth engine in Colombia/Mexico.",
+      "roadmap.phase4Label":"Phase 4","roadmap.phase4Title":"Scale","roadmap.phase4Desc":"Predictive stock AI and goal of reaching the <strong>first 5,000 paying SMBs</strong>.",
+      "raise.tag":"Seed Round","raise.intro":"To build the SMB management standard for the entire Latin American continent.",
+      "raise.teamTitle":"Founding team","raise.team1Title":"SMB Expert","raise.team1Desc":"Years supporting the growth of hundreds of real businesses in LatAm.",
+      "raise.team2Title":"SaaS & AI Architect","raise.team2Desc":"Expert in scalable systems and intelligent automation.",
+      "raise.fundsTitle":"Use of funds","raise.fund1Label":"Tech & Product","raise.fund2Label":"Go-to-Market","raise.fund3Label":"Operations & Success",
+      "raise.cta":"Let's talk?","footer.text":"© 2026 Yapalin — The digital heart of Latin American SMBs"
+    },
+    fr: {
+      "nav.vision":"Vision","nav.problem":"Problème","nav.concept":"Concept","nav.market":"Marché","nav.pricing":"Modèle","nav.raise":"Levée","nav.invest":"Investir →",
+      "cover.tag":"Pitch Deck • Seed 2026","cover.tagline":"Le cœur digital des PME d'Amérique latine",
+      "cover.description":"Nous transformons le chaos opérationnel en données de croissance pour <strong style=\"color:var(--navy)\">17 millions de petites entreprises</strong> qui gèrent encore tout sur papier.",
+      "cover.cta1":"Découvrir →","cover.cta2":"Voir la levée","cover.today":"Aujourd'hui","cover.seedOpen":"Ronde Seed ouverte",
+      "cover.smes":"PME LatAm","cover.market":"Marché","cover.target":"Cible 2 ans","cover.arpuLabel":"ARPU cible","cover.month":"mois","cover.scrollHint":"↓ Faites défiler",
+      "cover.live":"LIVE","cover.tag1":"Mobile-first","cover.tag2":"B2B SaaS","cover.tag3":"LatAm focus",
+      "mission.tag":"Notre Mission","mission.title":"Au-delà du software,<br><span class=\"gradient-text\">un impact humain réel.</span>",
+      "mission.intro":"Quand un petit commerçant perd 400 heures par an à compter manuellement ses produits, c'est sa famille qui en paie le prix. Quand il perd des ventes faute de visibilité sur son stock, c'est tout son business qui est en danger.",
+      "mission.card1Title":"Sortir de la pauvreté","mission.card1Desc":"Donner aux entrepreneurs les moyens de croître grâce à des données fiables.",
+      "mission.card2Title":"Stabiliser l'économie","mission.card2Desc":"Une PME formalisée, c'est un pays plus résilient et plus prospère.",
+      "mission.card3Title":"Libérer le potentiel humain","mission.card3Desc":"Moins de tâches manuelles, plus de temps pour ce qui compte vraiment.",
+      "mission.quote":"Éliminer l'invisibilité opérationnelle pour stabiliser les économies et stimuler la croissance humaine grâce à la gestion intelligente.",
+      "problem.tag":"Le Problème","problem.title":"Coincés entre deux mauvaises options.",
+      "problem.intro":"Les 17 millions de PME d'Amérique latine sont bloquées entre le chaos du papier et la complexité des ERP conçus pour les grandes entreprises. Aucune alternative réelle.",
+      "problem.optionALabel":"Option A — Aujourd'hui","problem.optionATitle":"Papier & stylo","problem.optionADesc":"Gratuit mais source d'erreurs, lent, zéro visibilité, impossible à scaler.",
+      "problem.orLabel":"OU","problem.optionBLabel":"Option B — ERP","problem.optionBTitle":"ERP complexes","problem.optionBDesc":"Incomplets pour les petits commerces, interface complexe, chers et nécessitant des semaines de formation.",
+      "problem.costTitle":"Le coût réel de cette situation :",
+      "problem.timeLabel":"Temps perdu","problem.timeSubtitle":"Par an et par commerçant",
+      "problem.timeDesc":"L'équivalent d'une journée complète par semaine consacrée au comptage manuel. Un bar typique passe 15-20h/semaine — soit près de <strong>1 000 heures/an</strong>.",
+      "problem.timeSource":"Source : Logistics Voices, Bartender POS",
+      "problem.lossLabel":"Pertes & Vols","problem.lossDesc":"du chiffre d'affaires détruit par erreurs, vols et fraudes — soit <strong>$46.8 milliards/an</strong> aux USA seulement.",
+      "problem.salesLabel":"Ventes manquées","problem.salesDesc":"perdus globalement par ventes ratées et surstocks. Seulement 60% des produits sont vendus au prix fort.",
+      "problem.capitalLabel":"Capital immobilisé","problem.capitalDesc":"des commerçants subissent des pertes supérieures à 1% de leur stock — du cash bloqué qui ne circule plus.",
+      "problem.quote":"« Une rupture de stock, c'est un client qui part chez le concurrent — et ne revient jamais. »",
+      "problem.quoteSource":"— Étude Stockpit, 2024",
+      "solution.tag":"Notre Solution","solution.title":"Simplicité radicale<br>pour le monde réel.",
+      "solution.intro":"Nos utilisateurs gèrent leur business avec papier et stylo, ou ont essayé des ERP trop complexes et incomplets. Nous construisons un outil <strong style=\"color:var(--navy)\">naturel, intuitif et focalisé</strong>, co-créé avec les commerçants eux-mêmes.",
+      "solution.feat1Title":"Mobile First","solution.feat1Desc":"Gestion totale depuis un smartphone — sans PC requis.",
+      "solution.feat2Title":"UX Intuitive","solution.feat2Desc":"Zéro minute de formation. Utilisable en 5 minutes.",
+      "solution.feat3Title":"Offline Ready","solution.feat3Desc":"Fonctionne même avec une faible connectivité.",
+      "solution.feat4Title":"Co-construit avec les utilisateurs","solution.feat4Desc":"Conçu avec 10 PME pilotes dans 10 secteurs différents.",
+      "solution.phone.greeting":"Bonjour, Maria","solution.phone.dashboard":"Tableau de bord","solution.phone.salesToday":"Ventes du jour","solution.phone.vsYesterday":"↑ +18% vs hier",
+      "solution.phone.stock":"Stock","solution.phone.alerts":"Alertes","solution.phone.inventory":"Inventaire","solution.phone.scan":"Scanner produit",
+      "solution.badge1":"5 min setup","solution.badge2":"Offline ✓",
+      "whatsapp.tag":"★ Notre Hack","whatsapp.title":"WhatsApp :<br><span style=\"color:#25D366\">les ventes sans friction.</span>",
+      "whatsapp.intro":"En Amérique latine, WhatsApp est <strong style=\"color:var(--navy)\">le canal de vente n°1</strong>. Au lieu de forcer nos clients à changer leurs habitudes, nous nous intégrons là où ils sont déjà.",
+      "whatsapp.hackTitle":"L'astuce OCR",
+      "whatsapp.hackDesc":"Notre application web détecte les ventes par <strong>capture d'écran et reconnaissance OCR</strong>. Pas d'API officielle, donc pas de risque de blocage par Meta. Le commerçant continue d'utiliser son chat favori, nous enregistrons tout automatiquement.",
+      "whatsapp.benefit1":"Anti-blocage","whatsapp.benefit2":"Temps réel","whatsapp.benefit3":"Zero friction",
+      "whatsapp.chat.online":"en ligne","whatsapp.chat.msg1":"Bonjour ! Je veux 2 bouteilles de vin rouge 🍷","whatsapp.chat.msg2":"Parfait ! Total : <strong>$24.50</strong>",
+      "whatsapp.chat.detection":"détection auto","whatsapp.chat.confirmation":"✓ Vente enregistrée • Stock mis à jour",
+      "features.tag":"Fonctionnalités","features.title":"Le contrôle total dans la paume de la main.",
+      "features.f1Title":"Inventaire intelligent","features.f1Desc":"Scanner mobile, alertes de stock bas et valorisation automatique en quelques secondes.",
+      "features.f1Tag1":"Scan","features.f1Tag2":"Alertes","features.f1Tag3":"Lots",
+      "features.f2Title":"Ventes & statistiques","features.f2Desc":"Visualisez ce que vous vendez et combien vous gagnez réellement, sans complications comptables.",
+      "features.f2Tag1":"Marges","features.f2Tag2":"Tendances","features.f2Tag3":"Rapports",
+      "features.f3Title":"Gestion RH","features.f3Desc":"Contrôle des shifts et commissions pour motiver l'équipe et professionnaliser le business.",
+      "features.f3Tag1":"Shifts","features.f3Tag2":"Commissions","features.f3Tag3":"Multi-site",
+      "features.f4Title":"Facturation","features.f4Desc":"Émettez et envoyez vos factures conformes en un clic.",
+      "features.f5Title":"IA prédictive","features.f5Desc":"Anticipez les ruptures et optimisez vos commandes auto.",
+      "features.f6Title":"Intégrations","features.f6Desc":"WhatsApp, paiements digitaux (Pix, PSE), banques.",
+      "concept.tag":"// Concept • Yapalin OS",
+      "concept.title":"Six modules.<br>Un seul outil.<br><span class=\"gradient-text\">Zéro bruit.</span>",
+      "concept.intro":"Inspiré des principes de Dieter Rams : aussi peu de design que possible. Chaque module remplit une seule fonction essentielle — avec sa propre identité visuelle.",
+      "concept.principle1":"Utile • Compréhensible • Honnête",
+      "concept.principle2":"Discret • Esthétique • Durable",
+      "concept.principle3":"Innovant • Méticuleux • Minimal",
+      "concept.quote":"« Le bon design, c'est aussi peu de design que possible — moins, mais mieux. »",
+      "concept.stripLeft":"Yapalin / Système de Design Modulaire","concept.modules":"modules",
+      "concept.stripBottom1":"Moins, mais mieux","concept.stripBottom2":"Conçu en LatAm",
+      "concept.m1Title":"Inventaire","concept.m1Desc":"Scan, lots, alertes. Votre stock en temps réel.",
+      "concept.m2Title":"Ventes","concept.m2Desc":"Tendances, marges, KPIs. L'essentiel, en clair.",
+      "concept.m3Title":"WhatsApp","concept.m3Desc":"Capture OCR. Vendez là où votre client est déjà.",
+      "concept.m4Title":"Équipe","concept.m4Desc":"Shifts, commissions, multi-site. Professionnalisez.",
+      "concept.m5Title":"Facturation","concept.m5Desc":"Documents légaux en un clic. Conformité totale.",
+      "concept.m6Title":"IA Prédictive","concept.m6Desc":"Anticipe les ruptures. Optimise les commandes. Apprend de vous.",
+      "timing.tag":"Market Timing","timing.title":"Pourquoi maintenant ?<br><span class=\"gradient-text\">L'explosion digitale.</span>",
+      "timing.intro":"L'Amérique latine bascule massivement vers le paiement instantané et le mobile. Les rails digitaux que Yapalin utilise <strong>n'existaient pas il y a 5 ans</strong>.",
+      "timing.card1Title":"des Brésiliens utilisent Pix","timing.card1Desc":"7 milliards de transactions/mois en janvier 2026. Le cash recule partout.",
+      "timing.card2Title":"des paiements en ligne via PSE","timing.card2Desc":"En Colombie, le virement instantané domine déjà l'e-commerce (T2 2025).",
+      "timing.card3Title":"smartphones en LatAm (2023)","timing.card3Desc":"~80% d'adoption, prévue à 90% en 2030 selon GSMA & Statista.",
+      "timing.chartTitle":"Adoption du paiement digital en LatAm","timing.legendMobile":"Pénétration mobile","timing.legendDigital":"Paiements digitaux",
+      "market.tag":"Taille du marché","market.title":"Un marché de<br><span class=\"gradient-text\">17 millions de PME.</span>",
+      "market.intro":"Les MIPYMES représentent <strong style=\"color:var(--navy)\">99.5% du tissu économique</strong> latino-américain et génèrent <strong style=\"color:var(--navy)\">60% de l'emploi formel</strong>. Pourtant, ce sont les moins digitalisées.",
+      "market.tamDesc":"Unités productives en Amérique latine.","market.samDesc":"PME au Mexique, Colombie & Pérou (marchés cibles).","market.somDesc":"PME captées en 24 mois (~1-2% du SAM).","market.somPeriod":"en 24 mois",
+      "pricing.tag":"Modèle économique","pricing.title":"Une tarification démocratique.",
+      "pricing.intro":"Ancré à <strong style=\"color:var(--navy)\">$10/mois par utilisateur</strong> — accessible à tout commerçant. ARPU cible : <strong style=\"color:var(--navy)\">$8-12/utilisateur/mois</strong>.",
+      "pricing.vsOdoo":"vs. Odoo","pricing.saveLabel":"Économise 25%","pricing.annualLabel":"Coût annuel / utilisateur","pricing.yapalinLabel":"Yapalin ($10/mois)",
+      "pricing.odooNote":"* Odoo : $160/an/utilisateur en annuel. Yapalin : $10/mois/utilisateur payable mois par mois — plus flexible et adapté au cash flow des PME.",
+      "pricing.perUserMonth":"/utilisateur/mois","pricing.perUserMonth2":"/utilisateur/mois","pricing.perUserMonth3":"/utilisateur/mois","pricing.perUserMonth4":"/utilisateur/mois",
+      "pricing.freeAudience":"Micro-entrepreneurs","pricing.freeDesc":"Fonctions de base, 1 utilisateur. Sans risque, zéro barrière.",
+      "pricing.basicAudience":"Petits commerces","pricing.basicDesc":"Ventes & facturation",
+      "pricing.popular":"★ Populaire","pricing.standardAudience":"PME en croissance","pricing.standardDesc":"Inventaire & rapports avancés",
+      "pricing.premiumAudience":"Multi-locales","pricing.premiumDesc":"RH, IA prédictive & support dédié",
+      "pricing.feat1Title":"Freemium permanent","pricing.feat1Desc":"Pas de barrière à l'entrée. Le bouche-à-oreille comme moteur d'adoption.",
+      "pricing.feat2Title":"Pricing local","pricing.feat2Desc":"Prix ajustés en R$, MXN, COP, etc. selon le pouvoir d'achat — comme Odoo (-80% au Brésil).",
+      "pricing.feat3Title":"Upsell naturel","pricing.feat3Desc":"Limites freemium qui poussent à l'upgrade quand l'entreprise grandit. Annuel = 2 mois offerts.",
+      "competition.tag":"Concurrence","competition.title":"Pourquoi Yapalin gagne le marché.","competition.failuresTitle":"Alternatives actuelles — toutes échouent",
+      "competition.fail0Title":"Papier & stylo","competition.fail0Desc":"Gratuit mais source d'erreurs, fastidieux, zéro vision business. Impossible à scaler.",
+      "competition.fail1Title":"ERP (Odoo, SAP, Oracle)","competition.fail1Desc":"Incomplets pour les petits commerces, interface complexe, chers et conçus pour les grandes entreprises.",
+      "competition.fail2Desc":"Trop orientés comptabilité, lents. Support déficient (« servicio muy deficiente », Capterra).",
+      "competition.fail3Desc":"Instable, pleine de bugs après chaque mise à jour. Tarification abusive imposée.",
+      "competition.advantageTitle":"Notre avantage injuste",
+      "competition.adv1Title":"Zéro formation","competition.adv1Desc":"Conçu pour être utilisé en 5 minutes par n'importe quel commerçant. Ni formation ni consultants.",
+      "competition.adv2Title":"Hack WhatsApp","competition.adv2Desc":"Ventes capturées là où le client est déjà — pas de nouveau canal à apprendre.",
+      "competition.adv3Title":"$10/mois, sans engagement","competition.adv3Desc":"25% moins cher qu'Odoo, payable mois par mois. Accessible au commerçant de quartier.",
+      "competition.adv4Title":"Focus croissance","competition.adv4Desc":"Nous ne sommes pas de la comptabilité. Nous sommes l'expansion. Insights, IA, prédictions.",
+      "roadmap.tag":"Feuille de route","roadmap.title":"Du pilote à l'expansion régionale.","roadmap.intro":"4 phases claires pour atteindre 5 000 PME payantes en 24 mois.",
+      "roadmap.phase1Label":"Phase 1 • En cours","roadmap.phase1Desc":"Pré-version fonctionnelle développée. Cohorte de <strong>10 PME pilotes</strong> dans 10 secteurs distincts.",
+      "roadmap.phase2Label":"Phase 2","roadmap.phase2Title":"Infrastructure","roadmap.phase2Desc":"Consolidation sécurité, hébergement robuste, optimisation UX/UI basée sur le feedback réel.",
+      "roadmap.phase3Label":"Phase 3","roadmap.phase3Title":"Launch","roadmap.phase3Desc":"Publication officielle sur les Stores et lancement du moteur de croissance en Colombie/Mexique.",
+      "roadmap.phase4Label":"Phase 4","roadmap.phase4Title":"Scale","roadmap.phase4Desc":"IA prédictive de stock et objectif d'atteindre les <strong>5 000 premières PME payantes</strong>.",
+      "raise.tag":"Ronde Seed","raise.intro":"Pour construire le standard de gestion des PME sur tout le continent latino-américain.",
+      "raise.teamTitle":"Équipe fondatrice","raise.team1Title":"Expert PME","raise.team1Desc":"Années à accompagner la croissance de centaines de business réels en LatAm.",
+      "raise.team2Title":"Architecte SaaS & IA","raise.team2Desc":"Expert systèmes scalables et automatisation intelligente.",
+      "raise.fundsTitle":"Allocation des fonds","raise.fund1Label":"Tech & Produit","raise.fund2Label":"Go-to-Market","raise.fund3Label":"Opérations & Success",
+      "raise.cta":"¿ Hablamos ?","footer.text":"© 2026 Yapalin — Le cœur digital des PME d'Amérique latine"
+    }
+  };
+
+  let chartInstance = null;
+  function applyLanguage(lang) {
+    document.documentElement.lang = lang;
+    const dict = translations[lang];
+    if (!dict) return;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    renderChart(lang);
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+  });
+
+  const dots = document.querySelectorAll('.nav-dot');
+  const sections = ['cover','mission','problem','solution','whatsapp','features','concept','timing','market','pricing','competition','roadmap','raise'];
+  dots.forEach((dot,i) => {
+    dot.addEventListener('click', () => {
+      document.getElementById(sections[i]).scrollIntoView({behavior:'smooth'});
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        const idx = sections.indexOf(id);
+        if (idx >= 0) {
+          dots.forEach(d => d.classList.remove('active'));
+          dots[idx]?.classList.add('active');
+        }
+      }
+    });
+  }, {threshold: 0.5});
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  function renderChart(lang) {
+    const ctx = document.getElementById('timingChart');
+    if (!ctx) return;
+    if (chartInstance) chartInstance.destroy();
+    const dict = translations[lang];
+    chartInstance = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['2020','2021','2022','2023','2024','2025','2026'],
+        datasets: [
+          {
+            label: dict["timing.legendMobile"],
+            data: [62,68,72,76,79,82,85],
+            borderColor: '#7FC4BB',
+            backgroundColor: 'rgba(127,196,187,0.15)',
+            tension: 0.4, fill: true, borderWidth: 3, pointRadius: 5,
+            pointBackgroundColor: '#7FC4BB', pointBorderColor: '#1D2D44', pointBorderWidth: 2
+          },
+          {
+            label: dict["timing.legendDigital"],
+            data: [12,22,38,52,63,72,80],
+            borderColor: '#E8745E',
+            backgroundColor: 'rgba(232,116,94,0.15)',
+            tension: 0.4, fill: true, borderWidth: 3, pointRadius: 5,
+            pointBackgroundColor: '#E8745E', pointBorderColor: '#1D2D44', pointBorderWidth: 2
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: {display: false},
+          tooltip: {backgroundColor: '#1D2D44', padding: 12, cornerRadius: 8}
+        },
+        scales: {
+          y: {
+            beginAtZero: true, max: 100,
+            grid: {color: 'rgba(255,255,255,0.08)'},
+            ticks: {color: 'rgba(255,255,255,0.5)', callback: v => v+'%'}
+          },
+          x: {
+            grid: {display: false},
+            ticks: {color: 'rgba(255,255,255,0.5)'}
+          }
+        }
+      }
+    });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth'});
+      }
+    });
+  });
+
+  applyLanguage('es');
+</script>
+
+</body>
+</html>
