@@ -63,6 +63,9 @@
   .lang-btn{padding:5px 11px;border-radius:999px;font-size:0.72rem;font-weight:700;border:none;background:transparent;color:var(--gray);cursor:pointer;transition:all 0.25s;letter-spacing:0.05em}
   .lang-btn:hover{color:var(--navy)}
   .lang-btn.active{background:var(--navy);color:white;box-shadow:0 2px 8px rgba(29,45,68,0.2)}
+  .lang-gate-btn{display:flex;flex-direction:column;align-items:center;gap:0.75rem;padding:1.5rem 2.5rem;background:white;border:2px solid rgba(29,45,68,0.08);border-radius:1.5rem;cursor:pointer;transition:all 0.25s ease}
+  .lang-gate-btn:hover{transform:translateY(-4px);border-color:var(--coral);box-shadow:0 20px 40px -20px rgba(29,45,68,0.25)}
+  .temp-name-badge{font-size:0.6rem;font-weight:600;color:var(--gray);font-family:'JetBrains Mono';letter-spacing:0.02em}
 
   .rams-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--navy);border-radius:0;overflow:hidden;background:var(--navy)}
   .rams-cell{position:relative;aspect-ratio:4/5;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);overflow:hidden}
@@ -121,12 +124,43 @@
 </head>
 <body>
 
+<!-- LANGUAGE GATE -->
+<div id="lang-gate" style="position:fixed;inset:0;z-index:100;background:linear-gradient(135deg,var(--cream) 0%,#FFF 100%);display:flex;align-items:center;justify-content:center;transition:opacity 0.4s ease">
+  <div class="blob" style="width:400px;height:400px;background:var(--coral);top:-100px;right:-100px"></div>
+  <div class="blob" style="width:350px;height:350px;background:var(--teal);bottom:-100px;left:-100px;opacity:0.2"></div>
+  <div class="relative z-10 text-center px-6">
+    <div class="flex items-center justify-center gap-3 mb-3">
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-2xl" style="background:linear-gradient(135deg,var(--coral),var(--coral-soft));font-family:'Space Grotesk'">Y</div>
+      <span class="font-bold text-4xl" style="font-family:'Space Grotesk';color:var(--navy)">Yapalin</span>
+    </div>
+    <div class="text-xs mono mb-10" style="color:var(--gray)">(nombre temporal · temporary name · nom temporaire)</div>
+    <p class="text-lg font-semibold mb-8" style="color:var(--navy)">Elige tu idioma · Choose your language · Choisissez votre langue</p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <button class="lang-gate-btn" data-lang="es">
+        <span class="text-5xl">🇪🇸</span>
+        <span class="font-bold" style="color:var(--navy)">Español</span>
+      </button>
+      <button class="lang-gate-btn" data-lang="en">
+        <span class="text-5xl">🇬🇧</span>
+        <span class="font-bold" style="color:var(--navy)">English</span>
+      </button>
+      <button class="lang-gate-btn" data-lang="fr">
+        <span class="text-5xl">🇫🇷</span>
+        <span class="font-bold" style="color:var(--navy)">Français</span>
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- TOP NAV -->
 <nav class="top-nav">
   <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between gap-3">
     <div class="flex items-center gap-2 flex-shrink-0">
       <div class="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold" style="background:linear-gradient(135deg,var(--coral),var(--coral-soft))">Y</div>
-      <span class="font-bold text-lg" style="font-family:'Space Grotesk'">Yapalin</span>
+      <div class="flex flex-col leading-tight">
+        <span class="font-bold text-lg" style="font-family:'Space Grotesk'">Yapalin</span>
+        <span class="temp-name-badge" data-i18n="nav.tempName">nombre temporal</span>
+      </div>
     </div>
     <div class="hidden lg:flex items-center gap-6 text-sm font-medium" style="color:var(--gray)">
       <a href="#cover" class="hover:opacity-70 transition" data-i18n="nav.vision">Visión</a>
@@ -181,6 +215,7 @@
         <h1 class="display font-extrabold leading-none mb-6" style="font-size:clamp(3.5rem,9vw,7rem)">
           <span class="gradient-text">Yapalin</span>
         </h1>
+        <div class="text-sm mono mb-4" style="color:var(--gray)" data-i18n="cover.tempName">(nombre temporal)</div>
         <div class="accent-bar mb-6"></div>
         <p class="text-2xl md:text-3xl font-semibold mb-4" style="color:var(--navy)" data-i18n="cover.tagline">
           El corazón digital de las PYMES latinoamericanas
@@ -1272,6 +1307,10 @@
                 <div class="font-semibold mb-1" data-i18n="raise.team2Title">Ingeniero AI-Native · SaaS</div>
                 <p class="text-sm opacity-70" data-i18n="raise.team2Desc">Construye sistemas escalables y flujos potenciados por IA. Una sola persona produce como un equipo entero.</p>
               </div>
+              <div class="pt-3 border-t" style="border-color:rgba(255,255,255,0.1)">
+                <div class="font-semibold mb-1"><span data-i18n="raise.advisorLabel">Asesor</span>: Wim Sweldens</div>
+                <p class="text-sm opacity-70" data-i18n="raise.advisorDesc">Acompaña al equipo con su experiencia en tecnología y emprendimiento.</p>
+              </div>
               <div class="pt-3 border-t flex items-start gap-2" style="border-color:rgba(255,255,255,0.1)">
                 <span class="pulse-dot" style="margin-top:6px"></span>
                 <p class="text-xs opacity-80" data-i18n="raise.teamComplement">Negocio × Tecnología. Terreno comercial + producto AI-native: las dos mitades necesarias para ejecutar.</p>
@@ -1472,6 +1511,8 @@
       "raise.tag":"Ronda Pre-Seed","raise.intro":"Para construir el estándar de gestión de PYMES en todo el continente latinoamericano.",
       "raise.teamTitle":"Equipo fundador","raise.team1Title":"Experto en PYMES · Growth","raise.team1Desc":"Años acompañando a cientos de PYMES reales en LatAm. Conoce sus dolores operativos de primera mano — y cómo venderles.",
       "raise.team2Title":"Ingeniero AI-Native · SaaS","raise.team2Desc":"Construye sistemas escalables y flujos potenciados por IA. Una sola persona produce como un equipo entero.",
+      "nav.tempName":"nombre temporal","cover.tempName":"(nombre temporal)",
+      "raise.advisorLabel":"Asesor","raise.advisorDesc":"Acompaña al equipo con su experiencia en tecnología y emprendimiento.",
       "raise.teamComplement":"Negocio × Tecnología. Terreno comercial + producto AI-native: las dos mitades necesarias para ejecutar.",
       "raise.fundsTitle":"Uso de los fondos","raise.fund1Label":"Marketing & adquisición","raise.fund2Label":"Salarios fundadores","raise.fund3Label":"Producto, IA & infra","raise.fund4Label":"Operaciones & Success",
       "raise.fundsNote":"El marketing es el primer rubro — sin ser desproporcionado. 18 meses de pista.",
@@ -1604,6 +1645,8 @@
       "raise.tag":"Pre-Seed Round","raise.intro":"To build the SMB management standard for the entire Latin American continent.",
       "raise.teamTitle":"Founding team","raise.team1Title":"SMB Expert · Growth","raise.team1Desc":"Years supporting hundreds of real SMBs in LatAm. Knows their operational pains first-hand — and how to sell to them.",
       "raise.team2Title":"AI-Native Engineer · SaaS","raise.team2Desc":"Builds scalable systems and AI-powered workflows. A single person produces like a full team.",
+      "nav.tempName":"temporary name","cover.tempName":"(temporary name)",
+      "raise.advisorLabel":"Advisor","raise.advisorDesc":"Supports the team with his experience in technology and entrepreneurship.",
       "raise.teamComplement":"Business × Technology. Field sales + AI-native product: the two halves needed to execute.",
       "raise.fundsTitle":"Use of funds","raise.fund1Label":"Marketing & acquisition","raise.fund2Label":"Founder salaries","raise.fund3Label":"Product, AI & infra","raise.fund4Label":"Operations & Success",
       "raise.fundsNote":"Marketing is the #1 line — without being disproportionate. 18 months of runway.",
@@ -1736,6 +1779,8 @@
       "raise.tag":"Ronde Pre-Seed","raise.intro":"Pour construire le standard de gestion des PME sur tout le continent latino-américain.",
       "raise.teamTitle":"Équipe fondatrice","raise.team1Title":"Expert PME · Growth","raise.team1Desc":"Des années à accompagner des centaines de PME réelles en LatAm. Connaît leurs douleurs opérationnelles de première main — et comment leur vendre.",
       "raise.team2Title":"Ingénieur AI-Native · SaaS","raise.team2Desc":"Construit des systèmes scalables et des flux dopés à l'IA. Une seule personne produit comme une équipe entière.",
+      "nav.tempName":"nom temporaire","cover.tempName":"(nom temporaire)",
+      "raise.advisorLabel":"Conseiller","raise.advisorDesc":"Accompagne l'équipe avec son expérience en technologie et entrepreneuriat.",
       "raise.teamComplement":"Business × Technologie. Terrain commercial + produit AI-native : les deux moitiés nécessaires pour exécuter.",
       "raise.fundsTitle":"Allocation des fonds","raise.fund1Label":"Marketing & acquisition","raise.fund2Label":"Salaires fondateurs","raise.fund3Label":"Produit, IA & infra","raise.fund4Label":"Opérations & Success",
       "raise.fundsNote":"Le marketing est le 1er poste — sans être disproportionné. 18 mois de piste.",
@@ -1765,6 +1810,17 @@
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+  });
+
+  const langGate = document.getElementById('lang-gate');
+  document.body.style.overflow = 'hidden';
+  document.querySelectorAll('.lang-gate-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      applyLanguage(btn.dataset.lang);
+      document.body.style.overflow = '';
+      langGate.style.opacity = '0';
+      setTimeout(() => langGate.remove(), 400);
+    });
   });
 
   const dots = document.querySelectorAll('.nav-dot');
