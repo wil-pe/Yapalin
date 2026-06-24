@@ -882,20 +882,13 @@
       <p class="text-xs mt-4 italic" style="color:var(--gray)" data-i18n="pricing.odooNote">* Odoo: $160/año/usuario en modo anual. Yapalin: $10/mes/usuario pagable mes a mes — más flexible y adaptado al flujo de caja de las PYMES.</p>
     </div>
 
-    <div class="grid md:grid-cols-4 gap-4 mb-8">
-      <div class="bg-white rounded-2xl p-6 border" style="border-color:rgba(29,45,68,0.08)">
-        <div class="text-xs font-semibold uppercase tracking-wider mb-2 mono" style="color:var(--gray)">Free</div>
-        <div class="text-3xl font-bold mb-1" style="color:var(--navy);font-family:'Space Grotesk'">$0</div>
-        <div class="text-xs mb-4" style="color:var(--gray)" data-i18n="pricing.perUserMonth">/usuario/mes</div>
-        <div class="text-sm font-medium mb-2" style="color:var(--navy)" data-i18n="pricing.freeAudience">Micro-emprendedores</div>
-        <p class="text-xs" style="color:var(--gray)" data-i18n="pricing.freeDesc">Funciones básicas, 1 usuario. Sin riesgo, cero barrera.</p>
-      </div>
-      <div class="bg-white rounded-2xl p-6 border" style="border-color:rgba(29,45,68,0.08)">
-        <div class="text-xs font-semibold uppercase tracking-wider mb-2 mono" style="color:var(--teal)">Básico</div>
-        <div class="text-3xl font-bold mb-1" style="color:var(--navy);font-family:'Space Grotesk'">$5</div>
-        <div class="text-xs mb-4" style="color:var(--gray)" data-i18n="pricing.perUserMonth2">/usuario/mes</div>
-        <div class="text-sm font-medium mb-2" style="color:var(--navy)" data-i18n="pricing.basicAudience">Pequeños comercios</div>
-        <p class="text-xs" style="color:var(--gray)" data-i18n="pricing.basicDesc">Ventas y facturación</p>
+    <div class="grid md:grid-cols-3 gap-4 mb-8">
+      <div class="rounded-2xl p-6 relative" style="background:linear-gradient(135deg,rgba(42,157,143,0.08),#fff);border:2px solid var(--teal)">
+        <div class="text-xs font-semibold uppercase tracking-wider mb-2 mono" style="color:var(--teal)" data-i18n="pricing.trialLabel">Prueba gratis</div>
+        <div class="text-3xl font-bold mb-1" style="color:var(--navy);font-family:'Space Grotesk'" data-i18n="pricing.trialTitle">2 semanas</div>
+        <div class="text-xs mb-4" style="color:var(--teal)" data-i18n="pricing.trialReferral">+1 semana por cada referido</div>
+        <div class="text-sm font-medium mb-2" style="color:var(--navy)" data-i18n="pricing.trialAudience">Sin tarjeta de crédito</div>
+        <p class="text-xs" style="color:var(--gray)" data-i18n="pricing.trialDesc">Acceso completo. La recomendación como motor de adquisición viral.</p>
       </div>
       <div class="rounded-2xl p-6 pricing-popular relative">
         <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs font-bold text-white" style="background:var(--coral)" data-i18n="pricing.popular">★ Popular</div>
@@ -916,9 +909,9 @@
 
     <div class="grid md:grid-cols-3 gap-6 mt-8">
       <div class="glass-card p-6">
-        <div class="text-3xl mb-2">🆓</div>
-        <h3 class="font-bold mb-2" style="color:var(--navy)" data-i18n="pricing.feat1Title">Freemium permanente</h3>
-        <p class="text-sm" style="color:var(--gray)" data-i18n="pricing.feat1Desc">Sin barrera de entrada. El boca a boca como motor de adopción.</p>
+        <div class="text-3xl mb-2">🎁</div>
+        <h3 class="font-bold mb-2" style="color:var(--navy)" data-i18n="pricing.feat1Title">Prueba + referidos</h3>
+        <p class="text-sm" style="color:var(--gray)" data-i18n="pricing.feat1Desc">2 semanas gratis + 1 semana por cada negocio recomendado. Adquisición viral y de bajo costo.</p>
       </div>
       <div class="glass-card p-6">
         <div class="text-3xl mb-2">🌍</div>
@@ -928,7 +921,7 @@
       <div class="glass-card p-6">
         <div class="text-3xl mb-2">📈</div>
         <h3 class="font-bold mb-2" style="color:var(--navy)" data-i18n="pricing.feat3Title">Upsell natural</h3>
-        <p class="text-sm" style="color:var(--gray)" data-i18n="pricing.feat3Desc">Límites freemium que motivan el upgrade cuando crece la empresa. Anual = 2 meses gratis.</p>
+        <p class="text-sm" style="color:var(--gray)" data-i18n="pricing.feat3Desc">Del plan Estándar al Premium a medida que la empresa crece. Plan anual = 2 meses gratis.</p>
       </div>
     </div>
   </div>
@@ -1368,14 +1361,13 @@
       "pricing.intro":"Anclado en <strong style=\"color:var(--navy)\">$10/mes por usuario</strong> — accesible para todo comerciante. ARPU objetivo: <strong style=\"color:var(--navy)\">$8-12/usuario/mes</strong>.",
       "pricing.vsOdoo":"vs. Odoo","pricing.saveLabel":"Ahorra 25%","pricing.annualLabel":"Costo anual / usuario","pricing.yapalinLabel":"Yapalin ($10/mes)",
       "pricing.odooNote":"* Odoo: $160/año/usuario en modo anual. Yapalin: $10/mes/usuario pagable mes a mes — más flexible y adaptado al flujo de caja de las PYMES.",
-      "pricing.perUserMonth":"/usuario/mes","pricing.perUserMonth2":"/usuario/mes","pricing.perUserMonth3":"/usuario/mes","pricing.perUserMonth4":"/usuario/mes",
-      "pricing.freeAudience":"Micro-emprendedores","pricing.freeDesc":"Funciones básicas, 1 usuario. Sin riesgo, cero barrera.",
-      "pricing.basicAudience":"Pequeños comercios","pricing.basicDesc":"Ventas y facturación",
+      "pricing.perUserMonth3":"/usuario/mes","pricing.perUserMonth4":"/usuario/mes",
+      "pricing.trialLabel":"Prueba gratis","pricing.trialTitle":"2 semanas","pricing.trialReferral":"+1 semana por cada referido","pricing.trialAudience":"Sin tarjeta de crédito","pricing.trialDesc":"Acceso completo. La recomendación como motor de adquisición viral.",
       "pricing.popular":"★ Popular","pricing.standardAudience":"PYMES en crecimiento","pricing.standardDesc":"Inventario y reportes avanzados",
       "pricing.premiumAudience":"Multi-locales","pricing.premiumDesc":"RH, IA predictiva y soporte dedicado",
-      "pricing.feat1Title":"Freemium permanente","pricing.feat1Desc":"Sin barrera de entrada. El boca a boca como motor de adopción.",
+      "pricing.feat1Title":"Prueba + referidos","pricing.feat1Desc":"2 semanas gratis + 1 semana por cada negocio recomendado. Adquisición viral y de bajo costo.",
       "pricing.feat2Title":"Pricing local","pricing.feat2Desc":"Precios ajustados en R$, MXN, COP, etc. según el poder adquisitivo — como Odoo (-80% en Brasil).",
-      "pricing.feat3Title":"Upsell natural","pricing.feat3Desc":"Límites freemium que motivan el upgrade cuando crece la empresa. Anual = 2 meses gratis.",
+      "pricing.feat3Title":"Upsell natural","pricing.feat3Desc":"Del plan Estándar al Premium a medida que la empresa crece. Plan anual = 2 meses gratis.",
       "competition.tag":"Competencia","competition.title":"Por qué Yapalin gana el mercado.","competition.failuresTitle":"Alternativas actuales — todas fallan",
       "competition.fail0Title":"Papel y lápiz","competition.fail0Desc":"Gratis, pero fuente de errores, tedioso, cero visión del negocio. Imposible escalar.",
       "competition.fail1Title":"ERPs (Odoo, SAP, Oracle)","competition.fail1Desc":"Incompletos para negocios pequeños, interfaz compleja, caros y diseñados para grandes empresas.",
@@ -1503,14 +1495,13 @@
       "pricing.intro":"Anchored at <strong style=\"color:var(--navy)\">$10/month per user</strong> — accessible to every merchant. Target ARPU: <strong style=\"color:var(--navy)\">$8-12/user/month</strong>.",
       "pricing.vsOdoo":"vs. Odoo","pricing.saveLabel":"Save 25%","pricing.annualLabel":"Yearly cost / user","pricing.yapalinLabel":"Yapalin ($10/month)",
       "pricing.odooNote":"* Odoo: $160/year/user on annual plan. Yapalin: $10/month/user payable month-to-month — more flexible and adapted to SMB cash flow.",
-      "pricing.perUserMonth":"/user/month","pricing.perUserMonth2":"/user/month","pricing.perUserMonth3":"/user/month","pricing.perUserMonth4":"/user/month",
-      "pricing.freeAudience":"Micro-entrepreneurs","pricing.freeDesc":"Basic features, 1 user. Risk-free, zero barrier.",
-      "pricing.basicAudience":"Small shops","pricing.basicDesc":"Sales & invoicing",
+      "pricing.perUserMonth3":"/user/month","pricing.perUserMonth4":"/user/month",
+      "pricing.trialLabel":"Free trial","pricing.trialTitle":"2 weeks","pricing.trialReferral":"+1 week per referral","pricing.trialAudience":"No credit card","pricing.trialDesc":"Full access. Referrals as a viral acquisition engine.",
       "pricing.popular":"★ Popular","pricing.standardAudience":"Growing SMBs","pricing.standardDesc":"Extended inventory & advanced reports",
       "pricing.premiumAudience":"Multi-location","pricing.premiumDesc":"HR, predictive AI & dedicated support",
-      "pricing.feat1Title":"Permanent freemium","pricing.feat1Desc":"No barrier to entry. Word of mouth as growth engine.",
+      "pricing.feat1Title":"Trial + referrals","pricing.feat1Desc":"2 weeks free + 1 week per referred business. Low-cost, viral acquisition.",
       "pricing.feat2Title":"Local pricing","pricing.feat2Desc":"Prices adjusted in R$, MXN, COP, etc. based on purchasing power — like Odoo (-80% in Brazil).",
-      "pricing.feat3Title":"Natural upsell","pricing.feat3Desc":"Freemium limits push upgrades as the business grows. Annual = 2 months free.",
+      "pricing.feat3Title":"Natural upsell","pricing.feat3Desc":"From Standard to Premium as the business grows. Annual plan = 2 months free.",
       "competition.tag":"Competition","competition.title":"Why Yapalin wins the market.","competition.failuresTitle":"Current alternatives — all fail",
       "competition.fail0Title":"Pen & paper","competition.fail0Desc":"Free, but error-prone, tedious, zero business visibility. Impossible to scale.",
       "competition.fail1Title":"ERPs (Odoo, SAP, Oracle)","competition.fail1Desc":"Incomplete for small businesses, complex interface, expensive and designed for large enterprises.",
@@ -1638,14 +1629,13 @@
       "pricing.intro":"Ancré à <strong style=\"color:var(--navy)\">$10/mois par utilisateur</strong> — accessible à tout commerçant. ARPU cible : <strong style=\"color:var(--navy)\">$8-12/utilisateur/mois</strong>.",
       "pricing.vsOdoo":"vs. Odoo","pricing.saveLabel":"Économise 25%","pricing.annualLabel":"Coût annuel / utilisateur","pricing.yapalinLabel":"Yapalin ($10/mois)",
       "pricing.odooNote":"* Odoo : $160/an/utilisateur en annuel. Yapalin : $10/mois/utilisateur payable mois par mois — plus flexible et adapté au cash flow des PME.",
-      "pricing.perUserMonth":"/utilisateur/mois","pricing.perUserMonth2":"/utilisateur/mois","pricing.perUserMonth3":"/utilisateur/mois","pricing.perUserMonth4":"/utilisateur/mois",
-      "pricing.freeAudience":"Micro-entrepreneurs","pricing.freeDesc":"Fonctions de base, 1 utilisateur. Sans risque, zéro barrière.",
-      "pricing.basicAudience":"Petits commerces","pricing.basicDesc":"Ventes & facturation",
+      "pricing.perUserMonth3":"/utilisateur/mois","pricing.perUserMonth4":"/utilisateur/mois",
+      "pricing.trialLabel":"Essai gratuit","pricing.trialTitle":"2 semaines","pricing.trialReferral":"+1 semaine par parrainage","pricing.trialAudience":"Sans carte bancaire","pricing.trialDesc":"Accès complet. Le parrainage comme moteur d'acquisition virale.",
       "pricing.popular":"★ Populaire","pricing.standardAudience":"PME en croissance","pricing.standardDesc":"Inventaire & rapports avancés",
       "pricing.premiumAudience":"Multi-locales","pricing.premiumDesc":"RH, IA prédictive & support dédié",
-      "pricing.feat1Title":"Freemium permanent","pricing.feat1Desc":"Pas de barrière à l'entrée. Le bouche-à-oreille comme moteur d'adoption.",
+      "pricing.feat1Title":"Essai + parrainage","pricing.feat1Desc":"2 semaines gratuites + 1 semaine par commerce parrainé. Acquisition virale et peu coûteuse.",
       "pricing.feat2Title":"Pricing local","pricing.feat2Desc":"Prix ajustés en R$, MXN, COP, etc. selon le pouvoir d'achat — comme Odoo (-80% au Brésil).",
-      "pricing.feat3Title":"Upsell naturel","pricing.feat3Desc":"Limites freemium qui poussent à l'upgrade quand l'entreprise grandit. Annuel = 2 mois offerts.",
+      "pricing.feat3Title":"Upsell naturel","pricing.feat3Desc":"Du plan Standard au Premium à mesure que l'entreprise grandit. Plan annuel = 2 mois offerts.",
       "competition.tag":"Concurrence","competition.title":"Pourquoi Yapalin gagne le marché.","competition.failuresTitle":"Alternatives actuelles — toutes échouent",
       "competition.fail0Title":"Papier & stylo","competition.fail0Desc":"Gratuit mais source d'erreurs, fastidieux, zéro vision business. Impossible à scaler.",
       "competition.fail1Title":"ERP (Odoo, SAP, Oracle)","competition.fail1Desc":"Incomplets pour les petits commerces, interface complexe, chers et conçus pour les grandes entreprises.",
