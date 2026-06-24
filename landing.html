@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yapalin — Tu negocio, bajo control. Desde el celular.</title>
+<meta name="description" content="Yapalin es la app mobile-first que digitaliza tu negocio en 5 minutos: inventario, ventas, facturación y WhatsApp en un solo lugar. Empieza gratis.">
+<meta property="og:title" content="Yapalin — El corazón digital de tu negocio">
+<meta property="og:description" content="Inventario, ventas, facturación y WhatsApp en una sola app. Empieza gratis, sin tarjeta.">
+<meta property="og:image" content="imagen1.webp">
+<meta property="og:type" content="website">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#E8745E;
+    --coral-soft:#F4A28C;
+    --teal:#2A9D8F;
+    --teal-soft:#7FC4BB;
+    --navy:#1D2D44;
+    --cream:#FBF7F0;
+    --gray:#6B7280;
+  }
+  *{font-family:'Plus Jakarta Sans',system-ui,sans-serif}
+  h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em}
+  .mono{font-family:'JetBrains Mono',monospace}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--navy);overflow-x:hidden}
+  section{scroll-margin-top:80px}
+
+  .gradient-text{background:linear-gradient(135deg,var(--coral) 0%,#F4A28C 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .accent-bar{width:60px;height:4px;background:var(--coral);border-radius:2px}
+  .glass-card{background:rgba(255,255,255,0.7);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.8);border-radius:1.5rem}
+  .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.4;z-index:0;pointer-events:none}
+  .grid-bg{background-image:linear-gradient(rgba(29,45,68,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(29,45,68,0.04) 1px,transparent 1px);background-size:40px 40px}
+
+  /* nav */
+  .top-nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(20px);background:rgba(251,247,240,0.85);border-bottom:1px solid rgba(29,45,68,0.08)}
+  .lang-switcher{display:inline-flex;background:rgba(29,45,68,0.06);border-radius:999px;padding:3px;gap:2px}
+  .lang-btn{padding:5px 11px;border-radius:999px;font-size:0.72rem;font-weight:700;border:none;background:transparent;color:var(--gray);cursor:pointer;transition:all 0.25s;letter-spacing:0.05em}
+  .lang-btn:hover{color:var(--navy)}
+  .lang-btn.active{background:var(--navy);color:white;box-shadow:0 2px 8px rgba(29,45,68,0.2)}
+  .temp-name-badge{font-size:0.6rem;font-weight:600;color:var(--gray);font-family:'JetBrains Mono';letter-spacing:0.02em}
+
+  /* buttons */
+  .btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--coral);color:#fff;font-weight:700;padding:0.85rem 1.75rem;border-radius:999px;box-shadow:0 12px 30px -10px rgba(232,116,94,0.6);transition:all 0.25s}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px -12px rgba(232,116,94,0.7)}
+  .btn-ghost{display:inline-flex;align-items:center;gap:0.5rem;border:2px solid var(--navy);color:var(--navy);font-weight:700;padding:0.8rem 1.75rem;border-radius:999px;transition:all 0.25s}
+  .btn-ghost:hover{background:var(--navy);color:#fff}
+
+  /* sections */
+  .section{padding:5.5rem 1.5rem;position:relative}
+  .container-x{max-width:1200px;margin:0 auto;width:100%}
+  .pill{display:inline-block;padding:0.4rem 1rem;background:rgba(232,116,94,0.1);color:var(--coral);border-radius:999px;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.25rem}
+
+  .feature-card{transition:all 0.3s ease;border-radius:1.5rem;padding:1.75rem;background:white;border:1px solid rgba(29,45,68,0.06)}
+  .feature-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(29,45,68,0.15)}
+  .feature-icon{width:54px;height:54px;border-radius:1rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.1rem}
+
+  .step-card{position:relative;background:white;border-radius:1.5rem;padding:2rem 1.75rem;border:1px solid rgba(29,45,68,0.06)}
+  .step-num{position:absolute;top:-18px;left:1.75rem;width:40px;height:40px;border-radius:50%;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Space Grotesk';box-shadow:0 8px 20px -8px rgba(232,116,94,0.6)}
+
+  .check-item{display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:0.9rem}
+  .check-icon{width:24px;height:24px;border-radius:50%;background:var(--teal);color:white;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.7rem;font-weight:700;margin-top:2px}
+
+  .stat-num{font-family:'Space Grotesk';font-weight:700;font-size:clamp(2.5rem,6vw,4rem);line-height:1}
+
+  .pricing-card{background:white;border-radius:1.5rem;padding:1.75rem;border:1px solid rgba(29,45,68,0.08);display:flex;flex-direction:column}
+  .pricing-popular{background:linear-gradient(135deg,#fff7f3 0%,#fff 100%);border:2px solid var(--coral);box-shadow:0 24px 50px -24px rgba(232,116,94,0.4)}
+
+  /* phone mockup */
+  .phone-frame{width:280px;border-radius:3rem;padding:0.75rem;background:var(--navy);box-shadow:0 40px 80px -30px rgba(29,45,68,0.5)}
+  .phone-screen{border-radius:2.5rem;overflow:hidden;background:var(--cream);aspect-ratio:9/19}
+  .float-badge{position:absolute;padding:0.4rem 0.9rem;border-radius:999px;font-size:0.72rem;font-weight:700;color:#fff;box-shadow:0 10px 24px -10px rgba(0,0,0,0.35)}
+
+  /* FAQ */
+  .faq-item{background:white;border:1px solid rgba(29,45,68,0.08);border-radius:1rem;overflow:hidden;margin-bottom:0.75rem}
+  .faq-q{width:100%;text-align:left;padding:1.1rem 1.25rem;font-weight:700;color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:1rem;background:none;border:none;cursor:pointer;font-size:1rem}
+  .faq-icon{flex-shrink:0;transition:transform 0.3s;color:var(--coral);font-weight:700}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease;padding:0 1.25rem}
+  .faq-item.open .faq-a{max-height:240px;padding-bottom:1.1rem}
+  .faq-item.open .faq-icon{transform:rotate(45deg)}
+
+  .footer-cta{background:linear-gradient(135deg,var(--navy) 0%,#2D4263 100%);border-radius:2rem;padding:3.5rem 2rem;color:white;position:relative;overflow:hidden}
+  .footer-cta::before{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(232,116,94,0.35) 0%,transparent 70%);border-radius:50%}
+
+  /* scroll reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .marquee-track{display:flex;gap:2.5rem;align-items:center;animation:scrollx 22s linear infinite;width:max-content}
+  @keyframes scrollx{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  @media(max-width:768px){
+    .section{padding:4rem 1.25rem}
+    .phone-frame{width:240px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .marquee-track{animation:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<nav class="top-nav">
+  <div class="container-x px-4 md:px-6 py-3 flex items-center justify-between gap-3">
+    <a href="#hero" class="flex items-center gap-2 flex-shrink-0">
+      <div class="w-9 h-9 rounded-lg flex items-center justify-center text-white font-bold" style="background:linear-gradient(135deg,var(--coral),var(--coral-soft));font-family:'Space Grotesk'">Y</div>
+      <div class="flex flex-col leading-tight">
+        <span class="font-bold text-lg" style="font-family:'Space Grotesk'">Yapalin</span>
+        <span class="temp-name-badge" data-i18n="nav.tempName">nombre temporal</span>
+      </div>
+    </a>
+    <div class="hidden lg:flex items-center gap-7 text-sm font-medium" style="color:var(--gray)">
+      <a href="#problem" class="hover:opacity-70 transition" data-i18n="nav.problem">El problema</a>
+      <a href="#how" class="hover:opacity-70 transition" data-i18n="nav.how">Cómo funciona</a>
+      <a href="#features" class="hover:opacity-70 transition" data-i18n="nav.features">Funciones</a>
+      <a href="#pricing" class="hover:opacity-70 transition" data-i18n="nav.pricing">Precios</a>
+      <a href="#faq" class="hover:opacity-70 transition" data-i18n="nav.faq">Preguntas</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="lang-switcher" role="group" aria-label="Language switcher">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+      </div>
+      <a href="#cta" class="btn-primary !py-2 !px-4 text-sm" data-i18n="nav.cta">Empieza gratis</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero" class="section grid-bg" style="padding-top:7.5rem;background:linear-gradient(135deg,#FBF7F0 0%,#FFF 100%)">
+  <div class="blob" style="width:480px;height:480px;background:var(--coral);top:-120px;right:-120px"></div>
+  <div class="blob" style="width:380px;height:380px;background:var(--teal);bottom:-120px;left:-120px;opacity:0.2"></div>
+  <div class="container-x relative z-10">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="flex items-center gap-2 mb-5">
+          <span class="w-2 h-2 rounded-full" style="background:var(--teal)"></span>
+          <span class="text-sm font-semibold tracking-wider uppercase mono" style="color:var(--teal)" data-i18n="hero.kicker">Hecho para comerciantes de LatAm</span>
+        </div>
+        <h1 class="display font-extrabold leading-none mb-5" style="font-size:clamp(2.6rem,6.5vw,4.5rem);color:var(--navy)" data-i18n-html="hero.title">
+          Tu negocio,<br><span class="gradient-text">bajo control.</span><br>Desde el celular.
+        </h1>
+        <div class="accent-bar mb-6"></div>
+        <p class="text-lg md:text-xl mb-8" style="color:var(--gray);max-width:520px" data-i18n-html="hero.subtitle">
+          Inventario, ventas, facturación y WhatsApp en <strong style="color:var(--navy)">una sola app</strong>. Deja el papel y lápiz. Lista en <strong style="color:var(--navy)">5 minutos</strong>, sin capacitación.
+        </p>
+        <div class="flex flex-wrap gap-3 mb-7">
+          <a href="#cta" class="btn-primary" data-i18n="hero.cta1">Empieza gratis →</a>
+          <a href="#how" class="btn-ghost" data-i18n="hero.cta2">Ver cómo funciona</a>
+        </div>
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm" style="color:var(--gray)">
+          <span class="flex items-center gap-2"><span style="color:var(--teal)">✓</span> <span data-i18n="hero.trust1">Sin tarjeta de crédito</span></span>
+          <span class="flex items-center gap-2"><span style="color:var(--teal)">✓</span> <span data-i18n="hero.trust2">Funciona sin internet</span></span>
+          <span class="flex items-center gap-2"><span style="color:var(--teal)">✓</span> <span data-i18n="hero.trust3">Plan gratis para siempre</span></span>
+        </div>
+      </div>
+
+      <!-- phone mockup -->
+      <div class="relative flex justify-center">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-80 h-80 rounded-full" style="background:radial-gradient(circle,rgba(232,116,94,0.18) 0%,transparent 70%)"></div>
+        </div>
+        <div class="relative">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="p-5">
+                <div class="flex items-center justify-between mb-6">
+                  <div class="text-xs font-bold mono" style="color:var(--navy)">9:41</div>
+                  <div class="flex gap-1">
+                    <div class="w-3 h-3 rounded-full" style="background:var(--coral);opacity:0.3"></div>
+                    <div class="w-3 h-3 rounded-full" style="background:var(--teal);opacity:0.3"></div>
+                  </div>
+                </div>
+                <div class="text-xs mb-1" style="color:var(--gray)" data-i18n="hero.phone.greeting">Hola, María 👋</div>
+                <h3 class="text-lg font-bold mb-4" style="color:var(--navy)" data-i18n="hero.phone.dashboard">Tu tablero</h3>
+                <div class="rounded-2xl p-4 mb-3" style="background:var(--coral);color:white">
+                  <div class="text-xs opacity-80" data-i18n="hero.phone.salesToday">Ventas de hoy</div>
+                  <div class="text-2xl font-bold">$1,247</div>
+                  <div class="text-xs opacity-80 mt-1" data-i18n="hero.phone.vsYesterday">↑ +18% vs ayer</div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 mb-3">
+                  <div class="rounded-xl p-3" style="background:white">
+                    <div class="text-xs" style="color:var(--gray)" data-i18n="hero.phone.stock">Stock</div>
+                    <div class="text-lg font-bold" style="color:var(--navy)">847</div>
+                  </div>
+                  <div class="rounded-xl p-3" style="background:white">
+                    <div class="text-xs" style="color:var(--gray)" data-i18n="hero.phone.alerts">Alertas</div>
+                    <div class="text-lg font-bold" style="color:var(--coral)">3</div>
+                  </div>
+                </div>
+                <div class="rounded-xl p-3 flex items-center gap-2" style="background:white">
+                  <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:var(--teal);color:white">📦</div>
+                  <div>
+                    <div class="text-xs font-semibold" style="color:var(--navy)" data-i18n="hero.phone.inventory">Inventario</div>
+                    <div class="text-xs" style="color:var(--gray)" data-i18n="hero.phone.scan">Escanear producto</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="float-badge" style="top:1.5rem;right:-1rem;background:var(--teal)" data-i18n="hero.badge1">Listo en 5 min</div>
+          <div class="float-badge" style="bottom:2rem;left:-1.25rem;background:var(--coral)" data-i18n="hero.badge2">Offline ✓</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST / STATS BAR ===== -->
+<section class="py-8" style="background:var(--navy);color:white">
+  <div class="container-x px-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <div class="text-3xl font-bold gradient-text" style="font-family:'Space Grotesk'">+100%</div>
+        <div class="text-xs opacity-70 mt-1" data-i18n="trust.s1">más productividad al digitalizarse</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold" style="font-family:'Space Grotesk';color:var(--teal-soft)">5 min</div>
+        <div class="text-xs opacity-70 mt-1" data-i18n="trust.s2">para empezar, sin capacitación</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold" style="font-family:'Space Grotesk';color:var(--coral-soft)">$0</div>
+        <div class="text-xs opacity-70 mt-1" data-i18n="trust.s3">plan gratis, sin tarjeta</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold" style="font-family:'Space Grotesk'">100%</div>
+        <div class="text-xs opacity-70 mt-1" data-i18n="trust.s4">desde tu celular</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEM ===== -->
+<section id="problem" class="section" style="background:var(--cream)">
+  <div class="container-x reveal">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="pill" data-i18n="problem.pill">El día a día</span>
+      <h2 class="display font-bold mb-4" style="font-size:clamp(2rem,4.5vw,3rem);color:var(--navy)" data-i18n="problem.title">
+        ¿Te suena familiar?
+      </h2>
+      <p class="text-lg" style="color:var(--gray)" data-i18n="problem.intro">
+        Llevar un negocio con cuadernos y memoria cuesta tiempo, ventas y tranquilidad. No tienes que seguir así.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="glass-card p-7">
+        <div class="text-3xl mb-3">📒</div>
+        <h3 class="font-bold text-lg mb-2" style="color:var(--navy)" data-i18n="problem.p1Title">"No sé qué tengo en stock"</h3>
+        <p class="text-sm" style="color:var(--gray)" data-i18n="problem.p1Desc">Cuentas productos a mano, pierdes ventas por quiebres de stock y compras de más.</p>
+      </div>
+      <div class="glass-card p-7">
+        <div class="text-3xl mb-3">🤔</div>
+        <h3 class="font-bold text-lg mb-2" style="color:var(--navy)" data-i18n="problem.p2Title">"No sé cuánto gano de verdad"</h3>
+        <p class="text-sm" style="color:var(--gray)" data-i18n="problem.p2Desc">Sin números claros, decides a ciegas qué vender, cuánto cobrar y cuándo reponer.</p>
+      </div>
+      <div class="glass-card p-7">
+        <div class="text-3xl mb-3">😩</div>
+        <h3 class="font-bold text-lg mb-2" style="color:var(--navy)" data-i18n="problem.p3Title">"Los ERP son caros y complicados"</h3>
+        <p class="text-sm" style="color:var(--gray)" data-i18n="problem.p3Desc">Programas pensados para grandes empresas: caros, lentos y semanas de aprendizaje.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section id="how" class="section" style="background:linear-gradient(180deg,#FFF 0%,#FBF7F0 100%)">
+  <div class="container-x reveal">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="pill" style="background:rgba(42,157,143,0.1);color:var(--teal)" data-i18n="how.pill">Cómo funciona</span>
+      <h2 class="display font-bold mb-4" style="font-size:clamp(2rem,4.5vw,3rem);color:var(--navy)" data-i18n="how.title">
+        Empieza en 3 pasos simples.
+      </h2>
+      <p class="text-lg" style="color:var(--gray)" data-i18n="how.intro">
+        Sin instalaciones complicadas, sin manuales. Bajas la app y listo.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3 class="font-bold text-xl mb-2 mt-3" style="color:var(--navy)" data-i18n="how.s1Title">Crea tu cuenta gratis</h3>
+        <p class="text-sm" style="color:var(--gray)" data-i18n="how.s1Desc">Descarga la app y regístrate en menos de un minuto. Sin tarjeta de crédito.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num" style="background:var(--teal)">2</div>
+        <h3 class="font-bold text-xl mb-2 mt-3" style="color:var(--navy)" data-i18n="how.s2Title">Carga tus productos</h3>
+        <p class="text-sm" style="color:var(--gray)" data-i18n="how.s2Desc">Escanea o agrega tus productos. Tu inventario queda listo en pocos minutos.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num" style="background:var(--navy)">3</div>
+        <h3 class="font-bold text-xl mb-2 mt-3" style="color:var(--navy)" data-i18n="how.s3Title">Vende y crece</h3>
+        <p class="text-sm" style="color:var(--gray)" data-i18n="how.s3Desc">Registra ventas, recibe alertas de stock y mira tus ganancias en tiempo real.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section id="features" class="section" style="background:var(--cream)">
+  <div class="container-x reveal">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="pill" data-i18n="features.pill">Todo en una app</span>
+      <h2 class="display font-bold mb-4" style="font-size:clamp(2rem,4.5vw,3rem);color:var(--navy)" data-i18n="features.title">
+        Control total en la palma de tu mano.
+      </h2>
+      <p class="text-lg" style="color:var(--gray)" data-i18n="features.intro">
+        Cada módulo hace una cosa, y la hace bien. Activas solo lo que necesitas.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(42,157,143,0.1);color:var(--teal)">📦</div>
+        <h3 class="font-bold text-xl mb-2" style="color:var(--navy)" data-i18n="features.f1Title">Inventario inteligente</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--gray)" data-i18n="features.f1Desc">Escáner móvil, alertas de stock bajo y valoración automática en segundos.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(232,116,94,0.1);color:var(--coral)">📊</div>
+        <h3 class="font-bold text-xl mb-2" style="color:var(--navy)" data-i18n="features.f2Title">Ventas y estadísticas</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--gray)" data-i18n="features.f2Desc">Mira qué vendes y cuánto ganas de verdad, sin enredos de contabilidad.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(37,211,102,0.12);color:#25D366">💬</div>
+        <h3 class="font-bold text-xl mb-2" style="color:var(--navy)" data-i18n="features.f3Title">Ventas por WhatsApp</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--gray)" data-i18n="features.f3Desc">Recibe pedidos y comparte catálogo por el canal que ya usan tus clientes.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(42,157,143,0.1);color:var(--teal)">💰</div>
+        <h3 class="font-bold text-xl mb-2" style="color:var(--navy)" data-i18n="features.f4Title">Facturación legal</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--gray)" data-i18n="features.f4Desc">Emite y envía tus facturas legales con un solo clic.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(139,92,246,0.12);color:#8B5CF6">🤖</div>
+        <h3 class="font-bold text-xl mb-2" style="color:var(--navy)" data-i18n="features.f5Title">IA que te avisa</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--gray)" data-i18n="features.f5Desc">Anticipa quiebres de stock y te sugiere cuándo y cuánto reponer.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(29,45,68,0.08);color:var(--navy)">👥</div>
+        <h3 class="font-bold text-xl mb-2" style="color:var(--navy)" data-i18n="features.f6Title">Equipo y turnos</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--gray)" data-i18n="features.f6Desc">Control de turnos y comisiones para motivar a tu equipo y multi-local.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHOWCASE / BENEFITS ===== -->
+<section class="section" style="background:linear-gradient(180deg,#FBF7F0 0%,#FFF 100%)">
+  <div class="container-x reveal">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="pill" style="background:rgba(42,157,143,0.1);color:var(--teal)" data-i18n="show.pill">Pensado para el mundo real</span>
+        <h2 class="display font-bold mb-5" style="font-size:clamp(1.9rem,4vw,2.8rem);color:var(--navy)" data-i18n-html="show.title">
+          Simple por fuera,<br>poderoso por dentro.
+        </h2>
+        <p class="text-lg mb-7" style="color:var(--gray)" data-i18n="show.intro">
+          Co-creado con comerciantes como tú. Diseñado para usarse en un mostrador con poco tiempo y poca señal.
+        </p>
+        <div class="space-y-1">
+          <div class="check-item"><div class="check-icon">✓</div><div><div class="font-semibold" style="color:var(--navy)" data-i18n="show.b1Title">Funciona sin internet</div><div class="text-sm" style="color:var(--gray)" data-i18n="show.b1Desc">Sigue vendiendo aunque se caiga la señal. Se sincroniza solo.</div></div></div>
+          <div class="check-item"><div class="check-icon">✓</div><div><div class="font-semibold" style="color:var(--navy)" data-i18n="show.b2Title">Cero capacitación</div><div class="text-sm" style="color:var(--gray)" data-i18n="show.b2Desc">Si sabes usar WhatsApp, sabes usar Yapalin.</div></div></div>
+          <div class="check-item"><div class="check-icon">✓</div><div><div class="font-semibold" style="color:var(--navy)" data-i18n="show.b3Title">Tus datos, seguros</div><div class="text-sm" style="color:var(--gray)" data-i18n="show.b3Desc">Respaldo automático en la nube. Nunca más pierdas tus cuentas.</div></div></div>
+        </div>
+      </div>
+      <div>
+        <img src="imagen1.webp" alt="Yapalin en acción" style="width:100%;display:block;border-radius:1.5rem;box-shadow:0 30px 60px -30px rgba(29,45,68,0.4)">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIAL ===== -->
+<section class="section" style="background:var(--navy);color:white">
+  <div class="container-x reveal text-center max-w-3xl mx-auto">
+    <div class="text-6xl mb-2 gradient-text" style="font-family:'Space Grotesk'">"</div>
+    <p class="text-2xl md:text-3xl font-semibold leading-snug -mt-6 mb-8" style="font-family:'Space Grotesk'" data-i18n="testi.quote">
+      Antes contaba el inventario a mano cada semana. Ahora lo veo en mi celular en segundos y vendo más porque nunca me quedo sin stock.
+    </p>
+    <div class="flex items-center justify-center gap-3">
+      <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white" style="background:linear-gradient(135deg,var(--coral),var(--coral-soft))">M</div>
+      <div class="text-left">
+        <div class="font-bold" data-i18n="testi.name">María — Bodega y minimarket</div>
+        <div class="text-sm opacity-60" data-i18n="testi.role">Comercio piloto · Perú</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section id="pricing" class="section" style="background:var(--cream)">
+  <div class="container-x reveal">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="pill" data-i18n="pricing.pill">Precios</span>
+      <h2 class="display font-bold mb-4" style="font-size:clamp(2rem,4.5vw,3rem);color:var(--navy)" data-i18n="pricing.title">
+        Un precio justo para cada negocio.
+      </h2>
+      <p class="text-lg" style="color:var(--gray)" data-i18n-html="pricing.intro">
+        Empieza gratis para siempre. Crece cuando quieras. <strong style="color:var(--navy)">Sin contratos, paga mes a mes.</strong>
+      </p>
+    </div>
+    <div class="grid md:grid-cols-4 gap-5 items-stretch">
+      <div class="pricing-card">
+        <div class="text-xs font-semibold uppercase tracking-wider mb-2 mono" style="color:var(--gray)">Free</div>
+        <div class="flex items-end gap-1 mb-1"><span class="text-4xl font-bold" style="color:var(--navy);font-family:'Space Grotesk'">$0</span></div>
+        <div class="text-xs mb-4" style="color:var(--gray)" data-i18n="pricing.perUser">/usuario/mes</div>
+        <div class="text-sm font-medium mb-2" style="color:var(--navy)" data-i18n="pricing.freeAudience">Micro-emprendedores</div>
+        <p class="text-xs mb-5 flex-grow" style="color:var(--gray)" data-i18n="pricing.freeDesc">Funciones básicas, 1 usuario. Sin riesgo, cero barrera.</p>
+        <a href="#cta" class="btn-ghost !py-2.5 justify-center text-sm" data-i18n="pricing.ctaFree">Empezar gratis</a>
+      </div>
+      <div class="pricing-card">
+        <div class="text-xs font-semibold uppercase tracking-wider mb-2 mono" style="color:var(--teal)">Básico</div>
+        <div class="flex items-end gap-1 mb-1"><span class="text-4xl font-bold" style="color:var(--navy);font-family:'Space Grotesk'">$5</span></div>
+        <div class="text-xs mb-4" style="color:var(--gray)" data-i18n="pricing.perUser2">/usuario/mes</div>
+        <div class="text-sm font-medium mb-2" style="color:var(--navy)" data-i18n="pricing.basicAudience">Pequeños comercios</div>
+        <p class="text-xs mb-5 flex-grow" style="color:var(--gray)" data-i18n="pricing.basicDesc">Ventas y facturación incluidas.</p>
+        <a href="#cta" class="btn-ghost !py-2.5 justify-center text-sm" data-i18n="pricing.ctaChoose">Elegir plan</a>
+      </div>
+      <div class="pricing-card pricing-popular relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs font-bold text-white" style="background:var(--coral)" data-i18n="pricing.popular">★ Más popular</div>
+        <div class="text-xs font-semibold uppercase tracking-wider mb-2 mono" style="color:var(--coral)">Standard</div>
+        <div class="flex items-end gap-1 mb-1"><span class="text-4xl font-bold" style="color:var(--navy);font-family:'Space Grotesk'">$10</span></div>
+        <div class="text-xs mb-4" style="color:var(--gray)" data-i18n="pricing.perUser3">/usuario/mes</div>
+        <div class="text-sm font-medium mb-2" style="color:var(--navy)" data-i18n="pricing.standardAudience">PYMES en crecimiento</div>
+        <p class="text-xs mb-5 flex-grow" style="color:var(--gray)" data-i18n="pricing.standardDesc">Inventario y reportes avanzados.</p>
+        <a href="#cta" class="btn-primary !py-2.5 justify-center text-sm" data-i18n="pricing.ctaChoose2">Elegir plan</a>
+      </div>
+      <div class="pricing-card" style="background:var(--navy);color:white;border-color:transparent">
+        <div class="text-xs font-semibold uppercase tracking-wider mb-2 opacity-70 mono">Premium</div>
+        <div class="flex items-end gap-1 mb-1"><span class="text-4xl font-bold" style="font-family:'Space Grotesk'">$15</span></div>
+        <div class="text-xs mb-4 opacity-70" data-i18n="pricing.perUser4">/usuario/mes</div>
+        <div class="text-sm font-medium mb-2" data-i18n="pricing.premiumAudience">Multi-locales</div>
+        <p class="text-xs mb-5 flex-grow opacity-70" data-i18n="pricing.premiumDesc">RH, IA predictiva y soporte dedicado.</p>
+        <a href="#cta" class="!py-2.5 justify-center text-sm rounded-full font-bold text-center transition" style="background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.25)" data-i18n="pricing.ctaContact">Hablar con ventas</a>
+      </div>
+    </div>
+    <p class="text-center text-sm mt-6" style="color:var(--gray)" data-i18n="pricing.note">Precios ajustados a tu país (R$, MXN, COP…). Plan anual = 2 meses gratis.</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="section" style="background:linear-gradient(180deg,#FFF 0%,#FBF7F0 100%)">
+  <div class="container-x reveal" style="max-width:760px">
+    <div class="text-center mb-10">
+      <span class="pill" data-i18n="faq.pill">Preguntas frecuentes</span>
+      <h2 class="display font-bold" style="font-size:clamp(2rem,4.5vw,3rem);color:var(--navy)" data-i18n="faq.title">¿Tienes dudas?</h2>
+    </div>
+    <div>
+      <div class="faq-item">
+        <button class="faq-q"><span data-i18n="faq.q1">¿Necesito saber de tecnología para usarlo?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p class="text-sm" style="color:var(--gray)" data-i18n="faq.a1">No. Si usas WhatsApp, ya sabes usar Yapalin. La app es tan simple que estarás listo en 5 minutos, sin capacitación.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span data-i18n="faq.q2">¿Funciona si se me cae el internet?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p class="text-sm" style="color:var(--gray)" data-i18n="faq.a2">Sí. Yapalin funciona offline: sigues registrando ventas e inventario, y todo se sincroniza solo cuando vuelve la señal.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span data-i18n="faq.q3">¿De verdad es gratis?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p class="text-sm" style="color:var(--gray)" data-i18n="faq.a3">Sí. El plan gratis es para siempre, sin tarjeta de crédito. Solo pagas si decides crecer a un plan con más funciones.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span data-i18n="faq.q4">¿Necesito una computadora?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p class="text-sm" style="color:var(--gray)" data-i18n="faq.a4">No. Todo funciona desde tu celular. Manejas tu negocio completo desde la palma de tu mano.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span data-i18n="faq.q5">¿Mis datos están seguros?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><p class="text-sm" style="color:var(--gray)" data-i18n="faq.a5">Sí. Tus datos se respaldan automáticamente en la nube y son solo tuyos. Nunca más pierdas tus cuentas por un cuaderno mojado.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section id="cta" class="section" style="background:var(--cream)">
+  <div class="container-x reveal">
+    <div class="footer-cta text-center">
+      <div class="relative z-10 max-w-2xl mx-auto">
+        <h2 class="display font-extrabold mb-4" style="font-size:clamp(2.2rem,5.5vw,3.6rem)" data-i18n-html="cta.title">
+          Empieza hoy. <span class="gradient-text">Gratis.</span>
+        </h2>
+        <p class="text-lg opacity-85 mb-8" data-i18n="cta.subtitle">
+          Únete a los comerciantes que ya dejaron el papel y lápiz. Sin tarjeta, sin compromisos.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
+          <a href="https://www.yapalin.com" class="btn-primary text-base" data-i18n="cta.button">Crear mi cuenta gratis →</a>
+          <a href="#pricing" class="px-7 py-3 rounded-full font-bold border-2 transition" style="border-color:rgba(255,255,255,0.3);color:#fff" data-i18n="cta.button2">Ver precios</a>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm opacity-80">
+          <span class="flex items-center gap-2"><span style="color:var(--teal-soft)">✓</span> <span data-i18n="cta.t1">Gratis para siempre</span></span>
+          <span class="flex items-center gap-2"><span style="color:var(--teal-soft)">✓</span> <span data-i18n="cta.t2">Listo en 5 minutos</span></span>
+          <span class="flex items-center gap-2"><span style="color:var(--teal-soft)">✓</span> <span data-i18n="cta.t3">Sin tarjeta de crédito</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer style="background:var(--navy);color:rgba(255,255,255,0.6)" class="py-12">
+  <div class="container-x px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold" style="background:linear-gradient(135deg,var(--coral),var(--coral-soft))">Y</div>
+        <span class="font-bold text-lg text-white" style="font-family:'Space Grotesk'">Yapalin</span>
+        <span class="temp-name-badge" data-i18n="nav.tempName">nombre temporal</span>
+      </div>
+      <div class="flex flex-wrap justify-center gap-6 text-sm">
+        <a href="#features" class="hover:text-white transition" data-i18n="nav.features">Funciones</a>
+        <a href="#pricing" class="hover:text-white transition" data-i18n="nav.pricing">Precios</a>
+        <a href="#faq" class="hover:text-white transition" data-i18n="nav.faq">Preguntas</a>
+        <a href="index.html" class="hover:text-white transition" data-i18n="footer.investors">Inversionistas</a>
+      </div>
+    </div>
+    <div class="mt-8 pt-6 border-t text-center text-xs" style="border-color:rgba(255,255,255,0.1)">
+      <span data-i18n="footer.text">© 2026 Yapalin — El corazón digital de las PYMES latinoamericanas</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const translations = {
+    es: {
+      "nav.tempName":"nombre temporal","nav.problem":"El problema","nav.how":"Cómo funciona","nav.features":"Funciones","nav.pricing":"Precios","nav.faq":"Preguntas","nav.cta":"Empieza gratis",
+      "hero.kicker":"Hecho para comerciantes de LatAm",
+      "hero.title":"Tu negocio,<br><span class=\"gradient-text\">bajo control.</span><br>Desde el celular.",
+      "hero.subtitle":"Inventario, ventas, facturación y WhatsApp en <strong style=\"color:var(--navy)\">una sola app</strong>. Deja el papel y lápiz. Lista en <strong style=\"color:var(--navy)\">5 minutos</strong>, sin capacitación.",
+      "hero.cta1":"Empieza gratis →","hero.cta2":"Ver cómo funciona",
+      "hero.trust1":"Sin tarjeta de crédito","hero.trust2":"Funciona sin internet","hero.trust3":"Plan gratis para siempre",
+      "hero.phone.greeting":"Hola, María 👋","hero.phone.dashboard":"Tu tablero","hero.phone.salesToday":"Ventas de hoy","hero.phone.vsYesterday":"↑ +18% vs ayer","hero.phone.stock":"Stock","hero.phone.alerts":"Alertas","hero.phone.inventory":"Inventario","hero.phone.scan":"Escanear producto","hero.badge1":"Listo en 5 min","hero.badge2":"Offline ✓",
+      "trust.s1":"más productividad al digitalizarse","trust.s2":"para empezar, sin capacitación","trust.s3":"plan gratis, sin tarjeta","trust.s4":"desde tu celular",
+      "problem.pill":"El día a día","problem.title":"¿Te suena familiar?","problem.intro":"Llevar un negocio con cuadernos y memoria cuesta tiempo, ventas y tranquilidad. No tienes que seguir así.",
+      "problem.p1Title":"\"No sé qué tengo en stock\"","problem.p1Desc":"Cuentas productos a mano, pierdes ventas por quiebres de stock y compras de más.",
+      "problem.p2Title":"\"No sé cuánto gano de verdad\"","problem.p2Desc":"Sin números claros, decides a ciegas qué vender, cuánto cobrar y cuándo reponer.",
+      "problem.p3Title":"\"Los ERP son caros y complicados\"","problem.p3Desc":"Programas pensados para grandes empresas: caros, lentos y semanas de aprendizaje.",
+      "how.pill":"Cómo funciona","how.title":"Empieza en 3 pasos simples.","how.intro":"Sin instalaciones complicadas, sin manuales. Bajas la app y listo.",
+      "how.s1Title":"Crea tu cuenta gratis","how.s1Desc":"Descarga la app y regístrate en menos de un minuto. Sin tarjeta de crédito.",
+      "how.s2Title":"Carga tus productos","how.s2Desc":"Escanea o agrega tus productos. Tu inventario queda listo en pocos minutos.",
+      "how.s3Title":"Vende y crece","how.s3Desc":"Registra ventas, recibe alertas de stock y mira tus ganancias en tiempo real.",
+      "features.pill":"Todo en una app","features.title":"Control total en la palma de tu mano.","features.intro":"Cada módulo hace una cosa, y la hace bien. Activas solo lo que necesitas.",
+      "features.f1Title":"Inventario inteligente","features.f1Desc":"Escáner móvil, alertas de stock bajo y valoración automática en segundos.",
+      "features.f2Title":"Ventas y estadísticas","features.f2Desc":"Mira qué vendes y cuánto ganas de verdad, sin enredos de contabilidad.",
+      "features.f3Title":"Ventas por WhatsApp","features.f3Desc":"Recibe pedidos y comparte catálogo por el canal que ya usan tus clientes.",
+      "features.f4Title":"Facturación legal","features.f4Desc":"Emite y envía tus facturas legales con un solo clic.",
+      "features.f5Title":"IA que te avisa","features.f5Desc":"Anticipa quiebres de stock y te sugiere cuándo y cuánto reponer.",
+      "features.f6Title":"Equipo y turnos","features.f6Desc":"Control de turnos y comisiones para motivar a tu equipo y multi-local.",
+      "show.pill":"Pensado para el mundo real","show.title":"Simple por fuera,<br>poderoso por dentro.","show.intro":"Co-creado con comerciantes como tú. Diseñado para usarse en un mostrador con poco tiempo y poca señal.",
+      "show.b1Title":"Funciona sin internet","show.b1Desc":"Sigue vendiendo aunque se caiga la señal. Se sincroniza solo.",
+      "show.b2Title":"Cero capacitación","show.b2Desc":"Si sabes usar WhatsApp, sabes usar Yapalin.",
+      "show.b3Title":"Tus datos, seguros","show.b3Desc":"Respaldo automático en la nube. Nunca más pierdas tus cuentas.",
+      "testi.quote":"Antes contaba el inventario a mano cada semana. Ahora lo veo en mi celular en segundos y vendo más porque nunca me quedo sin stock.","testi.name":"María — Bodega y minimarket","testi.role":"Comercio piloto · Perú",
+      "pricing.pill":"Precios","pricing.title":"Un precio justo para cada negocio.","pricing.intro":"Empieza gratis para siempre. Crece cuando quieras. <strong style=\"color:var(--navy)\">Sin contratos, paga mes a mes.</strong>",
+      "pricing.perUser":"/usuario/mes","pricing.perUser2":"/usuario/mes","pricing.perUser3":"/usuario/mes","pricing.perUser4":"/usuario/mes",
+      "pricing.freeAudience":"Micro-emprendedores","pricing.freeDesc":"Funciones básicas, 1 usuario. Sin riesgo, cero barrera.","pricing.ctaFree":"Empezar gratis",
+      "pricing.basicAudience":"Pequeños comercios","pricing.basicDesc":"Ventas y facturación incluidas.","pricing.ctaChoose":"Elegir plan",
+      "pricing.popular":"★ Más popular","pricing.standardAudience":"PYMES en crecimiento","pricing.standardDesc":"Inventario y reportes avanzados.","pricing.ctaChoose2":"Elegir plan",
+      "pricing.premiumAudience":"Multi-locales","pricing.premiumDesc":"RH, IA predictiva y soporte dedicado.","pricing.ctaContact":"Hablar con ventas",
+      "pricing.note":"Precios ajustados a tu país (R$, MXN, COP…). Plan anual = 2 meses gratis.",
+      "faq.pill":"Preguntas frecuentes","faq.title":"¿Tienes dudas?",
+      "faq.q1":"¿Necesito saber de tecnología para usarlo?","faq.a1":"No. Si usas WhatsApp, ya sabes usar Yapalin. La app es tan simple que estarás listo en 5 minutos, sin capacitación.",
+      "faq.q2":"¿Funciona si se me cae el internet?","faq.a2":"Sí. Yapalin funciona offline: sigues registrando ventas e inventario, y todo se sincroniza solo cuando vuelve la señal.",
+      "faq.q3":"¿De verdad es gratis?","faq.a3":"Sí. El plan gratis es para siempre, sin tarjeta de crédito. Solo pagas si decides crecer a un plan con más funciones.",
+      "faq.q4":"¿Necesito una computadora?","faq.a4":"No. Todo funciona desde tu celular. Manejas tu negocio completo desde la palma de tu mano.",
+      "faq.q5":"¿Mis datos están seguros?","faq.a5":"Sí. Tus datos se respaldan automáticamente en la nube y son solo tuyos. Nunca más pierdas tus cuentas por un cuaderno mojado.",
+      "cta.title":"Empieza hoy. <span class=\"gradient-text\">Gratis.</span>","cta.subtitle":"Únete a los comerciantes que ya dejaron el papel y lápiz. Sin tarjeta, sin compromisos.","cta.button":"Crear mi cuenta gratis →","cta.button2":"Ver precios","cta.t1":"Gratis para siempre","cta.t2":"Listo en 5 minutos","cta.t3":"Sin tarjeta de crédito",
+      "footer.investors":"Inversionistas","footer.text":"© 2026 Yapalin — El corazón digital de las PYMES latinoamericanas"
+    },
+    en: {
+      "nav.tempName":"temporary name","nav.problem":"The problem","nav.how":"How it works","nav.features":"Features","nav.pricing":"Pricing","nav.faq":"FAQ","nav.cta":"Start free",
+      "hero.kicker":"Built for LatAm shop owners",
+      "hero.title":"Your business,<br><span class=\"gradient-text\">under control.</span><br>From your phone.",
+      "hero.subtitle":"Inventory, sales, invoicing and WhatsApp in <strong style=\"color:var(--navy)\">one single app</strong>. Drop the pen and paper. Ready in <strong style=\"color:var(--navy)\">5 minutes</strong>, no training needed.",
+      "hero.cta1":"Start free →","hero.cta2":"See how it works",
+      "hero.trust1":"No credit card","hero.trust2":"Works offline","hero.trust3":"Free plan forever",
+      "hero.phone.greeting":"Hi, María 👋","hero.phone.dashboard":"Your dashboard","hero.phone.salesToday":"Today's sales","hero.phone.vsYesterday":"↑ +18% vs yesterday","hero.phone.stock":"Stock","hero.phone.alerts":"Alerts","hero.phone.inventory":"Inventory","hero.phone.scan":"Scan product","hero.badge1":"Ready in 5 min","hero.badge2":"Offline ✓",
+      "trust.s1":"more productivity once digital","trust.s2":"to get started, no training","trust.s3":"free plan, no card","trust.s4":"runs on your phone",
+      "problem.pill":"Daily life","problem.title":"Sound familiar?","problem.intro":"Running a business on notebooks and memory costs time, sales and peace of mind. You don't have to keep doing it.",
+      "problem.p1Title":"\"I don't know my stock\"","problem.p1Desc":"You count products by hand, lose sales to stockouts and over-buy.",
+      "problem.p2Title":"\"I don't know my real profit\"","problem.p2Desc":"Without clear numbers, you guess what to sell, what to charge and when to restock.",
+      "problem.p3Title":"\"ERPs are expensive and complex\"","problem.p3Desc":"Software built for big companies: pricey, slow and weeks of learning.",
+      "how.pill":"How it works","how.title":"Get started in 3 simple steps.","how.intro":"No complicated setup, no manuals. Download the app and go.",
+      "how.s1Title":"Create your free account","how.s1Desc":"Download the app and sign up in under a minute. No credit card.",
+      "how.s2Title":"Add your products","how.s2Desc":"Scan or add your products. Your inventory is ready in minutes.",
+      "how.s3Title":"Sell and grow","how.s3Desc":"Record sales, get stock alerts and see your profit in real time.",
+      "features.pill":"All in one app","features.title":"Total control in the palm of your hand.","features.intro":"Each module does one thing well. Turn on only what you need.",
+      "features.f1Title":"Smart inventory","features.f1Desc":"Mobile scanner, low-stock alerts and automatic valuation in seconds.",
+      "features.f2Title":"Sales & analytics","features.f2Desc":"See what you sell and what you really earn, no accounting headaches.",
+      "features.f3Title":"Sell via WhatsApp","features.f3Desc":"Take orders and share your catalog on the channel your customers already use.",
+      "features.f4Title":"Legal invoicing","features.f4Desc":"Issue and send your legal invoices with a single click.",
+      "features.f5Title":"AI that warns you","features.f5Desc":"Anticipates stockouts and suggests when and how much to restock.",
+      "features.f6Title":"Team & shifts","features.f6Desc":"Manage shifts and commissions to motivate your team, across locations.",
+      "show.pill":"Built for the real world","show.title":"Simple on the outside,<br>powerful inside.","show.intro":"Co-created with shop owners like you. Designed to be used at a busy counter with little time and weak signal.",
+      "show.b1Title":"Works offline","show.b1Desc":"Keep selling even when the signal drops. It syncs by itself.",
+      "show.b2Title":"Zero training","show.b2Desc":"If you can use WhatsApp, you can use Yapalin.",
+      "show.b3Title":"Your data, safe","show.b3Desc":"Automatic cloud backup. Never lose your records again.",
+      "testi.quote":"I used to count inventory by hand every week. Now I see it on my phone in seconds and I sell more because I never run out of stock.","testi.name":"María — Grocery & minimarket","testi.role":"Pilot shop · Peru",
+      "pricing.pill":"Pricing","pricing.title":"A fair price for every business.","pricing.intro":"Start free forever. Grow whenever you want. <strong style=\"color:var(--navy)\">No contracts, pay month to month.</strong>",
+      "pricing.perUser":"/user/month","pricing.perUser2":"/user/month","pricing.perUser3":"/user/month","pricing.perUser4":"/user/month",
+      "pricing.freeAudience":"Micro-entrepreneurs","pricing.freeDesc":"Basic features, 1 user. No risk, zero barrier.","pricing.ctaFree":"Start free",
+      "pricing.basicAudience":"Small shops","pricing.basicDesc":"Sales and invoicing included.","pricing.ctaChoose":"Choose plan",
+      "pricing.popular":"★ Most popular","pricing.standardAudience":"Growing SMEs","pricing.standardDesc":"Advanced inventory and reports.","pricing.ctaChoose2":"Choose plan",
+      "pricing.premiumAudience":"Multi-location","pricing.premiumDesc":"HR, predictive AI and dedicated support.","pricing.ctaContact":"Talk to sales",
+      "pricing.note":"Prices adjusted to your country (R$, MXN, COP…). Annual plan = 2 months free.",
+      "faq.pill":"Frequently asked","faq.title":"Got questions?",
+      "faq.q1":"Do I need to be tech-savvy to use it?","faq.a1":"No. If you use WhatsApp, you already know how to use Yapalin. The app is so simple you'll be ready in 5 minutes, no training.",
+      "faq.q2":"Does it work if my internet drops?","faq.a2":"Yes. Yapalin works offline: you keep recording sales and inventory, and everything syncs by itself when the signal returns.",
+      "faq.q3":"Is it really free?","faq.a3":"Yes. The free plan is forever, no credit card. You only pay if you choose to grow to a plan with more features.",
+      "faq.q4":"Do I need a computer?","faq.a4":"No. Everything runs on your phone. You manage your whole business from the palm of your hand.",
+      "faq.q5":"Is my data safe?","faq.a5":"Yes. Your data is automatically backed up in the cloud and it's yours alone. Never lose your records to a soggy notebook again.",
+      "cta.title":"Start today. <span class=\"gradient-text\">Free.</span>","cta.subtitle":"Join the shop owners who already dropped the pen and paper. No card, no commitments.","cta.button":"Create my free account →","cta.button2":"See pricing","cta.t1":"Free forever","cta.t2":"Ready in 5 minutes","cta.t3":"No credit card",
+      "footer.investors":"Investors","footer.text":"© 2026 Yapalin — The digital heart of Latin American SMEs"
+    },
+    fr: {
+      "nav.tempName":"nom temporaire","nav.problem":"Le problème","nav.how":"Comment ça marche","nav.features":"Fonctions","nav.pricing":"Tarifs","nav.faq":"FAQ","nav.cta":"Commencer gratuitement",
+      "hero.kicker":"Conçu pour les commerçants d'Amérique latine",
+      "hero.title":"Votre commerce,<br><span class=\"gradient-text\">sous contrôle.</span><br>Depuis votre mobile.",
+      "hero.subtitle":"Stock, ventes, facturation et WhatsApp dans <strong style=\"color:var(--navy)\">une seule appli</strong>. Oubliez le papier et le crayon. Prête en <strong style=\"color:var(--navy)\">5 minutes</strong>, sans formation.",
+      "hero.cta1":"Commencer gratuitement →","hero.cta2":"Voir comment ça marche",
+      "hero.trust1":"Sans carte bancaire","hero.trust2":"Fonctionne hors ligne","hero.trust3":"Offre gratuite à vie",
+      "hero.phone.greeting":"Bonjour, María 👋","hero.phone.dashboard":"Votre tableau de bord","hero.phone.salesToday":"Ventes du jour","hero.phone.vsYesterday":"↑ +18% vs hier","hero.phone.stock":"Stock","hero.phone.alerts":"Alertes","hero.phone.inventory":"Inventaire","hero.phone.scan":"Scanner un produit","hero.badge1":"Prête en 5 min","hero.badge2":"Hors ligne ✓",
+      "trust.s1":"de productivité en se digitalisant","trust.s2":"pour démarrer, sans formation","trust.s3":"offre gratuite, sans carte","trust.s4":"depuis votre mobile",
+      "problem.pill":"Le quotidien","problem.title":"Ça vous parle ?","problem.intro":"Gérer un commerce avec des cahiers et sa mémoire coûte du temps, des ventes et de la tranquillité. Vous n'êtes pas obligé de continuer ainsi.",
+      "problem.p1Title":"« Je ne connais pas mon stock »","problem.p1Desc":"Vous comptez à la main, perdez des ventes par ruptures et achetez en trop.",
+      "problem.p2Title":"« Je ne sais pas ce que je gagne »","problem.p2Desc":"Sans chiffres clairs, vous devinez quoi vendre, à quel prix et quand réapprovisionner.",
+      "problem.p3Title":"« Les ERP sont chers et compliqués »","problem.p3Desc":"Des logiciels pensés pour les grandes entreprises : chers, lents et des semaines d'apprentissage.",
+      "how.pill":"Comment ça marche","how.title":"Démarrez en 3 étapes simples.","how.intro":"Pas d'installation compliquée, pas de manuel. Téléchargez l'appli et c'est parti.",
+      "how.s1Title":"Créez votre compte gratuit","how.s1Desc":"Téléchargez l'appli et inscrivez-vous en moins d'une minute. Sans carte bancaire.",
+      "how.s2Title":"Ajoutez vos produits","how.s2Desc":"Scannez ou ajoutez vos produits. Votre inventaire est prêt en quelques minutes.",
+      "how.s3Title":"Vendez et grandissez","how.s3Desc":"Enregistrez vos ventes, recevez des alertes de stock et suivez vos bénéfices en temps réel.",
+      "features.pill":"Tout dans une appli","features.title":"Le contrôle total au creux de la main.","features.intro":"Chaque module fait une chose, et la fait bien. Activez seulement ce dont vous avez besoin.",
+      "features.f1Title":"Inventaire intelligent","features.f1Desc":"Scanner mobile, alertes de stock bas et valorisation automatique en quelques secondes.",
+      "features.f2Title":"Ventes et statistiques","features.f2Desc":"Voyez ce que vous vendez et ce que vous gagnez vraiment, sans casse-tête comptable.",
+      "features.f3Title":"Vendre par WhatsApp","features.f3Desc":"Recevez des commandes et partagez votre catalogue sur le canal que vos clients utilisent déjà.",
+      "features.f4Title":"Facturation légale","features.f4Desc":"Émettez et envoyez vos factures légales en un seul clic.",
+      "features.f5Title":"Une IA qui vous alerte","features.f5Desc":"Anticipe les ruptures de stock et vous suggère quand et combien réapprovisionner.",
+      "features.f6Title":"Équipe et plannings","features.f6Desc":"Gérez les plannings et commissions pour motiver votre équipe, en multi-points de vente.",
+      "show.pill":"Pensé pour le terrain","show.title":"Simple à l'extérieur,<br>puissant à l'intérieur.","show.intro":"Co-créé avec des commerçants comme vous. Conçu pour être utilisé derrière un comptoir, avec peu de temps et peu de réseau.",
+      "show.b1Title":"Fonctionne hors ligne","show.b1Desc":"Continuez à vendre même sans réseau. La synchro se fait toute seule.",
+      "show.b2Title":"Zéro formation","show.b2Desc":"Si vous savez utiliser WhatsApp, vous savez utiliser Yapalin.",
+      "show.b3Title":"Vos données en sécurité","show.b3Desc":"Sauvegarde automatique dans le cloud. Ne perdez plus jamais vos comptes.",
+      "testi.quote":"Avant, je comptais l'inventaire à la main chaque semaine. Maintenant je le vois sur mon mobile en quelques secondes et je vends plus car je ne suis jamais en rupture.","testi.name":"María — Épicerie & minimarket","testi.role":"Commerce pilote · Pérou",
+      "pricing.pill":"Tarifs","pricing.title":"Un prix juste pour chaque commerce.","pricing.intro":"Commencez gratuitement à vie. Évoluez quand vous voulez. <strong style=\"color:var(--navy)\">Sans engagement, payez au mois.</strong>",
+      "pricing.perUser":"/utilisateur/mois","pricing.perUser2":"/utilisateur/mois","pricing.perUser3":"/utilisateur/mois","pricing.perUser4":"/utilisateur/mois",
+      "pricing.freeAudience":"Micro-entrepreneurs","pricing.freeDesc":"Fonctions de base, 1 utilisateur. Sans risque, zéro barrière.","pricing.ctaFree":"Commencer gratuitement",
+      "pricing.basicAudience":"Petits commerces","pricing.basicDesc":"Ventes et facturation incluses.","pricing.ctaChoose":"Choisir l'offre",
+      "pricing.popular":"★ Le plus populaire","pricing.standardAudience":"PME en croissance","pricing.standardDesc":"Inventaire et rapports avancés.","pricing.ctaChoose2":"Choisir l'offre",
+      "pricing.premiumAudience":"Multi-points de vente","pricing.premiumDesc":"RH, IA prédictive et support dédié.","pricing.ctaContact":"Parler aux ventes",
+      "pricing.note":"Prix ajustés à votre pays (R$, MXN, COP…). Offre annuelle = 2 mois offerts.",
+      "faq.pill":"Questions fréquentes","faq.title":"Des questions ?",
+      "faq.q1":"Faut-il s'y connaître en technologie ?","faq.a1":"Non. Si vous utilisez WhatsApp, vous savez déjà utiliser Yapalin. L'appli est si simple que vous serez prêt en 5 minutes, sans formation.",
+      "faq.q2":"Ça marche si je perds Internet ?","faq.a2":"Oui. Yapalin fonctionne hors ligne : vous continuez à enregistrer ventes et inventaire, et tout se synchronise tout seul au retour du réseau.",
+      "faq.q3":"C'est vraiment gratuit ?","faq.a3":"Oui. L'offre gratuite est à vie, sans carte bancaire. Vous payez seulement si vous choisissez une offre avec plus de fonctions.",
+      "faq.q4":"Ai-je besoin d'un ordinateur ?","faq.a4":"Non. Tout fonctionne depuis votre mobile. Vous gérez tout votre commerce au creux de la main.",
+      "faq.q5":"Mes données sont-elles en sécurité ?","faq.a5":"Oui. Vos données sont sauvegardées automatiquement dans le cloud et n'appartiennent qu'à vous. Ne perdez plus jamais vos comptes à cause d'un cahier abîmé.",
+      "cta.title":"Commencez aujourd'hui. <span class=\"gradient-text\">Gratuitement.</span>","cta.subtitle":"Rejoignez les commerçants qui ont déjà abandonné le papier et le crayon. Sans carte, sans engagement.","cta.button":"Créer mon compte gratuit →","cta.button2":"Voir les tarifs","cta.t1":"Gratuit à vie","cta.t2":"Prêt en 5 minutes","cta.t3":"Sans carte bancaire",
+      "footer.investors":"Investisseurs","footer.text":"© 2026 Yapalin — Le cœur digital des PME d'Amérique latine"
+    }
+  };
+
+  function applyLanguage(lang){
+    const dict = translations[lang];
+    if(!dict) return;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const k = el.getAttribute('data-i18n');
+      if(dict[k] !== undefined) el.textContent = dict[k];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+      const k = el.getAttribute('data-i18n-html');
+      if(dict[k] !== undefined) el.innerHTML = dict[k];
+    });
+    document.querySelectorAll('.lang-btn').forEach(b=>{
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    });
+    try{ localStorage.setItem('yapalin_lang', lang); }catch(e){}
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> applyLanguage(btn.getAttribute('data-lang')));
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click', ()=>{
+      const item = q.closest('.faq-item');
+      item.classList.toggle('open');
+    });
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+  // Init language (saved > browser > es)
+  let initial = 'es';
+  try{
+    const saved = localStorage.getItem('yapalin_lang');
+    if(saved && translations[saved]) initial = saved;
+    else { const nav = (navigator.language||'es').slice(0,2); if(translations[nav]) initial = nav; }
+  }catch(e){}
+  applyLanguage(initial);
+</script>
+
+</body>
+</html>
