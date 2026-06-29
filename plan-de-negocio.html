@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yapalin — Business Plan · ERP AI-Native para PYMES</title>
-<meta name="description" content="Business Plan profesional de Yapalin: el ERP AI-Native para las pequeñas empresas del mundo. Pre-Seed 2026.">
+<meta name="description" content="Business Plan profesional y detallado de Yapalin: el ERP AI-Native para las pequeñas empresas del mundo. Pre-Seed 2026.">
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -13,13 +13,12 @@
     --navy:#1D2D44;--cream:#FBF7F0;--gray:#6B7280;--line:rgba(29,45,68,0.10);
   }
   *{font-family:'Plus Jakarta Sans',system-ui,sans-serif}
-  h1,h2,h3,h4,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em}
+  h1,h2,h3,h4,h5,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em}
   .mono{font-family:'JetBrains Mono',monospace}
   html{scroll-behavior:smooth}
   body{background:var(--cream);color:var(--navy);line-height:1.6}
   ::selection{background:var(--coral);color:#fff}
 
-  /* layout */
   .topbar{position:fixed;top:0;left:0;right:0;height:60px;z-index:50;background:rgba(251,247,240,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);display:flex;align-items:center}
   .shell{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:0;padding-top:60px}
   .toc{position:sticky;top:60px;align-self:start;height:calc(100vh - 60px);overflow-y:auto;padding:2rem 1.25rem 2rem 1.5rem;border-right:1px solid var(--line)}
@@ -28,19 +27,15 @@
   .toc a.active{color:var(--coral);border-left-color:var(--coral);background:rgba(232,116,94,0.08);font-weight:600}
   .toc .toc-num{font-family:'JetBrains Mono';font-size:0.7rem;opacity:0.6;margin-right:0.4rem}
   main{padding:2.5rem 3rem 6rem;min-width:0}
-  @media(max-width:980px){
-    .shell{grid-template-columns:1fr}
-    .toc{display:none}
-    main{padding:1.75rem 1.25rem 4rem}
-  }
+  @media(max-width:980px){.shell{grid-template-columns:1fr}.toc{display:none}main{padding:1.75rem 1.25rem 4rem}}
 
-  /* content */
   .chapter{padding-top:2.5rem;margin-top:2.5rem;border-top:1px solid var(--line)}
   .chapter:first-of-type{border-top:none;margin-top:0}
   .ch-tag{display:inline-block;font-family:'JetBrains Mono';font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--coral);margin-bottom:0.6rem}
   h2.ch-title{font-size:clamp(1.6rem,3.2vw,2.4rem);font-weight:700;margin-bottom:1rem;line-height:1.1}
-  h3{font-size:1.2rem;font-weight:700;margin:1.8rem 0 0.7rem;color:var(--navy)}
+  h3{font-size:1.2rem;font-weight:700;margin:1.9rem 0 0.7rem;color:var(--navy);scroll-margin-top:70px}
   h4{font-size:1rem;font-weight:700;margin:1.2rem 0 0.5rem;color:var(--navy)}
+  h5{font-size:0.9rem;font-weight:700;margin:0.8rem 0 0.4rem}
   p{margin-bottom:0.9rem;color:#334155}
   ul,ol{margin:0 0 1rem 1.1rem;color:#334155}
   li{margin-bottom:0.35rem}
@@ -48,7 +43,6 @@
   .lead{font-size:1.1rem;color:var(--gray)}
   .gradient-text{background:linear-gradient(135deg,var(--coral),#F4A28C);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-  /* components */
   .card{background:#fff;border:1px solid var(--line);border-radius:1rem;padding:1.25rem 1.4rem;margin:1rem 0}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
@@ -60,27 +54,28 @@
   .pill{display:inline-block;padding:0.2rem 0.7rem;border-radius:999px;font-size:0.7rem;font-weight:700;background:rgba(42,157,143,0.12);color:var(--teal);margin:0.15rem 0.15rem 0.15rem 0}
   .callout{border-left:3px solid var(--coral);background:rgba(232,116,94,0.05);padding:0.9rem 1.1rem;border-radius:0 0.6rem 0.6rem 0;margin:1rem 0;font-size:0.95rem}
   .dark{background:var(--navy);color:#fff;border-radius:1rem;padding:1.4rem}
-  .dark p,.dark li{color:rgba(255,255,255,0.85)}
-  .dark strong{color:#fff}
+  .dark p,.dark li{color:rgba(255,255,255,0.85)}.dark strong{color:#fff}
+  .subnav{font-size:0.8rem;color:var(--gray);margin:0.4rem 0 1.2rem;padding:0.5rem 0.8rem;background:rgba(29,45,68,0.03);border-radius:0.5rem}
+  .subnav a{color:var(--teal);text-decoration:none;font-weight:600}.subnav a:hover{text-decoration:underline}
 
-  table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.85rem;background:#fff;border:1px solid var(--line);border-radius:0.6rem;overflow:hidden}
-  th,td{padding:0.6rem 0.75rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
-  th{background:var(--navy);color:#fff;font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.03em}
+  table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.84rem;background:#fff;border:1px solid var(--line);border-radius:0.6rem;overflow:hidden}
+  th,td{padding:0.55rem 0.7rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--navy);color:#fff;font-weight:600;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.03em}
   tr:last-child td{border-bottom:none}
   tbody tr:nth-child(even){background:rgba(29,45,68,0.02)}
-  td.num,th.num{text-align:right;font-family:'JetBrains Mono'}
+  td.num,th.num{text-align:right;font-family:'JetBrains Mono';white-space:nowrap}
   .tot{font-weight:700;background:rgba(232,116,94,0.06)!important}
+  .mini{font-size:0.76rem}
+  .mini th,.mini td{padding:0.4rem 0.5rem}
 
   .bmc{display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:minmax(90px,auto);gap:6px}
   .bmc .b{background:#fff;border:1px solid var(--line);border-radius:0.5rem;padding:0.7rem;font-size:0.74rem}
   .bmc .b h5{font-family:'Space Grotesk';font-weight:700;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--coral);margin-bottom:0.35rem}
-  .bmc .b ul{margin:0 0 0 0.9rem;font-size:0.72rem;color:#475569}
-  .bmc .b li{margin-bottom:0.15rem}
+  .bmc .b ul{margin:0 0 0 0.9rem;font-size:0.72rem;color:#475569}.bmc .b li{margin-bottom:0.15rem}
   @media(max-width:760px){.bmc{grid-template-columns:1fr 1fr}}
 
   .swot{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
-  .swot .q{border-radius:0.7rem;padding:1rem}
-  .swot h4{margin:0 0 0.5rem}
+  .swot .q{border-radius:0.7rem;padding:1rem}.swot h4{margin:0 0 0.5rem}
   .swot .s{background:rgba(42,157,143,0.08);border:1px solid rgba(42,157,143,0.25)}
   .swot .w{background:rgba(232,116,94,0.08);border:1px solid rgba(232,116,94,0.25)}
   .swot .o{background:rgba(127,196,187,0.12);border:1px solid rgba(42,157,143,0.2)}
@@ -92,26 +87,26 @@
   .timeline .ev::before{content:'';position:absolute;left:-1.55rem;top:0.35rem;width:10px;height:10px;border-radius:50%;background:var(--coral)}
   .timeline .ev .when{font-family:'JetBrains Mono';font-size:0.72rem;color:var(--teal);font-weight:700}
 
+  .heat-hi{background:rgba(232,116,94,0.18);color:#b23c22;font-weight:700;text-align:center}
+  .heat-md{background:rgba(244,201,93,0.22);color:#8a6d12;font-weight:700;text-align:center}
+  .heat-lo{background:rgba(42,157,143,0.15);color:#1d6b60;font-weight:700;text-align:center}
+
   .printbtn{margin-left:auto;font-size:0.8rem;font-weight:700;background:var(--coral);color:#fff;padding:0.5rem 1rem;border-radius:999px;border:none;cursor:pointer}
   .cover{background:linear-gradient(135deg,var(--navy),#2D4263);color:#fff;border-radius:1.25rem;padding:2.5rem;margin-bottom:1rem;position:relative;overflow:hidden}
   .cover::after{content:'';position:absolute;top:-40%;right:-10%;width:380px;height:380px;background:radial-gradient(circle,rgba(232,116,94,0.4),transparent 70%);border-radius:50%}
-  .cover h1{font-size:clamp(2.2rem,5vw,3.4rem);line-height:1;margin-bottom:0.6rem}
-  .cover p{color:rgba(255,255,255,0.85)}
+  .cover h1{font-size:clamp(2.2rem,5vw,3.4rem);line-height:1;margin-bottom:0.6rem}.cover p{color:rgba(255,255,255,0.85)}
   .disclaimer{font-size:0.72rem;color:var(--gray);margin-top:2rem;border-top:1px solid var(--line);padding-top:1rem}
 
   @media print{
     .topbar,.toc,.printbtn{display:none}
-    .shell{display:block;padding-top:0;max-width:none}
-    main{padding:0}
+    .shell{display:block;padding-top:0;max-width:none}main{padding:0}
     .chapter{break-inside:avoid-page;border-top:1px solid #ccc}
-    .card,table,.dark,.kpi{break-inside:avoid}
-    body{background:#fff}
+    .card,table,.dark,.kpi{break-inside:avoid}body{background:#fff}
   }
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="topbar">
   <div style="max-width:1280px;margin:0 auto;width:100%;display:flex;align-items:center;gap:0.6rem;padding:0 1.25rem">
     <div class="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold" style="background:linear-gradient(135deg,var(--coral),var(--coral-soft));font-family:'Space Grotesk'">Y</div>
@@ -122,7 +117,6 @@
 </div>
 
 <div class="shell">
-  <!-- TOC -->
   <nav class="toc" id="toc">
     <div class="mono" style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--navy);margin-bottom:0.6rem">Tabla de contenidos</div>
     <a href="#resumen"><span class="toc-num">01</span>Executive Summary</a>
@@ -144,7 +138,6 @@
   </nav>
 
   <main>
-    <!-- COVER -->
     <div class="cover">
       <div style="position:relative;z-index:2">
         <div class="mono" style="font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--coral-soft);margin-bottom:1rem">Business Plan · Pre-Seed 2026 · Confidencial</div>
@@ -158,7 +151,7 @@
         </div>
       </div>
     </div>
-    <p class="mono" style="font-size:0.72rem;color:var(--gray)">Versión 1.0 · Junio 2026 · Preparado para inversionistas Pre-Seed & Seed · Documento base de dirección estratégica 2026–2031</p>
+    <p class="mono" style="font-size:0.72rem;color:var(--gray)">Versión 2.0 (detallada) · Junio 2026 · Preparado para inversionistas Pre-Seed & Seed · Documento base de dirección estratégica 2026–2031</p>
 
     <!-- 1. EXECUTIVE SUMMARY -->
     <section class="chapter" id="resumen">
@@ -167,58 +160,55 @@
       <p class="lead">Yapalin es un <strong>ERP AI-Native</strong> — cloud, móvil, modular y sin código — diseñado desde cero para que cualquier emprendedor, microempresa o pequeña empresa gestione, automatice y haga crecer su negocio con la misma potencia que una gran corporación, a una fracción del costo.</p>
 
       <h3>El problema</h3>
-      <p>En América Latina, <strong>~17 millones de PYMES</strong> (y más de 400 millones en el mundo) viven atrapadas entre dos malas opciones: el <strong>papel y lápiz</strong> —fuente de errores, cero visibilidad, imposible de escalar— o los <strong>ERP tradicionales</strong> (Odoo, SAP, Oracle), pensados para grandes empresas: caros, complejos y con semanas de implementación. Resultado: solo <strong>3 de cada 10 PYMES</strong> en la región están realmente digitalizadas. El 70% restante es nuestro mercado directo.</p>
+      <p>En América Latina, <strong>~17 millones de PYMES</strong> (y más de 400 millones en el mundo) viven atrapadas entre dos malas opciones: el <strong>papel y lápiz</strong> —errores, cero visibilidad, imposible de escalar— o los <strong>ERP tradicionales</strong> (Odoo, SAP, Oracle), pensados para grandes empresas: caros, complejos y con semanas de implementación. Solo <strong>3 de cada 10 PYMES</strong> en la región están realmente digitalizadas; el 70% restante es nuestro mercado directo.</p>
 
       <h3>La solución</h3>
-      <p>Yapalin convierte el caos operativo en datos de crecimiento. La IA no es un "add-on": <strong>cada proceso fue rediseñado para ser ejecutado, automatizado y optimizado por inteligencia artificial</strong> — agentes autónomos que registran inventario, generan facturas, anticipan quiebres de stock, responden a clientes por WhatsApp y entregan decisiones, no solo dashboards. Listo en 5 minutos, sin capacitación, funciona offline.</p>
+      <p>Yapalin convierte el caos operativo en datos de crecimiento. La IA no es un "add-on": <strong>cada proceso fue rediseñado para ser ejecutado, automatizado y optimizado por inteligencia artificial</strong> — agentes autónomos que registran inventario, generan facturas, anticipan quiebres de stock, atienden clientes por WhatsApp y entregan decisiones, no solo dashboards. Listo en 5 minutos, sin capacitación, funciona offline.</p>
 
-      <div class="callout"><strong>Insight de campo (Perú):</strong> al digitalizarse, una PYME pequeña puede <strong>duplicar su productividad (+100%)</strong> y reducir hasta <strong>-90%</strong> sus tiempos operativos. Cuanto más pequeña e informal la empresa, más radical el salto — exactamente nuestro mercado.</p></div>
+      <div class="callout"><strong>Insight de campo (Perú):</strong> al digitalizarse, una PYME pequeña puede <strong>duplicar su productividad (+100%)</strong> y reducir hasta <strong>-90%</strong> sus tiempos operativos. Cuanto más pequeña e informal la empresa, más radical el salto — exactamente nuestro mercado.</div>
 
-      <h3>Mercado y oportunidad</h3>
-      <div class="grid4">
-        <div class="kpi"><div class="n">$71B</div><div class="l">TAM global ERP/SaaS para PYMES (2026)</div></div>
-        <div class="kpi"><div class="n">$9.4B</div><div class="l">SAM — PYMES LatAm digitalizables</div></div>
-        <div class="kpi"><div class="n">$430M</div><div class="l">SOM alcanzable a 5 años</div></div>
-        <div class="kpi"><div class="n">+12%</div><div class="l">CAGR del software para PYMES</div></div>
+      <h3>Resumen de la oportunidad y el negocio</h3>
+      <table class="mini">
+        <thead><tr><th>Dimensión</th><th>Síntesis</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Mercado</strong></td><td>TAM $71B global · SAM $9.4B LatAm · SOM $430M a 5 años · CAGR +12%</td></tr>
+          <tr><td><strong>Producto</strong></td><td>ERP AI-Native, modular, mobile-first, offline, No-Code; orquesta de agentes vía MCP</td></tr>
+          <tr><td><strong>Modelo</strong></td><td>SaaS: prueba 2 sem + referidos → $10 (Standard) / $15 (Premium) /usuario/mes; pricing local</td></tr>
+          <tr><td><strong>GTM</strong></td><td>Product-Led + Community-Led + referidos virales; partners contables y gremios</td></tr>
+          <tr><td><strong>Tracción</strong></td><td>10 PYMES piloto en 10 sectores; producto co-construido</td></tr>
+          <tr><td><strong>Equipo</strong></td><td>2 fundadores complementarios (Growth + AI/SaaS) · asesor Wim Sweldens</td></tr>
+          <tr><td><strong>Ask</strong></td><td>USD 350K Pre-Seed → ARR ~$250K+ y métricas para Seed $3–4M en 12–14 m</td></tr>
+          <tr><td><strong>Visión 2031</strong></td><td>ERP AI-Native líder mundial para PYMES; 100+ países; trayectoria unicornio</td></tr>
+        </tbody>
+      </table>
+
+      <h3>¿Por qué ahora? ¿Por qué nosotros?</h3>
+      <div class="grid2">
+        <div class="card"><h4>Why now</h4><p style="margin:0;font-size:0.9rem">Convergencia única: LLMs que abaratan la automatización, smartphones masivos, pagos instantáneos (Pix/PSE/Yape) y facturación electrónica. Los rieles no existían hace 5 años.</p></div>
+        <div class="card"><h4>Why us</h4><p style="margin:0;font-size:0.9rem">Negocio × Tecnología: terreno comercial real con cientos de PYMES + ejecución AI-native. Dos fundadores que producen como un equipo de diez.</p></div>
       </div>
 
-      <h3>Modelo de negocio</h3>
-      <p>SaaS por suscripción: <strong>prueba gratuita de 2 semanas (+1 semana por cada referido)</strong>, luego <strong>USD 10/usuario/mes (Standard)</strong> y <strong>USD 15 (Premium)</strong>, con <em>pricing local</em> ajustado por poder adquisitivo (R$, MXN, COP…). Crecimiento <strong>Product-Led + Community-Led + referidos</strong>, con un futuro <strong>Marketplace de aplicaciones y de Agentes IA</strong> como segunda capa de ingresos.</p>
-
-      <h3>Propuesta de valor y ventajas competitivas</h3>
-      <ul>
-        <li><strong>AI-Native real</strong> vs. "IA incorporada" de los incumbentes: foso tecnológico difícil de replicar para un legacy.</li>
-        <li><strong>Simplicidad radical</strong> (principios Dieter Rams): usable por quien sabe usar WhatsApp.</li>
-        <li><strong>Costo/valor imbatible:</strong> -25% a -80% vs. Odoo según mercado, con más automatización.</li>
-        <li><strong>Desarrollo AI-First:</strong> 2 fundadores producen como un equipo de 10 → burn mínimo, velocidad máxima.</li>
-        <li><strong>Foso de datos:</strong> cada negocio activo mejora los modelos y las recomendaciones para todos.</li>
-      </ul>
-
-      <h3>Tracción, equipo y la pregunta</h3>
-      <p>Producto co-construido con <strong>10 PYMES piloto</strong> en 10 sectores. Equipo fundador complementario: un <strong>experto en PYMES & Growth</strong> (terreno comercial) y un <strong>ingeniero AI-Native & SaaS</strong> (producto), con el asesor <strong>Wim Sweldens</strong>. Levantamos <strong>USD 350,000 Pre-Seed</strong> para alcanzar <strong>~USD 300K+ de ARR</strong> y las métricas que habilitan un Seed de USD 3–4M en 12–14 meses.</p>
-
-      <div class="dark">
-        <strong>Visión 2031:</strong> convertirnos en el ERP AI-Native líder para pequeñas empresas a nivel mundial — presentes en 100+ países, +480,000 usuarios de pago y una trayectoria de ingresos compatible con el estatus de unicornio, mientras sacamos a millones de negocios de la invisibilidad operativa.
-      </div>
+      <div class="dark"><strong>La pregunta:</strong> con USD 350K alcanzamos product-market fit, ~1,000 negocios de pago y los KPIs (LTV/CAC ≥ 4x, churn &lt; 4%/mes, NPS ≥ 50) que habilitan un Seed de USD 3–4M para escalar a toda la región.</div>
     </section>
 
-    <!-- 2. BUSINESS MODEL CANVAS -->
+    <!-- 2. BMC -->
     <section class="chapter" id="canvas">
       <span class="ch-tag">02 · Business Model Canvas</span>
       <h2 class="ch-title">El modelo, en una página.</h2>
       <div class="bmc">
-        <div class="b" style="grid-row:span 2"><h5>Socios clave</h5><ul><li>Proveedores cloud (AWS/GCP)</li><li>LLM providers (Anthropic, OpenAI)</li><li>Pasarelas de pago (Pix, PSE, Mercado Pago, Yape)</li><li>Entes tributarios / facturación electrónica</li><li>Cámaras y gremios de PYMES</li><li>Contadores y consultores (canal)</li><li>Telcos & retailers (distribución)</li></ul></div>
-        <div class="b"><h5>Actividades clave</h5><ul><li>Desarrollo AI-First del producto</li><li>Entrenamiento y orquestación de agentes IA</li><li>Adquisición PLG + comunidad</li><li>Customer success y onboarding</li><li>Cumplimiento fiscal local</li></ul></div>
-        <div class="b" style="grid-row:span 2"><h5>Propuesta de valor</h5><ul><li><strong>ERP AI-Native</strong> que automatiza la operación completa</li><li>Listo en 5 min, sin capacitación, offline</li><li>$10/usuario/mes — el mayor valor al menor costo</li><li>Decisiones, no solo reportes</li><li>+100% productividad observada</li><li>Modular: activa solo lo que necesitas</li></ul></div>
-        <div class="b"><h5>Relación con clientes</h5><ul><li>Self-service + IA de soporte 24/7</li><li>Comunidad y embajadores</li><li>Customer success proactivo (Premium)</li><li>Programa de referidos</li></ul></div>
-        <div class="b" style="grid-row:span 2"><h5>Segmentos de clientes</h5><ul><li><strong>Núcleo:</strong> micro y pequeñas empresas (1–20 empleados)</li><li>Comercio, servicios, manufactura ligera, food</li><li>Emprendedores informales en vías de formalización</li><li><strong>Expansión:</strong> medianas y franquicias</li><li>Contadores (multi-empresa)</li></ul></div>
-        <div class="b"><h5>Recursos clave</h5><ul><li>Plataforma y modelos propios de IA</li><li>Datos operativos agregados (foso)</li><li>Equipo AI-First</li><li>Marca y comunidad</li></ul></div>
-        <div class="b"><h5>Canales</h5><ul><li>App stores + web (PLG)</li><li>WhatsApp y redes sociales</li><li>Referidos y boca a boca</li><li>Partners contables / gremios</li><li>Marketplace de apps</li></ul></div>
+        <div class="b" style="grid-row:span 2"><h5>Socios clave</h5><ul><li>Cloud (AWS/GCP)</li><li>LLM providers (Anthropic, OpenAI)</li><li>Pagos (Pix, PSE, Mercado Pago, Yape)</li><li>Entes de facturación electrónica</li><li>Cámaras y gremios PYME</li><li>Contadores / consultores (canal)</li><li>Telcos & retailers</li></ul></div>
+        <div class="b"><h5>Actividades clave</h5><ul><li>Desarrollo AI-First</li><li>Orquestación de agentes IA</li><li>Adquisición PLG + comunidad</li><li>Customer success</li><li>Cumplimiento fiscal local</li></ul></div>
+        <div class="b" style="grid-row:span 2"><h5>Propuesta de valor</h5><ul><li><strong>ERP AI-Native</strong> que automatiza la operación</li><li>Listo en 5 min, sin capacitación, offline</li><li>$10/usuario/mes — máximo valor, mínimo costo</li><li>Decisiones, no solo reportes</li><li>+100% productividad observada</li></ul></div>
+        <div class="b"><h5>Relación con clientes</h5><ul><li>Self-service + IA 24/7</li><li>Comunidad y embajadores</li><li>Customer success (Premium)</li><li>Programa de referidos</li></ul></div>
+        <div class="b" style="grid-row:span 2"><h5>Segmentos</h5><ul><li><strong>Núcleo:</strong> micro y pequeñas (1–20 empl.)</li><li>Comercio, servicios, food, manufactura ligera</li><li>Informales en formalización</li><li><strong>Expansión:</strong> medianas, franquicias</li><li>Contadores (multi-empresa)</li></ul></div>
+        <div class="b"><h5>Recursos clave</h5><ul><li>Plataforma y modelos de IA</li><li>Datos operativos (foso)</li><li>Equipo AI-First</li><li>Marca y comunidad</li></ul></div>
+        <div class="b"><h5>Canales</h5><ul><li>App stores + web (PLG)</li><li>WhatsApp y redes</li><li>Referidos</li><li>Partners contables</li><li>Marketplace</li></ul></div>
       </div>
       <div class="grid2" style="margin-top:6px">
-        <div class="b" style="background:rgba(232,116,94,0.06);border:1px solid rgba(232,116,94,0.25);border-radius:0.5rem;padding:0.9rem"><h5 style="font-family:'Space Grotesk';font-weight:700;font-size:0.72rem;text-transform:uppercase;color:var(--coral);margin-bottom:0.35rem">Estructura de costos</h5><ul style="font-size:0.75rem;margin-left:0.9rem;color:#475569"><li>Infraestructura cloud + cómputo de IA (LLM tokens)</li><li>Salarios (equipo lean, AI-aumentado)</li><li>Marketing y adquisición (CAC)</li><li>Herramientas No-Code/Low-Code y SaaS internos</li><li>Legal, fiscal y cumplimiento multi-país</li></ul></div>
-        <div class="b" style="background:rgba(42,157,143,0.06);border:1px solid rgba(42,157,143,0.25);border-radius:0.5rem;padding:0.9rem"><h5 style="font-family:'Space Grotesk';font-weight:700;font-size:0.72rem;text-transform:uppercase;color:var(--teal);margin-bottom:0.35rem">Fuentes de ingreso</h5><ul style="font-size:0.75rem;margin-left:0.9rem;color:#475569"><li>Suscripción SaaS recurrente ($10–15/usuario/mes)</li><li>Add-ons Premium (IA avanzada, multi-local, RH)</li><li>Comisión del Marketplace de apps y Agentes IA</li><li>Fees de integraciones (pagos, bancos, facturación)</li><li>Servicios de datos/insights (anonimizados, agregados)</li></ul></div>
+        <div class="b" style="background:rgba(232,116,94,0.06);border:1px solid rgba(232,116,94,0.25);border-radius:0.5rem;padding:0.9rem"><h5 style="color:var(--coral)">Estructura de costos</h5><table class="mini" style="margin:0.3rem 0 0"><tbody><tr><td>Cloud + cómputo IA</td><td class="num">~14%</td></tr><tr><td>Salarios</td><td class="num">~45%</td></tr><tr><td>Marketing / CAC</td><td class="num">~28%</td></tr><tr><td>Herramientas SaaS/No-Code</td><td class="num">~7%</td></tr><tr><td>Legal & cumplimiento</td><td class="num">~6%</td></tr></tbody></table></div>
+        <div class="b" style="background:rgba(42,157,143,0.06);border:1px solid rgba(42,157,143,0.25);border-radius:0.5rem;padding:0.9rem"><h5 style="color:var(--teal)">Fuentes de ingreso</h5><table class="mini" style="margin:0.3rem 0 0"><tbody><tr><td>Suscripción SaaS</td><td class="num">~80%</td></tr><tr><td>Add-ons Premium</td><td class="num">~10%</td></tr><tr><td>Marketplace (comisión)</td><td class="num">~6%</td></tr><tr><td>Integraciones/fees</td><td class="num">~3%</td></tr><tr><td>Datos/insights</td><td class="num">~1%</td></tr></tbody></table></div>
       </div>
+      <p class="mono" style="font-size:0.72rem;color:var(--gray)">Mix de ingresos objetivo a Año 5. La suscripción ancla; el Marketplace de apps/agentes es la palanca de expansión de márgenes.</p>
     </section>
 
     <!-- 3. COMPANY OVERVIEW -->
@@ -226,27 +216,40 @@
       <span class="ch-tag">03 · Company Overview</span>
       <h2 class="ch-title">Quiénes somos y por qué existimos.</h2>
       <h3>Historia</h3>
-      <p>Yapalin nace de una observación de campo en el Perú: acompañando a cientos de pequeños comerciantes, los fundadores comprobaron que un negocio podía <strong>duplicar su productividad</strong> con solo digitalizar su operación — pero que ninguna herramienta del mercado estaba hecha para ellos. Los ERP eran demasiado complejos; las apps sueltas, demasiado limitadas. Con la llegada de los LLMs y los agentes autónomos, por primera vez fue posible construir un ERP que <em>piensa y opera</em> por el comerciante. Así arrancó Yapalin, co-creado con 10 PYMES piloto.</p>
+      <p>Yapalin nace de una observación de campo en el Perú: acompañando a cientos de pequeños comerciantes, los fundadores comprobaron que un negocio podía <strong>duplicar su productividad</strong> con solo digitalizar su operación — pero que ninguna herramienta del mercado estaba hecha para ellos. Los ERP eran demasiado complejos; las apps sueltas, demasiado limitadas. Con la llegada de los LLMs y los agentes autónomos, por primera vez fue posible construir un ERP que <em>piensa y opera</em> por el comerciante. Así arrancó Yapalin, co-creado con 10 PYMES piloto en 10 sectores.</p>
 
       <div class="grid2">
         <div class="card"><h4>Propósito</h4><p style="margin:0">Eliminar la invisibilidad operativa para estabilizar economías y potenciar el crecimiento humano a través de la gestión inteligente.</p></div>
-        <div class="card"><h4>North Star Metric</h4><p style="margin:0"><strong>Negocios Activos Semanales (WAB)</strong> que ejecutan ≥1 proceso central (venta, inventario, factura o automatización IA) en Yapalin. Mide valor real entregado, no solo registros.</p></div>
+        <div class="card"><h4>North Star Metric</h4><p style="margin:0"><strong>Negocios Activos Semanales (WAB)</strong> que ejecutan ≥1 proceso central (venta, inventario, factura o automatización IA). Mide valor real, no solo registros.</p></div>
       </div>
       <div class="grid2">
         <div class="card"><h4>Misión</h4><p style="margin:0">Poner en manos de cada pequeña empresa del mundo un sistema operativo con IA que automatice lo tedioso y le devuelva tiempo, claridad y crecimiento.</p></div>
         <div class="card"><h4>Visión</h4><p style="margin:0">Ser, en 2031, el ERP AI-Native líder para pequeñas empresas a nivel mundial, presente en más de 100 países.</p></div>
       </div>
 
+      <h3>Métricas de soporte (input metrics de la North Star)</h3>
+      <table class="mini">
+        <thead><tr><th>Nivel</th><th>Métrica</th><th>Por qué importa</th></tr></thead>
+        <tbody>
+          <tr><td>Adquisición</td><td>Negocios que inician prueba / semana</td><td>Top of funnel</td></tr>
+          <tr><td>Activación</td><td>% que llega al "aha" (&lt;5 min)</td><td>Predice retención</td></tr>
+          <tr><td>Engagement</td><td>Acciones centrales / negocio / semana</td><td>Profundidad de uso</td></tr>
+          <tr><td>Retención</td><td>WAB / total · churn logo</td><td>Salud del negocio</td></tr>
+          <tr><td>Referido</td><td>K-factor (invitaciones × conversión)</td><td>Viralidad</td></tr>
+          <tr><td>Monetización</td><td>Trial→pago · ARPU · NRR</td><td>Eficiencia económica</td></tr>
+        </tbody>
+      </table>
+
       <h3>Valores y cultura</h3>
       <div class="grid3">
-        <div class="card" style="margin:0"><h4>🎯 Simplicidad radical</h4><p style="margin:0;font-size:0.9rem">Menos, pero mejor. Cada función debe servir al comerciante o no existe.</p></div>
-        <div class="card" style="margin:0"><h4>🤖 AI-First</h4><p style="margin:0;font-size:0.9rem">Si una máquina puede hacerlo, una máquina lo hace. Las personas, a lo estratégico.</p></div>
+        <div class="card" style="margin:0"><h4>🎯 Simplicidad radical</h4><p style="margin:0;font-size:0.9rem">Menos, pero mejor. Cada función sirve al comerciante o no existe.</p></div>
+        <div class="card" style="margin:0"><h4>🤖 AI-First</h4><p style="margin:0;font-size:0.9rem">Si una máquina puede hacerlo, lo hace. Las personas, a lo estratégico.</p></div>
         <div class="card" style="margin:0"><h4>👂 Driven by users</h4><p style="margin:0;font-size:0.9rem">Cada módulo nace de un dolor real. El feedback es el roadmap.</p></div>
         <div class="card" style="margin:0"><h4>⚡ Velocidad lean</h4><p style="margin:0;font-size:0.9rem">Equipo pequeño, apalancado en IA. Bias to ship.</p></div>
-        <div class="card" style="margin:0"><h4>🌱 Impacto real</h4><p style="margin:0;font-size:0.9rem">El éxito se mide en negocios que prosperan, no solo en MRR.</p></div>
-        <div class="card" style="margin:0"><h4>🔍 Transparencia</h4><p style="margin:0;font-size:0.9rem">Datos del cliente, del cliente. Confianza como activo.</p></div>
+        <div class="card" style="margin:0"><h4>🌱 Impacto real</h4><p style="margin:0;font-size:0.9rem">El éxito se mide en negocios que prosperan.</p></div>
+        <div class="card" style="margin:0"><h4>🔍 Transparencia</h4><p style="margin:0;font-size:0.9rem">Los datos del cliente son del cliente. Confianza como activo.</p></div>
       </div>
-      <p style="margin-top:1rem"><strong>Filosofía de diseño:</strong> inspirada en Dieter Rams — "buen diseño es el menor diseño posible". <strong>Filosofía de empresa:</strong> AI-native, remote-first, asincrónica y orientada a resultados (output &gt; horas).</p>
+      <p style="margin-top:1rem"><strong>Rituales de cultura:</strong> demo semanal de producto, "customer of the week" (un caso real por semana), retro quincenal, documentación radical (todo escrito), métricas abiertas al equipo. <strong>Filosofía:</strong> Dieter Rams en diseño; remote-first y asincrónica en operación (output &gt; horas).</p>
     </section>
 
     <!-- 4. OBJETIVOS -->
@@ -256,10 +259,10 @@
       <table>
         <thead><tr><th>Dimensión</th><th>Año 1 (2026)</th><th>Año 3 (2028)</th><th>Año 5 (2030)</th></tr></thead>
         <tbody>
-          <tr><td><strong>Mercados</strong></td><td>Perú + piloto Colombia</td><td>6 países LatAm</td><td>LatAm completo + entrada global selectiva (100+ países alcanzables)</td></tr>
+          <tr><td><strong>Mercados</strong></td><td>Perú + piloto Colombia</td><td>6 países LatAm</td><td>LatAm + global selectivo (100+ alcanzables)</td></tr>
           <tr><td><strong>Negocios de pago</strong></td><td class="num">1,000</td><td class="num">24,000</td><td class="num">160,000</td></tr>
-          <tr><td><strong>Usuarios de pago (seats)</strong></td><td class="num">2,500</td><td class="num">67,000</td><td class="num">480,000</td></tr>
-          <tr><td><strong>ARR (fin de año)</strong></td><td class="num">$0.24M</td><td class="num">$7.2M</td><td class="num">$57.6M</td></tr>
+          <tr><td><strong>Usuarios (seats)</strong></td><td class="num">2,500</td><td class="num">67,000</td><td class="num">480,000</td></tr>
+          <tr><td><strong>ARR (fin)</strong></td><td class="num">$0.24M</td><td class="num">$7.2M</td><td class="num">$57.6M</td></tr>
           <tr><td><strong>Equipo</strong></td><td class="num">2 → 5</td><td class="num">~28</td><td class="num">~90</td></tr>
           <tr><td><strong>Financiamiento</strong></td><td>Pre-Seed $350K</td><td>Series A $15–20M</td><td>Series B / rentabilidad</td></tr>
         </tbody>
@@ -267,99 +270,130 @@
 
       <h3>OKRs — Año 1</h3>
       <div class="grid2">
-        <div class="card"><h4>O1 · Validar product-market fit</h4><ul style="margin-bottom:0"><li>KR1: 1,000 negocios de pago</li><li>KR2: NPS ≥ 50</li><li>KR3: Retención logo mensual ≥ 96%</li><li>KR4: 40% de "very disappointed" (test Sean Ellis)</li></ul></div>
-        <div class="card"><h4>O2 · Construir el motor AI-Native</h4><ul style="margin-bottom:0"><li>KR1: 8 módulos centrales en producción</li><li>KR2: ≥60% de acciones asistidas por IA</li><li>KR3: Costo de IA &lt; 12% del ingreso</li><li>KR4: Tiempo de onboarding &lt; 5 min</li></ul></div>
-        <div class="card"><h4>O3 · Crecimiento eficiente</h4><ul style="margin-bottom:0"><li>KR1: CAC &lt; $50 / negocio</li><li>KR2: 30% de altas vía referidos</li><li>KR3: Payback &lt; 8 meses</li></ul></div>
+        <div class="card"><h4>O1 · Validar product-market fit</h4><ul style="margin-bottom:0"><li>KR1: 1,000 negocios de pago</li><li>KR2: NPS ≥ 50</li><li>KR3: Retención logo mensual ≥ 96%</li><li>KR4: ≥40% "very disappointed" (Sean Ellis)</li></ul></div>
+        <div class="card"><h4>O2 · Motor AI-Native</h4><ul style="margin-bottom:0"><li>KR1: 8 módulos centrales en producción</li><li>KR2: ≥60% acciones asistidas por IA</li><li>KR3: Costo de IA &lt; 12% del ingreso</li><li>KR4: Onboarding &lt; 5 min</li></ul></div>
+        <div class="card"><h4>O3 · Crecimiento eficiente</h4><ul style="margin-bottom:0"><li>KR1: CAC &lt; $50/negocio</li><li>KR2: 30% de altas vía referidos</li><li>KR3: Payback &lt; 8 meses</li></ul></div>
         <div class="card"><h4>O4 · Listos para el Seed</h4><ul style="margin-bottom:0"><li>KR1: ARR ≥ $250K</li><li>KR2: LTV/CAC ≥ 4x</li><li>KR3: Term sheet de Seed firmado</li></ul></div>
       </div>
 
-      <h3>OKRs — horizonte Año 3 y Año 5 (resumen)</h3>
-      <ul>
-        <li><strong>Año 3:</strong> liderazgo en 3 mercados LatAm · ARR $7M · Marketplace de apps lanzado · LTV/CAC ≥ 5x · churn &lt; 3%/mes · Gross margin ≥ 82%.</li>
-        <li><strong>Año 5:</strong> top-of-mind del ERP para PYMES en LatAm · ARR $57M · EBITDA positivo · presencia en 100+ países · &gt;50% de ingresos con componente de automatización IA · &gt;1M de negocios impactados (incl. plan gratuito de prueba).</li>
-      </ul>
+      <h3>OKRs — Año 3</h3>
+      <div class="grid2">
+        <div class="card"><h4>O1 · Liderazgo regional</h4><ul style="margin-bottom:0"><li>KR1: #1 en menciones de marca en 2 mercados</li><li>KR2: 24,000 negocios de pago</li><li>KR3: Presencia activa en 6 países</li></ul></div>
+        <div class="card"><h4>O2 · Plataforma & ecosistema</h4><ul style="margin-bottom:0"><li>KR1: Marketplace con 50+ apps/agentes</li><li>KR2: 15% del ingreso vía marketplace/add-ons</li><li>KR3: API pública con 1,000+ devs</li></ul></div>
+        <div class="card"><h4>O3 · Economía de escala</h4><ul style="margin-bottom:0"><li>KR1: Gross margin ≥ 82%</li><li>KR2: LTV/CAC ≥ 5x · churn &lt; 3%/mes</li><li>KR3: NRR ≥ 110%</li></ul></div>
+        <div class="card"><h4>O4 · Capital para escalar</h4><ul style="margin-bottom:0"><li>KR1: Series A $15–20M cerrada</li><li>KR2: ARR ≥ $7M</li><li>KR3: Regla del 40 ≥ 60</li></ul></div>
+      </div>
+
+      <h3>OKRs — Año 5</h3>
+      <div class="grid2">
+        <div class="card"><h4>O1 · Categoría global</h4><ul style="margin-bottom:0"><li>KR1: Top-of-mind del ERP PYME en LatAm</li><li>KR2: Operación en 100+ países</li><li>KR3: 480,000 usuarios de pago</li></ul></div>
+        <div class="card"><h4>O2 · Negocio sólido</h4><ul style="margin-bottom:0"><li>KR1: ARR ≥ $57M · EBITDA positivo</li><li>KR2: Gross margin ≥ 86%</li><li>KR3: Ingresos/empleado &gt; $600K</li></ul></div>
+        <div class="card"><h4>O3 · IA diferencial</h4><ul style="margin-bottom:0"><li>KR1: &gt;50% del ingreso con componente de automatización IA</li><li>KR2: &gt;80% de tickets resueltos por IA</li></ul></div>
+        <div class="card"><h4>O4 · Impacto</h4><ul style="margin-bottom:0"><li>KR1: &gt;1M de negocios impactados</li><li>KR2: +30% productividad promedio medida en usuarios</li></ul></div>
+      </div>
     </section>
 
     <!-- 5. MERCADO -->
     <section class="chapter" id="mercado">
       <span class="ch-tag">05 · Investigación de Mercado</span>
       <h2 class="ch-title">Un mercado enorme, desatendido y en plena digitalización.</h2>
+      <div class="subnav">En esta sección: <a href="#m-size">Tamaño</a> · <a href="#m-trends">Tendencias</a> · <a href="#m-pestel">PESTEL</a> · <a href="#m-porter">Porter</a> · <a href="#m-comp">Competidores</a> · <a href="#m-swot">FODA</a></div>
 
-      <h3>Tamaño de mercado — TAM / SAM / SOM</h3>
+      <h3 id="m-size">Tamaño de mercado — TAM / SAM / SOM</h3>
       <table>
-        <thead><tr><th>Nivel</th><th>Definición</th><th class="num">Valor (USD/año)</th><th>Supuestos</th></tr></thead>
+        <thead><tr><th>Nivel</th><th>Definición</th><th class="num">Valor/año</th><th>Cálculo / supuestos</th></tr></thead>
         <tbody>
-          <tr><td><strong>TAM</strong></td><td>Gasto global de micro y pequeñas empresas en software de gestión/ERP/SaaS operativo</td><td class="num">~$71B</td><td>~400M MIPYMES × adopción × ARPU promedio ponderado</td></tr>
-          <tr><td><strong>SAM</strong></td><td>PYMES de LatAm digitalizables (mercado servible regional)</td><td class="num">~$9.4B</td><td>~17M PYMES LatAm × 70% no digitalizadas × ARPU $66/negocio/año</td></tr>
-          <tr><td><strong>SOM</strong></td><td>Cuota alcanzable a 5 años con la estrategia actual</td><td class="num">~$430M</td><td>~160K negocios de pago × ARPU; &lt;5% del SAM</td></tr>
+          <tr><td><strong>TAM</strong></td><td>Gasto global MIPYME en software de gestión</td><td class="num">~$71B</td><td>~400M MIPYMES × adopción × ARPU ponderado</td></tr>
+          <tr><td><strong>SAM</strong></td><td>PYMES LatAm digitalizables</td><td class="num">~$9.4B</td><td>~17M × 70% no digitalizadas × ~$66/negocio/año + upside Premium</td></tr>
+          <tr><td><strong>SOM</strong></td><td>Cuota alcanzable a 5 años</td><td class="num">~$430M</td><td>~160K negocios de pago × ARPU; &lt;5% del SAM</td></tr>
         </tbody>
       </table>
-      <div class="callout">Aun capturando menos del <strong>5% del SAM</strong> en 5 años, Yapalin construye un negocio de &gt;$57M de ARR. El tamaño no es la restricción; la ejecución y la distribución lo son.</div>
 
-      <h3>Tendencias y drivers de crecimiento</h3>
+      <h4>Desglose del SAM por mercado prioritario (estimación)</h4>
+      <table class="mini">
+        <thead><tr><th>País</th><th class="num">PYMES (aprox)</th><th class="num">% no digit.</th><th class="num">SAM est.</th><th>Entrada</th></tr></thead>
+        <tbody>
+          <tr><td>Perú</td><td class="num">2.4M</td><td class="num">~75%</td><td class="num">$1.1B</td><td>Año 1 (beachhead)</td></tr>
+          <tr><td>Colombia</td><td class="num">2.5M</td><td class="num">~70%</td><td class="num">$1.2B</td><td>Año 1–2</td></tr>
+          <tr><td>México</td><td class="num">4.9M</td><td class="num">~68%</td><td class="num">$2.6B</td><td>Año 2</td></tr>
+          <tr><td>Brasil</td><td class="num">5.0M+</td><td class="num">~60%</td><td class="num">$3.0B</td><td>Año 3</td></tr>
+          <tr><td>Chile / Arg. / CA</td><td class="num">~2.5M</td><td class="num">~65%</td><td class="num">$1.5B</td><td>Año 3–4</td></tr>
+        </tbody>
+      </table>
+
+      <h3 id="m-trends">Tendencias y drivers de crecimiento</h3>
       <div class="grid3">
-        <div class="kpi"><div class="n">75%</div><div class="l">de brasileños usan Pix; el efectivo retrocede en toda la región</div></div>
-        <div class="kpi"><div class="n">600M</div><div class="l">smartphones en LatAm (~80% adopción, 90% hacia 2030)</div></div>
-        <div class="kpi"><div class="n">30%→70%</div><div class="l">digitalización de PYMES esperada esta década</div></div>
+        <div class="kpi"><div class="n">75%</div><div class="l">de brasileños usan Pix; el efectivo retrocede</div></div>
+        <div class="kpi"><div class="n">600M</div><div class="l">smartphones en LatAm (~80%→90% a 2030)</div></div>
+        <div class="kpi"><div class="n">30%→70%</div><div class="l">digitalización PYME esperada esta década</div></div>
       </div>
       <ul>
-        <li><strong>Rieles digitales nuevos:</strong> pagos instantáneos (Pix, PSE, Yape, CoDi) y facturación electrónica obligatoria — no existían hace 5 años y habilitan a Yapalin.</li>
+        <li><strong>Rieles digitales nuevos:</strong> pagos instantáneos (Pix, PSE, Yape, CoDi) y facturación electrónica obligatoria.</li>
         <li><strong>Disrupción de IA:</strong> los LLMs colapsan el costo de automatizar procesos antes inviables para una PYME.</li>
-        <li><strong>Presión de formalización</strong> fiscal y bancarización de pequeños negocios.</li>
+        <li><strong>Formalización</strong> fiscal y bancarización de pequeños negocios en toda la región.</li>
         <li><strong>Cambio generacional:</strong> dueños más jóvenes, mobile-native, abiertos al software.</li>
       </ul>
 
-      <h3>Análisis PESTEL</h3>
+      <h3 id="m-pestel">Análisis PESTEL</h3>
       <table>
         <thead><tr><th>Factor</th><th>Implicación para Yapalin</th></tr></thead>
         <tbody>
-          <tr><td><strong>Político</strong></td><td>Programas de formalización y digitalización de PYMES = viento de cola y posibles alianzas públicas.</td></tr>
-          <tr><td><strong>Económico</strong></td><td>Sensibilidad al precio alta → pricing local PPP. Inflación/FX gestionados con cobros en moneda local.</td></tr>
-          <tr><td><strong>Social</strong></td><td>WhatsApp como sistema operativo social → canal y UX de referencia. Confianza vía comunidad.</td></tr>
-          <tr><td><strong>Tecnológico</strong></td><td>LLMs + smartphones + pagos instantáneos = ventana de oportunidad única ahora.</td></tr>
-          <tr><td><strong>Ecológico</strong></td><td>Digitalización reduce papel y desplazamientos; narrativa ESG positiva.</td></tr>
-          <tr><td><strong>Legal</strong></td><td>Facturación electrónica, protección de datos (LGPD/leyes locales) → cumplimiento como barrera y ventaja.</td></tr>
+          <tr><td><strong>Político</strong></td><td>Programas de formalización/digitalización = viento de cola y posibles alianzas públicas.</td></tr>
+          <tr><td><strong>Económico</strong></td><td>Alta sensibilidad al precio → pricing local PPP; cobro en moneda local frente a inflación/FX.</td></tr>
+          <tr><td><strong>Social</strong></td><td>WhatsApp como SO social → canal y UX de referencia; confianza vía comunidad.</td></tr>
+          <tr><td><strong>Tecnológico</strong></td><td>LLMs + smartphones + pagos instantáneos = ventana única ahora.</td></tr>
+          <tr><td><strong>Ecológico</strong></td><td>Menos papel y desplazamientos; narrativa ESG positiva.</td></tr>
+          <tr><td><strong>Legal</strong></td><td>Facturación electrónica y protección de datos → cumplimiento como barrera y ventaja.</td></tr>
         </tbody>
       </table>
 
-      <h3>Cinco Fuerzas de Porter</h3>
+      <h3 id="m-porter">Cinco Fuerzas de Porter</h3>
       <table>
         <thead><tr><th>Fuerza</th><th>Intensidad</th><th>Lectura</th></tr></thead>
         <tbody>
-          <tr><td>Rivalidad</td><td><span class="pill" style="background:rgba(244,201,93,0.2);color:#9a7b14">Media</span></td><td>Odoo, incumbentes y verticales; ninguno AI-Native ni enfocado en micro-LatAm.</td></tr>
-          <tr><td>Nuevos entrantes</td><td><span class="pill" style="background:rgba(232,116,94,0.15);color:var(--coral)">Media-Alta</span></td><td>IA baja la barrera de construir; nuestro foso es datos + comunidad + distribución local.</td></tr>
-          <tr><td>Poder de proveedores</td><td><span class="pill">Baja-Media</span></td><td>LLMs y cloud commoditizándose; multi-proveedor + modelos propios reducen dependencia.</td></tr>
-          <tr><td>Poder de clientes</td><td><span class="pill">Baja</span></td><td>Atomización extrema (millones de PYMES); switching cost crece con los datos.</td></tr>
-          <tr><td>Sustitutos</td><td><span class="pill" style="background:rgba(232,116,94,0.15);color:var(--coral)">Media</span></td><td>Papel, Excel, WhatsApp, apps sueltas — los desplazamos integrando todo en uno.</td></tr>
+          <tr><td>Rivalidad</td><td><span class="pill" style="background:rgba(244,201,93,0.2);color:#9a7b14">Media</span></td><td>Incumbentes y verticales; ninguno AI-Native ni enfocado en micro-LatAm.</td></tr>
+          <tr><td>Nuevos entrantes</td><td><span class="pill" style="background:rgba(232,116,94,0.15);color:var(--coral)">Media-Alta</span></td><td>IA baja la barrera; foso = datos + comunidad + distribución local.</td></tr>
+          <tr><td>Poder proveedores</td><td><span class="pill">Baja-Media</span></td><td>LLM/cloud commoditizándose; multi-proveedor + modelos propios.</td></tr>
+          <tr><td>Poder clientes</td><td><span class="pill">Baja</span></td><td>Atomización extrema; switching cost crece con los datos.</td></tr>
+          <tr><td>Sustitutos</td><td><span class="pill" style="background:rgba(232,116,94,0.15);color:var(--coral)">Media</span></td><td>Papel, Excel, WhatsApp, apps sueltas — los integramos en uno.</td></tr>
         </tbody>
       </table>
 
-      <h3>Competidores y matriz competitiva</h3>
+      <h3 id="m-comp">Competidores — perfiles y matriz</h3>
       <table>
-        <thead><tr><th>Criterio</th><th>Yapalin</th><th>Odoo</th><th>SAP B1/Oracle</th><th>Apps verticales</th><th>Papel/Excel</th></tr></thead>
+        <thead><tr><th>Criterio</th><th>Yapalin</th><th>Odoo</th><th>SAP B1/Oracle</th><th>Verticales</th><th>Papel/Excel</th></tr></thead>
         <tbody>
           <tr><td>AI-Native</td><td>★★★★★</td><td>★★</td><td>★★</td><td>★★</td><td>—</td></tr>
           <tr><td>Facilidad de uso</td><td>★★★★★</td><td>★★</td><td>★</td><td>★★★★</td><td>★★★</td></tr>
           <tr><td>Precio accesible</td><td>★★★★★</td><td>★★★</td><td>★</td><td>★★★</td><td>★★★★★</td></tr>
           <tr><td>Cobertura funcional</td><td>★★★★</td><td>★★★★★</td><td>★★★★★</td><td>★★</td><td>★</td></tr>
-          <tr><td>Mobile-first / offline</td><td>★★★★★</td><td>★★</td><td>★★</td><td>★★★</td><td>—</td></tr>
-          <tr><td>Enfoque micro-PYME LatAm</td><td>★★★★★</td><td>★★</td><td>★</td><td>★★★</td><td>★★</td></tr>
+          <tr><td>Mobile/offline</td><td>★★★★★</td><td>★★</td><td>★★</td><td>★★★</td><td>—</td></tr>
+          <tr><td>Foco micro-PYME LatAm</td><td>★★★★★</td><td>★★</td><td>★</td><td>★★★</td><td>★★</td></tr>
         </tbody>
       </table>
-      <p><strong>Competidores directos:</strong> Odoo, Holded, Bind ERP, Alegra, Defontana, Siigo. <strong>Indirectos:</strong> Excel/Sheets, WhatsApp Business, cuadernos, apps de punto de venta sueltas, contadores manuales.</p>
+      <table class="mini">
+        <thead><tr><th>Competidor</th><th>Fortaleza</th><th>Debilidad vs. Yapalin</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Odoo</strong></td><td>Cobertura modular enorme, comunidad</td><td>Complejo, no AI-native, requiere implementador</td></tr>
+          <tr><td><strong>Alegra / Siigo</strong></td><td>Fuertes en contabilidad/facturación LatAm</td><td>Alcance funcional limitado, IA marginal</td></tr>
+          <tr><td><strong>Bind / Holded</strong></td><td>UX moderna para PYME</td><td>Menos automatización IA, foco país acotado</td></tr>
+          <tr><td><strong>SAP B1 / Oracle NetSuite</strong></td><td>Robustez enterprise</td><td>Caros e inviables para micro/pequeñas</td></tr>
+          <tr><td><strong>Excel / WhatsApp / papel</strong></td><td>Gratis, familiar</td><td>Sin integración, sin datos, no escala</td></tr>
+        </tbody>
+      </table>
 
-      <h3>FODA y estrategias derivadas</h3>
+      <h3 id="m-swot">FODA y estrategias derivadas</h3>
       <div class="swot">
-        <div class="q s"><h4>Fortalezas</h4><ul style="margin-bottom:0;font-size:0.88rem"><li>Arquitectura AI-Native genuina</li><li>UX radicalmente simple, mobile-first</li><li>Equipo lean y AI-aumentado</li><li>Conocimiento de campo de la PYME LatAm</li></ul></div>
-        <div class="q w"><h4>Debilidades</h4><ul style="margin-bottom:0;font-size:0.88rem"><li>Marca incipiente y nombre temporal</li><li>Equipo muy pequeño (riesgo de foco)</li><li>Capital limitado vs. incumbentes</li><li>Cobertura funcional aún en construcción</li></ul></div>
-        <div class="q o"><h4>Oportunidades</h4><ul style="margin-bottom:0;font-size:0.88rem"><li>70% del mercado sin digitalizar</li><li>Ventana IA + pagos + mobile</li><li>Marketplace de apps/agentes</li><li>Expansión global del mismo producto</li></ul></div>
-        <div class="q t"><h4>Amenazas</h4><ul style="margin-bottom:0;font-size:0.88rem"><li>Incumbentes que añaden IA</li><li>Big Tech entrando al SMB</li><li>Cambios regulatorios/fiscales</li><li>Volatilidad macro/FX regional</li></ul></div>
+        <div class="q s"><h4>Fortalezas</h4><ul style="margin-bottom:0;font-size:0.88rem"><li>Arquitectura AI-Native genuina</li><li>UX radicalmente simple, mobile-first</li><li>Equipo lean y AI-aumentado</li><li>Conocimiento de campo PYME LatAm</li></ul></div>
+        <div class="q w"><h4>Debilidades</h4><ul style="margin-bottom:0;font-size:0.88rem"><li>Marca incipiente, nombre temporal</li><li>Equipo muy pequeño</li><li>Capital limitado vs. incumbentes</li><li>Cobertura funcional en construcción</li></ul></div>
+        <div class="q o"><h4>Oportunidades</h4><ul style="margin-bottom:0;font-size:0.88rem"><li>70% del mercado sin digitalizar</li><li>Ventana IA + pagos + mobile</li><li>Marketplace de apps/agentes</li><li>Mismo producto escala global</li></ul></div>
+        <div class="q t"><h4>Amenazas</h4><ul style="margin-bottom:0;font-size:0.88rem"><li>Incumbentes que añaden IA</li><li>Big Tech entrando al SMB</li><li>Cambios regulatorios</li><li>Volatilidad macro/FX</li></ul></div>
       </div>
       <ul style="margin-top:1rem">
-        <li><strong>FO (ofensiva):</strong> usar la ventaja AI-Native + UX para capturar al 70% no digitalizado antes que los incumbentes reaccionen.</li>
-        <li><strong>FA (defensiva):</strong> profundizar el foso de datos y comunidad para resistir la entrada de Big Tech.</li>
-        <li><strong>DO (refuerzo):</strong> levantar capital y construir marca/distribución local para cubrir la brecha funcional.</li>
-        <li><strong>DA (supervivencia):</strong> foco maniaco en un mercado/segmento antes de escalar; cumplimiento fiscal como escudo.</li>
+        <li><strong>FO:</strong> usar ventaja AI-Native + UX para capturar al 70% no digitalizado antes que reaccionen los incumbentes.</li>
+        <li><strong>FA:</strong> profundizar foso de datos y comunidad para resistir a Big Tech.</li>
+        <li><strong>DO:</strong> levantar capital y construir marca/distribución local para cubrir la brecha funcional.</li>
+        <li><strong>DA:</strong> foco maniaco en un mercado/segmento; cumplimiento fiscal como escudo.</li>
       </ul>
     </section>
 
@@ -367,50 +401,63 @@
     <section class="chapter" id="producto">
       <span class="ch-tag">06 · Producto</span>
       <h2 class="ch-title">Un ERP donde cada proceso fue diseñado para la IA.</h2>
-      <p class="lead">Yapalin OS es modular: el comerciante activa solo lo que necesita y la complejidad crece con su negocio. Tomamos como referencia la cobertura de Odoo y la reinventamos AI-First, añadiendo módulos que resuelven dolores reales de la pequeña empresa.</p>
+      <p class="lead">Yapalin OS es modular: el comerciante activa solo lo que necesita y la complejidad crece con su negocio. Referencia la cobertura de Odoo, reinventada AI-First, con módulos que resuelven dolores reales de la pequeña empresa.</p>
 
-      <h3>Arquitectura funcional — módulos</h3>
+      <h3>Arquitectura funcional — módulos centrales</h3>
       <table>
-        <thead><tr><th>Módulo</th><th>Función</th><th>IA aplicada</th></tr></thead>
+        <thead><tr><th>Módulo</th><th>Función</th><th>IA aplicada</th><th>Fase</th></tr></thead>
         <tbody>
-          <tr><td>📦 Inventario & Stocks</td><td>Inventario en tiempo real, lotes, multi-almacén, escáner móvil</td><td>Alertas y conteo asistido; visión por computadora para registrar productos</td></tr>
-          <tr><td>🛒 Ventas & POS</td><td>Pedidos, cotizaciones, punto de venta, catálogo</td><td>Pricing inteligente, upsell sugerido, predicción de demanda</td></tr>
-          <tr><td>💬 WhatsApp Commerce</td><td>Pedidos y catálogo por WhatsApp</td><td>Agente que atiende, cotiza y registra ventas 24/7</td></tr>
-          <tr><td>🧾 Facturación & Contabilidad</td><td>Factura electrónica legal, libros, conciliación</td><td>Contabilización automática, categorización, cierre asistido</td></tr>
-          <tr><td>🛍️ Compras & Proveedores</td><td>Aprovisionamiento, recepción, cuentas por pagar</td><td>Compras inteligentes: qué, cuándo y a quién reponer</td></tr>
-          <tr><td>🏭 Producción & Calidad</td><td>Manufactura ligera, BOM, control de calidad</td><td>Planeamiento y costeo por unidad automatizados</td></tr>
-          <tr><td>👥 RRHH & Turnos</td><td>Turnos, asistencia, comisiones, nómina ligera</td><td>Optimización de horarios y cálculo de comisiones</td></tr>
-          <tr><td>📊 Reportes & BI</td><td>Dashboards, KPIs, estados en tiempo real</td><td>Insights en lenguaje natural: "pregúntale a tu negocio"</td></tr>
-          <tr><td>💰 Finanzas & Forecast</td><td>Flujo de caja, cobranzas, pronósticos</td><td>Forecast financiero y detección de riesgos de liquidez</td></tr>
-          <tr><td>🤝 CRM inteligente</td><td>Clientes, seguimiento, fidelización</td><td>Segmentación y next-best-action automáticas</td></tr>
+          <tr><td>📦 Inventario & Stocks</td><td>Tiempo real, lotes, multi-almacén, escáner</td><td>Conteo asistido por visión; alertas predictivas</td><td>1</td></tr>
+          <tr><td>🛒 Ventas & POS</td><td>Pedidos, cotizaciones, POS, catálogo</td><td>Pricing inteligente, upsell, demanda</td><td>1</td></tr>
+          <tr><td>💬 WhatsApp Commerce</td><td>Pedidos y catálogo por WhatsApp</td><td>Agente que atiende, cotiza y registra 24/7</td><td>1</td></tr>
+          <tr><td>🧾 Facturación & Contab.</td><td>Factura electrónica, libros, conciliación</td><td>Contabilización y cierre asistidos</td><td>1</td></tr>
+          <tr><td>📊 Reportes & BI</td><td>Dashboards, KPIs en tiempo real</td><td>BI conversacional ("pregúntale a tu negocio")</td><td>1</td></tr>
+          <tr><td>🛍️ Compras & Proveedores</td><td>Aprovisionamiento, recepción, CxP</td><td>Compras inteligentes: qué/cuándo/a quién</td><td>2</td></tr>
+          <tr><td>💰 Finanzas & Forecast</td><td>Flujo de caja, cobranzas, pronósticos</td><td>Forecast y alertas de liquidez</td><td>2</td></tr>
+          <tr><td>👥 RRHH & Turnos</td><td>Turnos, asistencia, comisiones</td><td>Optimización de horarios y comisiones</td><td>2</td></tr>
+          <tr><td>🤝 CRM inteligente</td><td>Clientes, seguimiento, fidelización</td><td>Segmentación y next-best-action</td><td>2</td></tr>
+          <tr><td>🏭 Producción & Calidad</td><td>Manufactura ligera, BOM, QC</td><td>Planeamiento y costeo por unidad</td><td>3</td></tr>
         </tbody>
       </table>
 
       <h3>Módulos innovadores (diferenciadores)</h3>
-      <p><span class="pill">Tech Pack</span><span class="pill">Costeo por unidad</span><span class="pill">Ingeniería de producto</span><span class="pill">Planeamiento estratégico</span><span class="pill">OKRs</span><span class="pill">ESG & Sostenibilidad</span><span class="pill">Gestión documental</span><span class="pill">Supply Chain</span><span class="pill">Gestión legal</span><span class="pill">Inventarios predictivos</span><span class="pill">Pricing inteligente</span><span class="pill">Gestión de franquicias</span><span class="pill">Gestión de proyectos</span><span class="pill">Integraciones bancarias</span><span class="pill">Workflow Builder (No-Code)</span><span class="pill">Marketplace de apps</span><span class="pill">AI Agents Marketplace</span></p>
+      <p><span class="pill">Tech Pack</span><span class="pill">Costeo por unidad</span><span class="pill">Ingeniería de producto</span><span class="pill">Planeamiento estratégico</span><span class="pill">OKRs</span><span class="pill">ESG & Sostenibilidad</span><span class="pill">Gestión documental</span><span class="pill">Supply Chain</span><span class="pill">Gestión legal</span><span class="pill">Inventarios predictivos</span><span class="pill">Pricing inteligente</span><span class="pill">Gestión de franquicias</span><span class="pill">Gestión de proyectos</span><span class="pill">Integraciones bancarias</span><span class="pill">Workflow Builder</span><span class="pill">Marketplace de apps</span><span class="pill">AI Agents Marketplace</span></p>
 
+      <h3>La capa de Agentes IA (el corazón)</h3>
       <div class="dark">
-        <h4 style="margin-top:0">El corazón: la capa de Agentes IA</h4>
-        <p style="margin-bottom:0">Sobre los módulos opera una <strong>orquesta de agentes autónomos</strong> conectados vía <strong>MCP (Model Context Protocol)</strong>: agentes de compras, ventas, cobranzas, atención y finanzas que ejecutan tareas de punta a punta, generan documentos y toman micro-decisiones con supervisión humana configurable. El <strong>Workflow Builder No-Code</strong> permite al usuario crear sus propias automatizaciones en lenguaje natural.</p>
+        <p>Sobre los módulos opera una <strong>orquesta de agentes autónomos</strong> conectados vía <strong>MCP (Model Context Protocol)</strong>. Cada agente tiene un objetivo, herramientas (módulos/APIs) y políticas de autonomía configurables (sugerir → aprobar → ejecutar).</p>
+        <table class="mini" style="background:rgba(255,255,255,0.06);color:#fff;border-color:rgba(255,255,255,0.15)">
+          <thead><tr><th style="background:transparent;color:var(--coral-soft)">Agente</th><th style="background:transparent;color:var(--coral-soft)">Hace</th></tr></thead>
+          <tbody>
+            <tr><td>Agente de Ventas</td><td>Atiende WhatsApp, cotiza, cierra y registra la venta</td></tr>
+            <tr><td>Agente de Inventario</td><td>Detecta quiebres, sugiere y arma órdenes de compra</td></tr>
+            <tr><td>Agente de Cobranzas</td><td>Recuerda y concilia pagos, reduce mora</td></tr>
+            <tr><td>Agente Contable</td><td>Clasifica, contabiliza y prepara el cierre</td></tr>
+            <tr><td>Agente Analista</td><td>Responde preguntas del negocio en lenguaje natural</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-bottom:0">El <strong>Workflow Builder No-Code</strong> permite al usuario crear sus propias automatizaciones describiéndolas en lenguaje natural.</p>
       </div>
 
-      <h3>Roadmap de producto (resumen)</h3>
-      <ul>
-        <li><strong>Fase 1 (Año 1):</strong> núcleo (inventario, ventas, WhatsApp, facturación, reportes) + primeros agentes. Mobile-first, offline.</li>
-        <li><strong>Fase 2 (Año 2):</strong> compras, finanzas, RRHH, CRM; Workflow Builder; multi-empresa/multi-moneda; API pública.</li>
-        <li><strong>Fase 3 (Año 3):</strong> Marketplace de apps + AI Agents Marketplace; producción/calidad; BI conversacional.</li>
-        <li><strong>Fase 4 (Años 4–5):</strong> módulos avanzados (ESG, franquicias, supply chain), profundidad por vertical e i18n para expansión global.</li>
-      </ul>
+      <h3>Roadmap de producto</h3>
+      <table class="mini">
+        <thead><tr><th>Fase</th><th>Cuándo</th><th>Entregables</th></tr></thead>
+        <tbody>
+          <tr><td>1 · Núcleo</td><td>Año 1</td><td>Inventario, ventas, WhatsApp, facturación, BI + primeros agentes; mobile/offline</td></tr>
+          <tr><td>2 · Profundidad</td><td>Año 2</td><td>Compras, finanzas, RRHH, CRM; Workflow Builder; multi-empresa/moneda; API pública</td></tr>
+          <tr><td>3 · Ecosistema</td><td>Año 3</td><td>Marketplace de apps + agentes; producción/calidad; BI conversacional</td></tr>
+          <tr><td>4 · Global</td><td>Años 4–5</td><td>Módulos avanzados (ESG, franquicias, supply chain), profundidad vertical, i18n</td></tr>
+        </tbody>
+      </table>
     </section>
 
     <!-- 7. BRANDING -->
     <section class="chapter" id="branding">
       <span class="ch-tag">07 · Estrategia de Branding</span>
       <h2 class="ch-title">Una marca cercana, confiable e inteligente.</h2>
-
       <h3>Golden Circle</h3>
       <div class="grid3">
-        <div class="card"><h4>WHY</h4><p style="margin:0;font-size:0.92rem">Creemos que toda pequeña empresa merece las mismas herramientas que una grande. Nadie debería quedar fuera por no saber de tecnología.</p></div>
+        <div class="card"><h4>WHY</h4><p style="margin:0;font-size:0.92rem">Toda pequeña empresa merece las mismas herramientas que una grande. Nadie debería quedar fuera por no saber de tecnología.</p></div>
         <div class="card"><h4>HOW</h4><p style="margin:0;font-size:0.92rem">Con un ERP AI-Native radicalmente simple que automatiza lo tedioso y habla el idioma del comerciante.</p></div>
         <div class="card"><h4>WHAT</h4><p style="margin:0;font-size:0.92rem">Una app que gestiona inventario, ventas, finanzas y clientes — con IA — desde el celular.</p></div>
       </div>
@@ -421,26 +468,35 @@
       <h3>Arquitectura de marca, personalidad y voz</h3>
       <div class="grid2">
         <div class="card"><h4>Personalidad</h4><ul style="margin-bottom:0;font-size:0.9rem"><li>Cercana y cálida (no corporativa)</li><li>Empoderadora ("tú puedes")</li><li>Inteligente sin ser técnica</li><li>Honesta y transparente</li></ul></div>
-        <div class="card"><h4>Voz & tono</h4><ul style="margin-bottom:0;font-size:0.9rem"><li>Tuteo, lenguaje claro, cero jerga</li><li>Frases cortas, accionables</li><li>Ejemplos del mundo real (la bodega, la panadería)</li><li>Optimista y motivador</li></ul></div>
+        <div class="card"><h4>Voz & tono — do / don't</h4><ul style="margin-bottom:0;font-size:0.9rem"><li>✓ Tuteo, claro, ejemplos reales</li><li>✓ Frases cortas y accionables</li><li>✗ Jerga técnica o de consultoría</li><li>✗ Promesas vagas o tono soberbio</li></ul></div>
       </div>
 
       <h3>Manifiesto</h3>
       <div class="dark"><p style="margin:0;font-style:italic;font-size:1.05rem">"Detrás de cada pequeño negocio hay una familia, un sueño y horas que nadie ve. Creemos que esas horas deberían dedicarse a crecer, no a contar productos a mano. Por eso construimos una inteligencia que trabaja contigo, no contra ti. Para que el tamaño deje de ser una desventaja. Para que lo pequeño también pueda ser poderoso."</p></div>
 
       <h3>Naming e identidad</h3>
-      <p><strong>Yapalin</strong> es un <em>nombre temporal</em>. El naming definitivo se validará con criterios de: disponibilidad legal y de dominio en 100+ países, pronunciabilidad multilingüe, ausencia de connotaciones negativas y memorabilidad. <strong>Identidad visual:</strong> paleta cálida (coral) + confianza (navy) + crecimiento (teal); tipografías geométricas (Space Grotesk) + legibles (Plus Jakarta Sans); estética limpia inspirada en Dieter Rams. <strong>Propuesta emocional:</strong> tranquilidad, orgullo y control.</p>
+      <p><strong>Yapalin</strong> es un <em>nombre temporal</em>. Criterios para el naming definitivo:</p>
+      <table class="mini">
+        <thead><tr><th>Criterio</th><th>Requisito</th></tr></thead>
+        <tbody>
+          <tr><td>Legal & dominio</td><td>Marca y .com disponibles en mercados clave</td></tr>
+          <tr><td>Multilingüe</td><td>Pronunciable y sin connotación negativa en ES/EN/PT/FR</td></tr>
+          <tr><td>Memorabilidad</td><td>Corto, único, fácil de escribir</td></tr>
+          <tr><td>Escalabilidad</td><td>No atado a un país/sector específico</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Identidad visual:</strong> paleta cálida (coral) + confianza (navy) + crecimiento (teal); tipografías geométricas (Space Grotesk) + legibles (Plus Jakarta Sans); estética limpia inspirada en Dieter Rams. <strong>Propuesta emocional:</strong> tranquilidad, orgullo y control.</p>
     </section>
 
     <!-- 8. COMERCIAL -->
     <section class="chapter" id="comercial">
       <span class="ch-tag">08 · Estrategia Comercial</span>
       <h2 class="ch-title">Go-To-Market: distribución como ventaja.</h2>
-
       <h3>Motor de crecimiento</h3>
       <div class="grid3">
-        <div class="card"><h4>Product-Led Growth</h4><p style="margin:0;font-size:0.9rem">Prueba gratis 2 semanas, onboarding en 5 min, valor inmediato. El producto vende.</p></div>
+        <div class="card"><h4>Product-Led Growth</h4><p style="margin:0;font-size:0.9rem">Prueba gratis 2 semanas, onboarding 5 min, valor inmediato. El producto vende.</p></div>
         <div class="card"><h4>Community-Led Growth</h4><p style="margin:0;font-size:0.9rem">Comunidad de comerciantes, contenido educativo, embajadores por ciudad/sector.</p></div>
-        <div class="card"><h4>Referidos virales</h4><p style="margin:0;font-size:0.9rem">+1 semana gratis por cada negocio recomendado → loop de adquisición de bajo costo.</p></div>
+        <div class="card"><h4>Referidos virales</h4><p style="margin:0;font-size:0.9rem">+1 semana gratis por cada negocio recomendado → loop de bajo costo.</p></div>
       </div>
 
       <h3>Estrategia por fases</h3>
@@ -449,89 +505,109 @@
         <tbody>
           <tr><td>1 · Beachhead</td><td>Dominar 1 ciudad/sector en Perú</td><td>Terreno + WhatsApp + referidos</td><td>PMF, 1,000 negocios</td></tr>
           <tr><td>2 · Densidad nacional</td><td>Perú + Colombia</td><td>PLG digital + partners contables</td><td>Liderazgo local</td></tr>
-          <tr><td>3 · Regional</td><td>México, Brasil, Chile, etc.</td><td>Multi-canal + marketplace</td><td>Marca regional</td></tr>
+          <tr><td>3 · Regional</td><td>México, Brasil, Chile…</td><td>Multi-canal + marketplace</td><td>Marca regional</td></tr>
           <tr><td>4 · Global</td><td>Mercados emergentes afines</td><td>PLG + partnerships + ecosistema</td><td>100+ países</td></tr>
         </tbody>
       </table>
 
-      <h3>Canales y palancas</h3>
+      <h3>Economía por canal (Año 1, estimado)</h3>
+      <table class="mini">
+        <thead><tr><th>Canal</th><th class="num">% de altas</th><th class="num">CAC</th><th>Notas</th></tr></thead>
+        <tbody>
+          <tr><td>Referidos</td><td class="num">30%</td><td class="num">~$15</td><td>El más eficiente; incentivo en semanas gratis</td></tr>
+          <tr><td>Orgánico (SEO/ASO/contenido)</td><td class="num">25%</td><td class="num">~$25</td><td>Compone en el tiempo</td></tr>
+          <tr><td>Comunidad & embajadores</td><td class="num">15%</td><td class="num">~$30</td><td>Confianza local</td></tr>
+          <tr><td>Partners contables</td><td class="num">15%</td><td class="num">~$40</td><td>Multi-empresa, baja churn</td></tr>
+          <tr><td>Paid (SEM/Social)</td><td class="num">15%</td><td class="num">~$80</td><td>Acelera, se modula según LTV/CAC</td></tr>
+          <tr class="tot"><td>Blended</td><td class="num">100%</td><td class="num">~$40</td><td>Objetivo Año 1 &lt; $50</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Partnerships, embajadores y Customer Success</h3>
       <ul>
-        <li><strong>Digital (B2C/B2B self-serve):</strong> app stores, SEO/ASO, social, WhatsApp.</li>
-        <li><strong>Partnerships:</strong> contadores, gremios y cámaras de comercio, telcos, fintech de pagos, bancos (PYME).</li>
-        <li><strong>Embajadores & referidos:</strong> comerciantes líderes que evangelizan en su comunidad.</li>
-        <li><strong>Customer Success:</strong> onboarding asistido por IA, health scores, expansión (upsell a Premium) y reducción de churn.</li>
-        <li><strong>Internacionalización:</strong> el mismo producto multi-idioma/moneda + pricing local; playbook replicable por país.</li>
+        <li><strong>Partnerships:</strong> contadores (revenue-share), gremios/cámaras (co-marketing), telcos y fintech de pagos (bundling), bancos PYME (distribución).</li>
+        <li><strong>Embajadores:</strong> comerciantes líderes que evangelizan en su comunidad; programa con incentivos y estatus.</li>
+        <li><strong>Customer Success:</strong> onboarding asistido por IA, health scores, alertas de churn, expansión a Premium; meta NRR ≥ 110%.</li>
+        <li><strong>Internacionalización:</strong> mismo producto multi-idioma/moneda + pricing local; playbook replicable (&lt;90 días por país).</li>
       </ul>
     </section>
 
     <!-- 9. MARKETING -->
     <section class="chapter" id="marketing">
       <span class="ch-tag">09 · Marketing</span>
-      <h2 class="ch-title">Plan de marketing: educar, activar, retener.</h2>
-
+      <h2 class="ch-title">Plan de marketing: educar, activar, retener, referir.</h2>
       <h3>Buyer Personas</h3>
       <div class="grid3">
-        <div class="card"><h4>María · Bodega/minimarket</h4><p style="margin:0;font-size:0.88rem">42 años, gestiona stock de memoria, usa WhatsApp todo el día. Dolor: quiebres de stock y no saber su ganancia real. Gana con: inventario + ventas.</p></div>
-        <div class="card"><h4>Carlos · Taller/manufactura ligera</h4><p style="margin:0;font-size:0.88rem">35 años, 5 empleados. Dolor: costeo, producción y facturación. Gana con: producción + costeo + facturación.</p></div>
-        <div class="card"><h4>Lucía · Servicios/boutique</h4><p style="margin:0;font-size:0.88rem">29 años, mobile-native. Dolor: agenda, clientes y cobros. Gana con: CRM + ventas + WhatsApp.</p></div>
+        <div class="card"><h4>María · Bodega</h4><p style="margin:0;font-size:0.86rem">42 años, stock de memoria, WhatsApp todo el día. Dolor: quiebres y no saber su ganancia. Gana con: inventario + ventas.</p></div>
+        <div class="card"><h4>Carlos · Taller</h4><p style="margin:0;font-size:0.86rem">35 años, 5 empleados. Dolor: costeo, producción, facturación. Gana con: producción + costeo + facturación.</p></div>
+        <div class="card"><h4>Lucía · Servicios/boutique</h4><p style="margin:0;font-size:0.86rem">29 años, mobile-native. Dolor: agenda, clientes, cobros. Gana con: CRM + ventas + WhatsApp.</p></div>
       </div>
 
       <h3>Customer Journey & Funnel</h3>
       <table>
         <thead><tr><th>Etapa</th><th>Objetivo</th><th>Tácticas</th><th>KPI</th></tr></thead>
         <tbody>
-          <tr><td>Awareness</td><td>Que nos conozcan</td><td>Contenido educativo, social, PR, influencers de negocio</td><td>Alcance, visitas</td></tr>
+          <tr><td>Awareness</td><td>Que nos conozcan</td><td>Contenido, social, PR, influencers de negocio</td><td>Alcance, visitas</td></tr>
           <tr><td>Consideration</td><td>Generar interés</td><td>Casos, comparativas, demos, SEO/SEM</td><td>Leads, instalaciones</td></tr>
-          <tr><td>Conversion</td><td>Activar la prueba</td><td>Onboarding 5 min, aha-moment, prueba 2 semanas</td><td>Activación, trial→pago</td></tr>
+          <tr><td>Conversion</td><td>Activar la prueba</td><td>Onboarding 5 min, aha-moment, prueba 2 sem</td><td>Activación, trial→pago</td></tr>
           <tr><td>Retention</td><td>Uso recurrente</td><td>IA proactiva, hábitos, soporte</td><td>WAB, churn</td></tr>
-          <tr><td>Referral</td><td>Convertir en promotor</td><td>Programa de referidos, comunidad</td><td>K-factor, NPS</td></tr>
+          <tr><td>Referral</td><td>Convertir en promotor</td><td>Referidos, comunidad</td><td>K-factor, NPS</td></tr>
         </tbody>
       </table>
 
-      <h3>Mix de canales, growth loops y presupuesto (Año 1)</h3>
-      <table>
-        <thead><tr><th>Palanca</th><th>Acción</th><th class="num">% presup.</th></tr></thead>
+      <h3>Plan de adquisición mensual — Año 1 (caso base)</h3>
+      <table class="mini">
+        <thead><tr><th>Mes</th><th class="num">M1-3</th><th class="num">M4</th><th class="num">M5</th><th class="num">M6</th><th class="num">M7</th><th class="num">M8</th><th class="num">M9</th><th class="num">M10</th><th class="num">M11</th><th class="num">M12</th></tr></thead>
         <tbody>
-          <tr><td>Contenido & SEO/ASO</td><td>Blog, video, guías PYME, posicionamiento orgánico</td><td class="num">22%</td></tr>
-          <tr><td>Social & Comunidad</td><td>TikTok/IG/FB, grupos, embajadores</td><td class="num">20%</td></tr>
-          <tr><td>Referidos</td><td>Incentivos (+1 semana) y mecánica viral</td><td class="num">18%</td></tr>
-          <tr><td>Paid (SEM/Social Ads)</td><td>Campañas de adquisición medibles</td><td class="num">20%</td></tr>
-          <tr><td>Partnerships & eventos</td><td>Contadores, gremios, ferias locales</td><td class="num">12%</td></tr>
-          <tr><td>Email & automatización</td><td>Nurturing, activación, winback</td><td class="num">8%</td></tr>
-          <tr class="tot"><td colspan="2">Total marketing Año 1</td><td class="num">100% · ~$150K</td></tr>
+          <tr><td>Negocios nuevos</td><td class="num">pilotos</td><td class="num">30</td><td class="num">40</td><td class="num">60</td><td class="num">90</td><td class="num">120</td><td class="num">140</td><td class="num">160</td><td class="num">180</td><td class="num">180</td></tr>
+          <tr><td>Acumulado de pago</td><td class="num">0</td><td class="num">30</td><td class="num">70</td><td class="num">130</td><td class="num">220</td><td class="num">340</td><td class="num">480</td><td class="num">640</td><td class="num">820</td><td class="num">1,000</td></tr>
         </tbody>
       </table>
-      <p><strong>Growth loop principal:</strong> usuario activa prueba → obtiene valor (aha) → refiere a otro negocio para ganar semanas gratis → nuevo usuario entra → repite. Reforzado por contenido (SEO compone) y comunidad (CLG).</p>
-      <p class="mono" style="font-size:0.75rem;color:var(--gray)">Cronograma: T1 contenido base + comunidad · T2 referidos + paid · T3 partnerships + eventos · T4 optimización y expansión a Colombia. Responsables: fundador Growth (lead) + agencia/freelancers + IA de contenidos.</p>
+      <p class="mono" style="font-size:0.72rem;color:var(--gray)">M1–M3: construcción + 10 pilotos (gratis). Lanzamiento público en M4. La curva se apoya cada vez más en referidos y orgánico a medida que avanza el año.</p>
+
+      <h3>Mix de canales y presupuesto (Año 1 · ~$150K)</h3>
+      <table>
+        <thead><tr><th>Palanca</th><th>Acción</th><th class="num">%</th><th class="num">USD</th></tr></thead>
+        <tbody>
+          <tr><td>Contenido & SEO/ASO</td><td>Blog, video, guías PYME</td><td class="num">22%</td><td class="num">$33K</td></tr>
+          <tr><td>Social & Comunidad</td><td>TikTok/IG/FB, grupos, embajadores</td><td class="num">20%</td><td class="num">$30K</td></tr>
+          <tr><td>Referidos</td><td>Incentivos y mecánica viral</td><td class="num">18%</td><td class="num">$27K</td></tr>
+          <tr><td>Paid (SEM/Social)</td><td>Campañas medibles</td><td class="num">20%</td><td class="num">$30K</td></tr>
+          <tr><td>Partnerships & eventos</td><td>Contadores, gremios, ferias</td><td class="num">12%</td><td class="num">$18K</td></tr>
+          <tr><td>Email & automatización</td><td>Nurturing, activación, winback</td><td class="num">8%</td><td class="num">$12K</td></tr>
+          <tr class="tot"><td colspan="2">Total marketing Año 1</td><td class="num">100%</td><td class="num">$150K</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Growth loop principal:</strong> usuario activa prueba → obtiene valor (aha) → refiere para ganar semanas gratis → nuevo usuario entra → repite. Reforzado por contenido (SEO compone) y comunidad (CLG). <strong>Responsables:</strong> fundador Growth (lead) + freelancers + IA de contenidos.</p>
+      <p class="mono" style="font-size:0.72rem;color:var(--gray)">Cronograma: T1 contenido base + comunidad · T2 referidos + paid · T3 partnerships + eventos · T4 optimización + expansión a Colombia.</p>
     </section>
 
     <!-- 10. OPERACIONES -->
     <section class="chapter" id="operaciones">
       <span class="ch-tag">10 · Plan Operativo</span>
-      <h2 class="ch-title">Operación lean, apalancada en IA y automatización.</h2>
+      <h2 class="ch-title">Operación lean, apalancada en IA.</h2>
       <h3>Cadena de valor</h3>
       <p>Investigación de usuarios → desarrollo AI-First → onboarding self-service → entrega continua de valor (IA proactiva) → soporte asistido → expansión y referidos. Cada eslabón está instrumentado con KPIs y, donde es posible, automatizado.</p>
 
-      <h3>Procesos centrales y matriz RACI (Año 1, 2 fundadores)</h3>
+      <h3>Matriz RACI — evolución</h3>
       <table>
-        <thead><tr><th>Proceso</th><th>Fundador Producto/Tech</th><th>Fundador Growth/Ops</th><th>IA / Agentes</th></tr></thead>
+        <thead><tr><th>Proceso</th><th>Founder Tech</th><th>Founder Growth</th><th>IA / Agentes</th><th>Equipo (post-Seed)</th></tr></thead>
         <tbody>
-          <tr><td>Desarrollo de producto</td><td>R/A</td><td>C</td><td>R (co-dev)</td></tr>
-          <tr><td>Adquisición & marketing</td><td>C</td><td>R/A</td><td>R (contenido)</td></tr>
-          <tr><td>Onboarding & soporte</td><td>C</td><td>A</td><td>R (24/7)</td></tr>
-          <tr><td>Customer success / churn</td><td>C</td><td>R/A</td><td>R (health scores)</td></tr>
-          <tr><td>Finanzas & legal</td><td>C</td><td>R/A</td><td>C</td></tr>
+          <tr><td>Producto & ingeniería</td><td>R/A</td><td>C</td><td>R</td><td>R (Ing.)</td></tr>
+          <tr><td>Adquisición & marketing</td><td>C</td><td>R/A</td><td>R (contenido)</td><td>R (Growth)</td></tr>
+          <tr><td>Onboarding & soporte</td><td>C</td><td>A</td><td>R (24/7)</td><td>R (CS)</td></tr>
+          <tr><td>Customer success / churn</td><td>C</td><td>R/A</td><td>R (health)</td><td>R (CS)</td></tr>
+          <tr><td>Finanzas & legal</td><td>C</td><td>R/A</td><td>C</td><td>A (Ops)</td></tr>
         </tbody>
       </table>
       <p class="mono" style="font-size:0.72rem;color:var(--gray)">R = Responsable · A = Aprobador · C = Consultado · I = Informado</p>
 
       <h3>SOPs, playbooks y KPIs operativos</h3>
-      <ul>
-        <li><strong>Playbooks:</strong> lanzamiento por país, onboarding de comerciante, respuesta a incidentes, escalamiento de soporte, expansión de cuenta.</li>
-        <li><strong>SOPs documentados</strong> y ejecutables por agentes IA siempre que sea posible (soporte N1, QA, generación de contenido, reporting).</li>
-        <li><strong>KPIs operativos:</strong> tiempo de onboarding, uptime (≥99.9%), tiempo de primera respuesta de soporte, % tickets resueltos por IA, NPS, WAB.</li>
-        <li><strong>Operaciones internacionales:</strong> playbook replicable (localización fiscal, pagos, idioma, soporte) para abrir un país en &lt;90 días.</li>
-      </ul>
+      <div class="grid2">
+        <div class="card"><h4>Playbooks & SOPs</h4><ul style="margin-bottom:0;font-size:0.9rem"><li>Lanzamiento por país (&lt;90 días)</li><li>Onboarding de comerciante</li><li>Respuesta a incidentes (sev1–3)</li><li>Escalamiento de soporte (N1 IA → N2 humano)</li><li>Expansión de cuenta / winback</li><li>QA y release (CI/CD asistido)</li></ul></div>
+        <div class="card"><h4>KPIs operativos (objetivo)</h4><table class="mini" style="margin:0"><tbody><tr><td>Onboarding</td><td class="num">&lt;5 min</td></tr><tr><td>Uptime</td><td class="num">≥99.9%</td></tr><tr><td>1ª respuesta soporte</td><td class="num">&lt;2 min (IA)</td></tr><tr><td>Tickets resueltos por IA</td><td class="num">&gt;70%</td></tr><tr><td>NPS</td><td class="num">≥50</td></tr></tbody></table></div>
+      </div>
+      <p><strong>Operaciones internacionales:</strong> playbook replicable (localización fiscal, pagos, idioma, soporte) ejecutado mayormente por agentes IA + un responsable de mercado.</p>
     </section>
 
     <!-- 11. ORGANIZACION -->
@@ -550,14 +626,23 @@
           <tr class="tot"><td>Total</td><td class="num">2</td><td class="num">10</td><td class="num">28</td><td class="num">90</td></tr>
         </tbody>
       </table>
-      <p>La productividad por empleado se mantiene altísima gracias a la cultura AI-First: cada persona se apalanca en agentes. <strong>Ingresos por empleado objetivo:</strong> &gt;$600K hacia el Año 5.</p>
 
-      <h3>Gobierno corporativo, políticas y compensación</h3>
+      <h3>Plan de contratación (timing y primeras claves post-Seed)</h3>
+      <table class="mini">
+        <thead><tr><th>Cuándo</th><th>Roles clave</th></tr></thead>
+        <tbody>
+          <tr><td>Tras el Seed (Año 2 T1)</td><td>2 AI engineers, 1 growth lead, 1 customer success, 1 ops/finance</td></tr>
+          <tr><td>Año 2 H2</td><td>Diseño producto, country manager Colombia, contenido</td></tr>
+          <tr><td>Año 3</td><td>Head of Product, Head of Growth, data, más CS y por país</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Gobierno, políticas y compensación</h3>
       <ul>
-        <li><strong>Estructura legal:</strong> holding en jurisdicción investor-friendly (p. ej. Delaware C-Corp) + entidades operativas locales para cumplimiento fiscal.</li>
-        <li><strong>Gobierno:</strong> board con fundadores + inversionistas Seed; reporting mensual de métricas; pool de opciones (ESOP) ~10–15%.</li>
-        <li><strong>Compensación:</strong> salarios modestos para fundadores en Pre-Seed ($2,500/mes c/u) + equity; mercado + equity para futuras contrataciones.</li>
-        <li><strong>Cultura & capacitación:</strong> remote-first, documentación radical, onboarding AI-asistido, presupuesto de aprendizaje continuo en IA.</li>
+        <li><strong>Estructura legal:</strong> holding investor-friendly (p. ej. Delaware C-Corp) + entidades operativas locales.</li>
+        <li><strong>Gobierno:</strong> board fundadores + Seed; reporting mensual; <strong>ESOP 10–15%</strong>.</li>
+        <li><strong>Compensación:</strong> fundadores $2,500/mes en Pre-Seed + equity; mercado + equity para nuevas contrataciones; bandas por nivel.</li>
+        <li><strong>Cultura & capacitación:</strong> remote-first, documentación radical, onboarding AI-asistido, presupuesto de aprendizaje en IA. <strong>Ingresos/empleado objetivo &gt;$600K (Año 5).</strong></li>
       </ul>
     </section>
 
@@ -567,26 +652,29 @@
       <h2 class="ch-title">Arquitectura AI-Native, construida con IA.</h2>
       <p class="lead">No escribimos software a mano: lo construimos con IA, agentes y plataformas No-Code/Low-Code. Esto multiplica la velocidad de 2 fundadores y reduce drásticamente el costo de desarrollo.</p>
 
-      <h3>Stack y arquitectura (propuesta)</h3>
+      <h3>Stack y arquitectura</h3>
       <table>
         <thead><tr><th>Capa</th><th>Elección</th><th>Por qué</th></tr></thead>
         <tbody>
           <tr><td>Cloud & cómputo</td><td>AWS/GCP serverless + edge</td><td>Escala global, costo variable, baja ops</td></tr>
-          <tr><td>Datos</td><td>Postgres + almacén analítico + vector DB</td><td>Transaccional + analítica + memoria de IA (RAG)</td></tr>
-          <tr><td>IA / LLMs</td><td>Multi-proveedor (Anthropic, OpenAI) + modelos abiertos afinados</td><td>Evita lock-in, optimiza costo/calidad</td></tr>
-          <tr><td>Agentes</td><td>Orquestación de agentes vía <strong>MCP</strong></td><td>Herramientas y datos conectados de forma estándar y segura</td></tr>
-          <tr><td>Backend</td><td>API-First + event-driven</td><td>Integraciones, marketplace y multi-cliente</td></tr>
-          <tr><td>Frontend</td><td>Mobile-first (PWA + nativo) offline-first</td><td>Funciona con baja conectividad</td></tr>
-          <tr><td>Desarrollo</td><td>AI coding agents + No-Code/Low-Code</td><td>Velocidad y costo: el foso de ejecución</td></tr>
+          <tr><td>Datos</td><td>Postgres + warehouse + vector DB</td><td>Transaccional + analítica + memoria IA (RAG)</td></tr>
+          <tr><td>IA / LLMs</td><td>Multi-proveedor + modelos abiertos afinados</td><td>Evita lock-in, optimiza costo/calidad</td></tr>
+          <tr><td>Agentes</td><td>Orquestación vía <strong>MCP</strong></td><td>Herramientas y datos conectados de forma estándar y segura</td></tr>
+          <tr><td>Backend</td><td>API-First + event-driven</td><td>Integraciones, marketplace, multi-tenant</td></tr>
+          <tr><td>Frontend</td><td>Mobile-first (PWA + nativo), offline-first</td><td>Funciona con baja conectividad</td></tr>
+          <tr><td>Desarrollo</td><td>AI coding agents + No-Code/Low-Code</td><td>Velocidad y costo: foso de ejecución</td></tr>
         </tbody>
       </table>
 
+      <h3>Modelo de costos de IA (clave del margen)</h3>
+      <p>El costo de inferencia por negocio activo se gestiona con: enrutamiento a modelos más baratos para tareas simples, caché semántica, batching, modelos propios afinados para tareas repetitivas y límites por plan. <strong>Objetivo: costo de IA &lt; 12% del ingreso (Año 1) → &lt; 8% (Año 5).</strong></p>
+
       <h3>Seguridad, escalabilidad e integraciones</h3>
       <ul>
-        <li><strong>Seguridad & privacidad:</strong> cifrado en tránsito y reposo, aislamiento multi-tenant, cumplimiento LGPD/leyes locales, principio de mínimo privilegio para agentes y <em>human-in-the-loop</em> en acciones sensibles.</li>
-        <li><strong>Escalabilidad:</strong> arquitectura serverless multi-región; multi-empresa, multi-moneda y multi-idioma desde el diseño.</li>
+        <li><strong>Seguridad & privacidad:</strong> cifrado en tránsito/reposo, aislamiento multi-tenant, cumplimiento LGPD/local, mínimo privilegio para agentes y <em>human-in-the-loop</em> en acciones sensibles.</li>
+        <li><strong>Escalabilidad:</strong> serverless multi-región; multi-empresa, multi-moneda y multi-idioma desde el diseño.</li>
         <li><strong>Integraciones:</strong> pagos (Pix, PSE, Yape, Mercado Pago), bancos, facturación electrónica, e-commerce y logística vía API.</li>
-        <li><strong>Plataforma abierta:</strong> API pública + SDK → Marketplace de apps y de Agentes IA construidos por terceros.</li>
+        <li><strong>Plataforma abierta:</strong> API pública + SDK → Marketplace de apps y de Agentes IA de terceros.</li>
       </ul>
     </section>
 
@@ -595,48 +683,69 @@
       <span class="ch-tag">13 · Impacto Social</span>
       <h2 class="ch-title">Negocio rentable, impacto medible.</h2>
       <h3>Teoría del Cambio</h3>
-      <p><strong>Insumo:</strong> ERP AI-Native accesible → <strong>Actividad:</strong> digitalización de la PYME → <strong>Resultado:</strong> +productividad, +ventas, formalización → <strong>Impacto:</strong> negocios que sobreviven y crecen, empleo, economías locales más resilientes y reducción de la pobreza.</p>
+      <p><strong>Insumo:</strong> ERP AI-Native accesible → <strong>Actividad:</strong> digitalización de la PYME → <strong>Producto:</strong> procesos automatizados, datos confiables → <strong>Resultado:</strong> +productividad, +ventas, formalización → <strong>Impacto:</strong> negocios que sobreviven y crecen, empleo, economías locales resilientes, reducción de pobreza.</p>
       <div class="grid3">
         <div class="kpi"><div class="n">ODS 8</div><div class="l">Trabajo decente y crecimiento económico</div></div>
         <div class="kpi"><div class="n">ODS 9</div><div class="l">Industria, innovación e infraestructura</div></div>
         <div class="kpi"><div class="n">ODS 10</div><div class="l">Reducción de las desigualdades</div></div>
       </div>
-      <h3>ESG y KPIs de impacto</h3>
-      <ul>
-        <li><strong>Económico:</strong> incremento promedio de productividad/ingresos de los negocios usuarios (meta +30–100%); nº de PYMES formalizadas.</li>
-        <li><strong>Social:</strong> horas devueltas al comerciante y su familia; inclusión digital de mujeres emprendedoras (segmento sobre-representado).</li>
-        <li><strong>Ambiental:</strong> reducción de papel y de desplazamientos; cómputo de IA con proveedores cloud neutros en carbono.</li>
-        <li><strong>Gobernanza:</strong> privacidad de datos, IA responsable y transparente, precios justos.</li>
-      </ul>
+      <h3>KPIs de impacto (con metas)</h3>
+      <table class="mini">
+        <thead><tr><th>Dimensión</th><th>Métrica</th><th>Meta Año 5</th></tr></thead>
+        <tbody>
+          <tr><td>Económico</td><td>Productividad promedio de usuarios</td><td>+30% medido</td></tr>
+          <tr><td>Económico</td><td>PYMES formalizadas vía la plataforma</td><td>50,000+</td></tr>
+          <tr><td>Social</td><td>Negocios impactados (incl. prueba)</td><td>1,000,000+</td></tr>
+          <tr><td>Social</td><td>% de dueñas mujeres atendidas</td><td>≥45%</td></tr>
+          <tr><td>Ambiental</td><td>Reducción de papel/desplazamientos</td><td>Reporte anual ESG</td></tr>
+          <tr><td>Gobernanza</td><td>Incidentes de privacidad</td><td>0 graves</td></tr>
+        </tbody>
+      </table>
     </section>
 
     <!-- 14. FINANZAS -->
     <section class="chapter" id="finanzas">
       <span class="ch-tag">14 · Finanzas</span>
-      <h2 class="ch-title">Modelo financiero 2026–2030 (caso base).</h2>
+      <h2 class="ch-title">Modelo financiero 2026–2030.</h2>
+      <div class="subnav">En esta sección: <a href="#f-sup">Supuestos</a> · <a href="#f-uso">Uso de fondos</a> · <a href="#f-y1">P&L mensual Y1</a> · <a href="#f-5y">Proyección 5 años</a> · <a href="#f-unit">Unit economics</a> · <a href="#f-cap">Cap table</a> · <a href="#f-esc">Escenarios</a></div>
 
-      <h3>Supuestos clave</h3>
+      <h3 id="f-sup">Supuestos clave</h3>
       <ul>
-        <li>Precio lista $10 (Standard) / $15 (Premium); <strong>ARPU efectivo por usuario</strong> $8.0 (Y1) → $10.0 (Y5) por pricing local y mix.</li>
+        <li>Precio lista $10 (Standard) / $15 (Premium); <strong>ARPU efectivo/usuario</strong> $8.0 (Y1) → $10.0 (Y5).</li>
         <li>~2.5 usuarios por negocio; <strong>churn logo</strong> 4%/mes (Y1) → 3%/mes (Y5).</li>
-        <li><strong>Gross margin</strong> 72% (Y1) → 86% (Y5) a medida que baja el costo unitario de IA.</li>
-        <li>Rondas: Pre-Seed $350K (2026) · Seed $3–4M (2027) · Series A $15–20M (2028).</li>
+        <li><strong>Gross margin</strong> 72% (Y1) → 86% (Y5); costo IA &lt;12%→&lt;8% del ingreso.</li>
+        <li>Rondas: Pre-Seed $350K (2026) · Seed $3.5M (2027) · Series A $18M (2028).</li>
       </ul>
 
-      <h3>Uso de fondos — Pre-Seed USD 350,000</h3>
+      <h3 id="f-uso">Uso de fondos — Pre-Seed USD 350,000</h3>
       <table>
         <thead><tr><th>Rubro</th><th class="num">USD</th><th class="num">%</th><th>Justificación</th></tr></thead>
         <tbody>
-          <tr><td>Marketing & adquisición</td><td class="num">150,000</td><td class="num">43%</td><td>Primer motor de crecimiento: contenido, referidos, paid medible</td></tr>
-          <tr><td>Producto, IA & infraestructura</td><td class="num">75,000</td><td class="num">21%</td><td>Tokens LLM, cloud, herramientas No-Code/Low-Code, diseño</td></tr>
-          <tr><td>Sueldos fundadores (12 m)</td><td class="num">60,000</td><td class="num">17%</td><td>$2,500/mes c/u — dedicación full-time, burn mínimo</td></tr>
-          <tr><td>Operaciones & Customer Success</td><td class="num">45,000</td><td class="num">13%</td><td>Onboarding, soporte y éxito de los pilotos</td></tr>
+          <tr><td>Marketing & adquisición</td><td class="num">150,000</td><td class="num">43%</td><td>Primer motor de crecimiento: contenido, referidos, paid</td></tr>
+          <tr><td>Producto, IA & infraestructura</td><td class="num">75,000</td><td class="num">21%</td><td>Tokens LLM, cloud, No-Code/Low-Code, diseño</td></tr>
+          <tr><td>Sueldos fundadores (12 m)</td><td class="num">60,000</td><td class="num">17%</td><td>$2,500/mes c/u — full-time, burn mínimo</td></tr>
+          <tr><td>Operaciones & Customer Success</td><td class="num">45,000</td><td class="num">13%</td><td>Onboarding, soporte, éxito de pilotos</td></tr>
           <tr><td>Legal, fiscal & constitución</td><td class="num">20,000</td><td class="num">6%</td><td>Constitución, IP, contratos, cumplimiento</td></tr>
-          <tr class="tot"><td>Total</td><td class="num">350,000</td><td class="num">100%</td><td>Runway 12–14 meses hasta métricas de Seed</td></tr>
+          <tr class="tot"><td>Total</td><td class="num">350,000</td><td class="num">100%</td><td>Runway 12–14 meses</td></tr>
         </tbody>
       </table>
 
-      <h3>Proyección financiera (caso base)</h3>
+      <h3 id="f-y1">P&L mensual simplificada — Año 1 (USD)</h3>
+      <table class="mini">
+        <thead><tr><th>Trimestre</th><th class="num">T1</th><th class="num">T2</th><th class="num">T3</th><th class="num">T4</th><th class="num">Año 1</th></tr></thead>
+        <tbody>
+          <tr><td>Negocios de pago (fin)</td><td class="num">0</td><td class="num">130</td><td class="num">480</td><td class="num">1,000</td><td class="num">1,000</td></tr>
+          <tr><td>Ingreso</td><td class="num">$0</td><td class="num">$6K</td><td class="num">$30K</td><td class="num">$64K</td><td class="num">$100K</td></tr>
+          <tr><td>Costo (COGS)</td><td class="num">$1K</td><td class="num">$3K</td><td class="num">$9K</td><td class="num">$15K</td><td class="num">$28K</td></tr>
+          <tr><td>Marketing</td><td class="num">$20K</td><td class="num">$40K</td><td class="num">$45K</td><td class="num">$45K</td><td class="num">$150K</td></tr>
+          <tr><td>Sueldos fundadores</td><td class="num">$15K</td><td class="num">$15K</td><td class="num">$15K</td><td class="num">$15K</td><td class="num">$60K</td></tr>
+          <tr><td>Producto/IA/infra + otros</td><td class="num">$18K</td><td class="num">$16K</td><td class="num">$16K</td><td class="num">$15K</td><td class="num">$65K</td></tr>
+          <tr class="tot"><td>Flujo neto</td><td class="num">-$54K</td><td class="num">-$68K</td><td class="num">-$55K</td><td class="num">-$26K</td><td class="num">-$203K</td></tr>
+        </tbody>
+      </table>
+      <p class="mono" style="font-size:0.72rem;color:var(--gray)">Burn promedio ~$17K/mes; del Pre-Seed de $350K queda ~$147K de colchón al cierre del Año 1 → runway hacia el Seed sin presión.</p>
+
+      <h3 id="f-5y">Proyección financiera 2026–2030 (caso base)</h3>
       <table>
         <thead><tr><th>Métrica (USD)</th><th class="num">Año 1</th><th class="num">Año 2</th><th class="num">Año 3</th><th class="num">Año 4</th><th class="num">Año 5</th></tr></thead>
         <tbody>
@@ -648,48 +757,84 @@
           <tr><td>Gross profit</td><td class="num">$0.07M</td><td class="num">$0.59M</td><td class="num">$3.12M</td><td class="num">$11.3M</td><td class="num">$31.0M</td></tr>
           <tr><td>Opex</td><td class="num">$0.28M</td><td class="num">$2.2M</td><td class="num">$5.5M</td><td class="num">$10.5M</td><td class="num">$24.0M</td></tr>
           <tr class="tot"><td>EBITDA</td><td class="num">-$0.21M</td><td class="num">-$1.6M</td><td class="num">-$2.4M</td><td class="num">+$0.8M</td><td class="num">+$7.0M</td></tr>
+          <tr><td>Caja (fin, con rondas)</td><td class="num">$0.15M</td><td class="num">$2.0M</td><td class="num">$14M</td><td class="num">$13M</td><td class="num">$18M</td></tr>
         </tbody>
       </table>
 
-      <h3>Unit economics y KPIs (estado en Año 3)</h3>
+      <h3 id="f-unit">Unit economics y KPIs (estado en Año 3)</h3>
       <div class="grid4">
         <div class="kpi"><div class="n">$90</div><div class="l">CAC por negocio</div></div>
         <div class="kpi"><div class="n">$609</div><div class="l">LTV por negocio</div></div>
         <div class="kpi"><div class="n">6.8x</div><div class="l">LTV / CAC</div></div>
         <div class="kpi"><div class="n">~5 m</div><div class="l">Payback de CAC</div></div>
       </div>
-      <p class="mono" style="font-size:0.72rem;color:var(--gray)">Burn rate Pre-Seed ~$25K/mes · Runway 12–14 m · Break-even operativo proyectado en Año 4 · Regla del 40 alcanzada desde Año 3 (crecimiento + margen).</p>
-
-      <h3>Escenarios y sensibilidad</h3>
-      <table>
-        <thead><tr><th>Escenario</th><th class="num">Usuarios Y5</th><th class="num">ARR Y5</th><th>EBITDA</th></tr></thead>
+      <table class="mini">
+        <thead><tr><th>Métrica</th><th class="num">Año 1</th><th class="num">Año 3</th><th class="num">Año 5</th></tr></thead>
         <tbody>
-          <tr><td>Conservador</td><td class="num">240,000</td><td class="num">~$29M</td><td>Break-even en Y5</td></tr>
-          <tr><td>Base</td><td class="num">480,000</td><td class="num">~$58M</td><td>+$7M en Y5</td></tr>
-          <tr><td>Agresivo</td><td class="num">850,000</td><td class="num">~$100M+</td><td>+$18M, trayectoria unicornio</td></tr>
+          <tr><td>Churn logo (mensual)</td><td class="num">4.0%</td><td class="num">3.2%</td><td class="num">3.0%</td></tr>
+          <tr><td>NRR</td><td class="num">~98%</td><td class="num">110%</td><td class="num">115%</td></tr>
+          <tr><td>LTV/CAC</td><td class="num">~4x</td><td class="num">6.8x</td><td class="num">7x+</td></tr>
+          <tr><td>Regla del 40</td><td class="num">n/a</td><td class="num">~65</td><td class="num">~55</td></tr>
         </tbody>
       </table>
-      <p><strong>Variables más sensibles:</strong> churn (cada -1 pp/mes ≈ +20–30% LTV), ARPU (pricing/mix Premium), velocidad de expansión internacional y costo unitario de IA. Mitigación: foco en retención y automatización del costo de servir.</p>
+
+      <h3 id="f-cap">Cap table (ilustrativa)</h3>
+      <table class="mini">
+        <thead><tr><th>Ronda</th><th>Monto</th><th>Post-money</th><th>Founders</th><th>ESOP</th><th>Inversores</th></tr></thead>
+        <tbody>
+          <tr><td>Pre-Seed (2026)</td><td>$350K</td><td>~$3.15M</td><td class="num">79%</td><td class="num">10%</td><td class="num">11%</td></tr>
+          <tr><td>Seed (2027)</td><td>$3.5M</td><td>~$17.5M</td><td class="num">~60%</td><td class="num">12%</td><td class="num">~28%</td></tr>
+          <tr><td>Series A (2028)</td><td>$18M</td><td>~$90M</td><td class="num">~47%</td><td class="num">13%</td><td class="num">~40%</td></tr>
+        </tbody>
+      </table>
+      <p class="mono" style="font-size:0.72rem;color:var(--gray)">Cifras ilustrativas para mostrar dilución razonable; las valuaciones reales dependerán del mercado y la tracción.</p>
+
+      <h3 id="f-esc">Escenarios y sensibilidad</h3>
+      <table>
+        <thead><tr><th>Escenario</th><th class="num">Usuarios Y5</th><th class="num">ARR Y5</th><th>EBITDA Y5</th></tr></thead>
+        <tbody>
+          <tr><td>Conservador</td><td class="num">240,000</td><td class="num">~$29M</td><td>Break-even</td></tr>
+          <tr><td>Base</td><td class="num">480,000</td><td class="num">~$58M</td><td>+$7M</td></tr>
+          <tr><td>Agresivo</td><td class="num">850,000</td><td class="num">~$100M+</td><td>+$18M (unicornio)</td></tr>
+        </tbody>
+      </table>
+      <table class="mini">
+        <thead><tr><th>Variable</th><th>Impacto en el negocio</th></tr></thead>
+        <tbody>
+          <tr><td>Churn −1 pp/mes</td><td>+20–30% LTV → más presupuesto de adquisición sostenible</td></tr>
+          <tr><td>ARPU +$1</td><td>+10–12% ingresos; depende de mix Premium y pricing local</td></tr>
+          <tr><td>CAC +$20</td><td>Payback +2–3 m; se compensa con referidos/orgánico</td></tr>
+          <tr><td>Costo IA −2 pp</td><td>+margen directo; clave del modelo a escala</td></tr>
+        </tbody>
+      </table>
+      <p class="mono" style="font-size:0.72rem;color:var(--gray)">Break-even operativo proyectado en Año 4. Las variables más sensibles son churn, ARPU/mix y costo unitario de IA.</p>
     </section>
 
     <!-- 15. ROADMAP -->
     <section class="chapter" id="roadmap">
       <span class="ch-tag">15 · Roadmap</span>
       <h2 class="ch-title">De Lima al mundo.</h2>
-      <h3>Año 1 — hitos trimestrales</h3>
-      <div class="timeline">
-        <div class="ev"><div class="when">T1 2026</div>Cierre Pre-Seed · núcleo del producto (inventario, ventas, WhatsApp, facturación) · 10 pilotos activos.</div>
-        <div class="ev"><div class="when">T2 2026</div>Lanzamiento público en Perú · prueba 2 semanas + referidos · primeros agentes IA · 300 negocios.</div>
-        <div class="ev"><div class="when">T3 2026</div>Reportes/BI + finanzas básicas · partnerships con contadores · 600 negocios.</div>
-        <div class="ev"><div class="when">T4 2026</div>Piloto Colombia · optimización de unit economics · 1,000 negocios · preparación de Seed.</div>
-      </div>
-      <h3>Años 2–5 — roadmap por frentes</h3>
+      <h3>Año 1 — roadmap mensual</h3>
+      <table class="mini">
+        <thead><tr><th>Mes</th><th>Producto</th><th>Comercial</th><th>Hito</th></tr></thead>
+        <tbody>
+          <tr><td>M1–M2</td><td>Núcleo (inventario, ventas)</td><td>Cierre Pre-Seed, 10 pilotos</td><td>Setup</td></tr>
+          <tr><td>M3</td><td>WhatsApp + facturación</td><td>Feedback de pilotos</td><td>Beta</td></tr>
+          <tr><td>M4</td><td>BI + primeros agentes</td><td>Lanzamiento público Perú</td><td>GA · 30 negocios</td></tr>
+          <tr><td>M5–M6</td><td>Onboarding 5 min, offline</td><td>Referidos activos</td><td>130 negocios</td></tr>
+          <tr><td>M7–M9</td><td>Finanzas básicas, mejoras IA</td><td>Partners contables</td><td>480 negocios</td></tr>
+          <tr><td>M10–M11</td><td>Estabilización + analítica</td><td>Piloto Colombia</td><td>820 negocios</td></tr>
+          <tr><td>M12</td><td>Hardening + métricas</td><td>Preparación de Seed</td><td>1,000 · term sheet</td></tr>
+        </tbody>
+      </table>
+      <h3>Años 2–5 — roadmap por frente</h3>
       <table>
         <thead><tr><th>Frente</th><th>Año 2</th><th>Año 3</th><th>Años 4–5</th></tr></thead>
         <tbody>
-          <tr><td>Producto/Tech</td><td>Workflow Builder, API, multi-empresa</td><td>Marketplace de apps + agentes, BI conversacional</td><td>Módulos avanzados, profundidad vertical</td></tr>
+          <tr><td>Producto/Tech</td><td>Workflow Builder, API, multi-empresa/moneda</td><td>Marketplace de apps + agentes, BI conversacional</td><td>Módulos avanzados, profundidad vertical, i18n</td></tr>
           <tr><td>Comercial</td><td>Perú + Colombia + México</td><td>Brasil, Chile, Argentina, CA</td><td>LatAm completo + global selectivo</td></tr>
-          <tr><td>Financiero</td><td>Seed $3–4M</td><td>Series A $15–20M</td><td>Series B / break-even</td></tr>
+          <tr><td>Internacional</td><td>Playbook de país</td><td>3–4 países nuevos</td><td>100+ países alcanzables</td></tr>
+          <tr><td>Financiero</td><td>Seed $3.5M</td><td>Series A $18M</td><td>Series B / break-even</td></tr>
         </tbody>
       </table>
     </section>
@@ -698,49 +843,52 @@
     <section class="chapter" id="riesgos">
       <span class="ch-tag">16 · Riesgos & Mitigación</span>
       <h2 class="ch-title">Riesgos identificados y cómo los gestionamos.</h2>
+      <h3>Matriz probabilidad × impacto</h3>
+      <table class="mini">
+        <thead><tr><th>Riesgo</th><th>Probabilidad</th><th>Impacto</th></tr></thead>
+        <tbody>
+          <tr><td>Adopción lenta (educación usuario)</td><td class="heat-md">Media</td><td class="heat-hi">Alto</td></tr>
+          <tr><td>Incumbente/Big Tech con IA</td><td class="heat-md">Media</td><td class="heat-hi">Alto</td></tr>
+          <tr><td>Costo/calidad de IA</td><td class="heat-md">Media</td><td class="heat-md">Medio</td></tr>
+          <tr><td>No alcanzar métricas para Seed</td><td class="heat-lo">Baja-Media</td><td class="heat-hi">Alto</td></tr>
+          <tr><td>Cambios regulatorios/fiscales</td><td class="heat-md">Media</td><td class="heat-md">Medio</td></tr>
+          <tr><td>Concentración en 2 fundadores</td><td class="heat-md">Media</td><td class="heat-md">Medio</td></tr>
+          <tr><td>Volatilidad macro/FX</td><td class="heat-hi">Alta</td><td class="heat-md">Medio</td></tr>
+        </tbody>
+      </table>
+      <h3>Planes de mitigación</h3>
       <table>
         <thead><tr><th>Categoría</th><th>Riesgo</th><th>Mitigación</th></tr></thead>
         <tbody>
-          <tr><td>Tecnológico</td><td>Dependencia de LLM externos; costo/calidad de IA</td><td>Multi-proveedor, modelos propios afinados, caché y optimización de prompts</td></tr>
-          <tr><td>Mercado</td><td>Adopción más lenta de lo esperado (educación del usuario)</td><td>UX ultra-simple, prueba gratis, comunidad y onboarding asistido</td></tr>
-          <tr><td>Competitivo</td><td>Incumbentes (Odoo) o Big Tech añaden IA / entran al SMB</td><td>Foso de datos + comunidad + distribución local + velocidad AI-First</td></tr>
-          <tr><td>Financiero</td><td>No alcanzar métricas para el Seed; runway corto</td><td>Burn mínimo, foco en PMF y unit economics, hitos claros</td></tr>
-          <tr><td>Regulatorio</td><td>Cambios fiscales/facturación/datos por país</td><td>Cumplimiento como módulo; partners locales; arquitectura adaptable</td></tr>
-          <tr><td>Operativo</td><td>Equipo muy pequeño; riesgo de concentración</td><td>Documentación radical, automatización, contrataciones clave post-Seed</td></tr>
-          <tr><td>Macro / FX</td><td>Volatilidad cambiaria e inflación regional</td><td>Cobro en moneda local, pricing dinámico, diversificación de mercados</td></tr>
+          <tr><td>Tecnológico</td><td>Dependencia/costo de LLM</td><td>Multi-proveedor, modelos propios, caché, optimización</td></tr>
+          <tr><td>Mercado</td><td>Adopción lenta</td><td>UX ultra-simple, prueba gratis, comunidad, onboarding IA</td></tr>
+          <tr><td>Competitivo</td><td>Incumbentes/Big Tech</td><td>Foso de datos + comunidad + distribución local + velocidad</td></tr>
+          <tr><td>Financiero</td><td>Runway / Seed</td><td>Burn mínimo, foco en PMF y unit economics, hitos claros</td></tr>
+          <tr><td>Regulatorio</td><td>Fiscal/datos por país</td><td>Cumplimiento como módulo, partners locales, arquitectura adaptable</td></tr>
+          <tr><td>Operativo</td><td>Equipo pequeño</td><td>Documentación radical, automatización, hires clave post-Seed</td></tr>
+          <tr><td>Macro/FX</td><td>Inflación/cambio</td><td>Cobro en moneda local, pricing dinámico, diversificación</td></tr>
         </tbody>
       </table>
-      <p><strong>Sistema de monitoreo continuo:</strong> dashboard de riesgos con indicadores adelantados (runway, churn, CAC, uptime, costo IA, concentración de ingresos), revisión mensual del board y planes de contingencia predefinidos por escenario.</p>
+      <p><strong>Sistema de monitoreo continuo:</strong> dashboard con indicadores adelantados (runway, churn, CAC, uptime, costo IA, concentración de ingresos), revisión mensual del board y planes de contingencia predefinidos por escenario (p. ej. si runway &lt; 6 meses → recorte de CAC y aceleración de Seed).</p>
 
       <div class="disclaimer">
-        <strong>Nota metodológica.</strong> Este documento combina datos públicos y de campo con <strong>supuestos del equipo</strong> donde no existen datos reales (claramente identificables como tales). Las cifras de mercado (TAM/SAM/SOM) y las proyecciones financieras son estimaciones para fines de planificación e inversión y deben validarse con due diligence. "Yapalin" es un nombre temporal. Documento confidencial — © 2026. Preparado para discusión con inversionistas Pre-Seed/Seed.
+        <strong>Nota metodológica.</strong> Este documento combina datos públicos y de campo con <strong>supuestos del equipo</strong> donde no existen datos reales (identificados como tales). Las cifras de mercado (TAM/SAM/SOM), la cap table y las proyecciones financieras son estimaciones para planificación e inversión y deben validarse en due diligence. "Yapalin" es un nombre temporal. Documento confidencial — © 2026.
       </div>
     </section>
   </main>
 </div>
 
 <script>
-  // Scroll-spy: highlight active TOC link
-  const links = [...document.querySelectorAll('.toc a')];
-  const map = {};
-  links.forEach(a=>{ const id=a.getAttribute('href').slice(1); const el=document.getElementById(id); if(el) map[id]=a; });
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        links.forEach(l=>l.classList.remove('active'));
-        const a=map[e.target.id]; if(a){ a.classList.add('active'); }
-      }
-    });
-  }, {rootMargin:'-20% 0px -70% 0px', threshold:0});
-  Object.keys(map).forEach(id=>{ const el=document.getElementById(id); if(el) obs.observe(el); });
-
-  document.querySelectorAll('.toc a').forEach(a=>{
-    a.addEventListener('click',e=>{
-      const t=document.querySelector(a.getAttribute('href'));
-      if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
-    });
+  const links=[...document.querySelectorAll('.toc a')];
+  const map={};
+  links.forEach(a=>{const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el)map[id]=a;});
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.remove('active')); const a=map[e.target.id]; if(a)a.classList.add('active'); } });
+  },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+  Object.keys(map).forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el);});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});
   });
 </script>
-
 </body>
 </html>
