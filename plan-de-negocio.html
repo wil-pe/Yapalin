@@ -92,6 +92,8 @@
   .heat-lo{background:rgba(42,157,143,0.15);color:#1d6b60;font-weight:700;text-align:center}
 
   .printbtn{margin-left:auto;font-size:0.8rem;font-weight:700;background:var(--coral);color:#fff;padding:0.5rem 1rem;border-radius:999px;border:none;cursor:pointer}
+  .wordbtn{font-size:0.8rem;font-weight:700;background:#fff;color:var(--navy);padding:0.5rem 1rem;border-radius:999px;border:1px solid var(--line);cursor:pointer;margin-left:0.5rem}
+  .wordbtn:hover{border-color:var(--navy)}
   .cover{background:linear-gradient(135deg,var(--navy),#2D4263);color:#fff;border-radius:1.25rem;padding:2.5rem;margin-bottom:1rem;position:relative;overflow:hidden}
   .cover::after{content:'';position:absolute;top:-40%;right:-10%;width:380px;height:380px;background:radial-gradient(circle,rgba(232,116,94,0.4),transparent 70%);border-radius:50%}
   .cover h1{font-size:clamp(2.2rem,5vw,3.4rem);line-height:1;margin-bottom:0.6rem}.cover p{color:rgba(255,255,255,0.85)}
@@ -113,6 +115,7 @@
     <div style="font-family:'Space Grotesk';font-weight:700">Yapalin <span style="color:var(--gray);font-weight:500">· Business Plan</span></div>
     <span class="mono" style="font-size:0.65rem;color:var(--gray);border:1px solid var(--line);padding:2px 7px;border-radius:999px">nombre temporal</span>
     <button class="printbtn" onclick="window.print()">⤓ Exportar PDF</button>
+    <button class="wordbtn" onclick="exportWord()">⤓ Exportar Word</button>
   </div>
 </div>
 
@@ -889,6 +892,24 @@
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});
   });
+
+  // Export to Word (.doc): wraps the document content + styles in a Word-compatible HTML file.
+  function exportWord(){
+    const styles = document.querySelector('style') ? document.querySelector('style').outerHTML : '';
+    const content = document.querySelector('main').innerHTML;
+    const head = '<head><meta charset="utf-8"><title>Yapalin — Business Plan</title>'
+      + '<!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View><w:Zoom>100</w:Zoom></w:WordDocument></xml><![endif]-->'
+      + '<style>@page{size:A4;margin:2cm} body{max-width:none}</style>'
+      + styles + '</head>';
+    const html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">'
+      + head + '<body>' + content + '</body></html>';
+    const blob = new Blob(['﻿', html], {type:'application/msword'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'Yapalin-Business-Plan.doc';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
 </script>
 </body>
 </html>
